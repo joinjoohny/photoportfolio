@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@theme {
+  --font-display: "Golos Text", sans-serif;
+}
+
+@theme {
+  --color-main-white: #fffeef;
+  --color-main-rose: #dfb2b2;
+  --color-main-green: #3e5348;
+}

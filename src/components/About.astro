@@ -1,37 +1,50 @@
 ---
-import imgAboutMe from '../assets/about.jpg';
----  
-  <section id="about" class="border-b border-[#e6e6e6] py-16 sm:py-20">
-    <div class="mx-auto w-full max-w-[1170px] px-5">
-      <div class="grid lg:grid-cols-[1fr_0.3fr] items-stretch">
-        <div class="flex flex-col justify-between">
-          <h1 class="m-0 mb-6 tracking-[0.06em] text-3xl sm:text-4xl">ABOUT ME</h1>
-          <div class="text-[#3a3a3a] max-w-prose space-y-2">
-            <p><span class="inline-block text-[#dfb2b2] py-0.5 font-semibold">My name is Vlada Polianskaya</span></p>
-             <p>
-							 I love portrait photography and minimalism. For me, it’s not
-							just about creating a beautiful photo — trust, openness to the process, and
-							genuine emotions are just as important.
-						</p>
-						<p>
-							I’ve been passionate about creativity since childhood and have always loved
-							observing people. Photography combines everything I love: fashion, beauty,
-							and art. I follow trends and use them to highlight each person’s
-							individuality.
-						</p>
-						<p>
-							For me, every photoshoot is a creative space and a form of therapy, where we
-							can explore self-love together.
-						</p>
-						<p>
-							If you like my work — it means we’ve found each other. See you soon!
-						</p>
-          </div>
-        </div>
+import imgAboutMe from "../assets/about.jpg";
+---
 
-        <div class="overflow-hidden bg-white border border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] max-h-[580px] lg:justify-self-end order-first lg:order-none max-w-[520px] lg:max-w-none">
-          <img src={imgAboutMe.src} alt="Photographer portrait with camera" class="w-full h-full object-cover" />
+<section id="about" class="py-16 sm:py-20">
+  <div class="mx-auto w-full max-w-[1170px] px-5">
+    <div class="grid lg:grid-cols-[1fr_0.3fr] items-stretch">
+      <div class="flex flex-col justify-between">
+        <h1 class="m-0 mb-6 tracking-[0.06em] text-3xl sm:text-4xl">
+          ABOUT ME
+        </h1>
+        <div class="text-[#3a3a3a] max-w-prose space-y-2">
+          <p>
+            <span class="inline-block text-[#dfb2b2] py-0.5 text-lg"
+              >My name is Vlada Polianskaya</span
+            >
+          </p>
+          <p>
+            I love portrait photography and minimalism. For me, it’s not just
+            about creating a beautiful photo — trust, openness to the process,
+            and genuine emotions are just as important.
+          </p>
+          <p>
+            I’ve been passionate about creativity since childhood and have
+            always loved observing people. Photography combines everything I
+            love: fashion, beauty, and art. I follow trends and use them to
+            highlight each person’s individuality.
+          </p>
+          <p>
+            For me, every photoshoot is a creative space and a form of therapy,
+            where we can explore self-love together.
+          </p>
+          <p>
+            If you like my work — it means we’ve found each other. See you soon!
+          </p>
         </div>
       </div>
+
+      <div
+        class="overflow-hidden bg-white border border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] max-h-[580px] lg:justify-self-end order-first lg:order-none max-w-[520px] lg:max-w-none"
+      >
+        <img
+          src={imgAboutMe.src}
+          alt="Photographer portrait with camera"
+          class="w-full h-full object-cover"
+        />
+      </div>
     </div>
-  </section>
+  </div>
+</section>
