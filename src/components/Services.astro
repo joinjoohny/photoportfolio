@@ -1,82 +1,180 @@
-  <section id="services" class="border-b border-[#e6e6e6] py-16 sm:py-20">
+<section id="services" class="border-b border-[#e6e6e6] py-16 sm:py-20">
     <div class="mx-auto w-full max-w-[1170px] px-5 grid gap-7 lg:grid-cols-2 items-start">
       <div>
         <h2 class="text-3xl sm:text-4xl m-0 mb-6">SERVICES</h2>
         <div class="grid gap-2 mt-2" aria-label="Magazines">
-          <button type="button" data-svc="elle" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#8a8a8a] text-left cursor-pointer select-none">ELLE</button>
-          <button type="button" data-svc="vogue" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#555] text-left cursor-pointer select-none">VOGUE</button>
-          <button type="button" data-svc="allure" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#8a8a8a] text-left cursor-pointer select-none">ALLURE</button>
-          <button type="button" data-svc="numero" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#555] text-left cursor-pointer select-none">NUMERO</button>
-          <button type="button" data-svc="essence" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#8a8a8a] text-left cursor-pointer select-none">ESSENCE</button>
-          <button type="button" data-svc="marie" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#555] text-left cursor-pointer select-none">MARIE CLAIRE</button>
+          <button type="button" data-svc="elle" aria-pressed="true"
+            class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]">
+            ELLE
+          </button>
+          <button type="button" data-svc="vogue" aria-pressed="false"
+            class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]">
+            VOGUE
+          </button>
+          <button type="button" data-svc="allure" aria-pressed="false"
+            class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]">
+            ALLURE
+          </button>
+          <button type="button" data-svc="numero" aria-pressed="false"
+            class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]">
+            NUMERO
+          </button>
+          <button type="button" data-svc="essence" aria-pressed="false"
+            class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]">
+            ESSENCE
+          </button>
+          <button type="button" data-svc="marie" aria-pressed="false"
+            class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]">
+            MARIE CLAIRE
+          </button>
         </div>
       </div>
 
       <div class="grid grid-cols-2 gap-7 max-w-[620px] lg:max-w-none">
         <div class="aspect-square rounded-[16px] overflow-hidden bg-white border border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(0,0,0,0.08)]">
-          <img id="services-img-1" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop" alt="Editorial shot 1" class="w-full h-full object-cover transition-opacity duration-300" />
+          <img id="services-img-1" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop" alt="Editorial shot 1" class="w-full h-full object-cover transition-opacity duration-300 opacity-100 will-change-[opacity]" />
         </div>
         <div class="aspect-square rounded-[16px] overflow-hidden bg-white border border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(0,0,0,0.08)]">
-          <img id="services-img-2" src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop" alt="Editorial shot 2" class="w-full h-full object-cover transition-opacity duration-300" />
+          <img id="services-img-2" src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop" alt="Editorial shot 2" class="w-full h-full object-cover transition-opacity duration-300 opacity-100 will-change-[opacity]" />
         </div>
       </div>
     </div>
   </section>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const root = document.getElementById('services');
-      const img1 = root.querySelector('#services-img-1');
-      const img2 = root.querySelector('#services-img-2');
-      const buttons = root.querySelectorAll('[data-svc]');
+  <script is:inline>
+    const sets = {
+      elle: [
+        { src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop', alt: 'ELLE photo 1' },
+        { src: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop', alt: 'ELLE photo 2' }
+      ],
+      vogue: [
+        { src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop', alt: 'VOGUE photo 1' },
+        { src: 'https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop', alt: 'VOGUE photo 2' }
+      ],
+      allure: [
+        { src: 'https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop', alt: 'ALLURE photo 1' },
+        { src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop', alt: 'ALLURE photo 2' }
+      ],
+      numero: [
+        { src: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop', alt: 'NUMERO photo 1' },
+        { src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop', alt: 'NUMERO photo 2' }
+      ],
+      essence: [
+        { src: 'https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop', alt: 'ESSENCE photo 1' },
+        { src: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop', alt: 'ESSENCE photo 2' }
+      ],
+      marie: [
+        { src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop', alt: 'MARIE CLAIRE photo 1' },
+        { src: 'https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop', alt: 'MARIE CLAIRE photo 2' }
+      ]
+    };
 
-      const sets = {
-        elle: [
-          { src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop', alt: 'ELLE photo 1' },
-          { src: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop', alt: 'ELLE photo 2' }
-        ],
-        vogue: [
-          { src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop', alt: 'VOGUE photo 1' },
-          { src: 'https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop', alt: 'VOGUE photo 2' }
-        ],
-        allure: [
-          { src: 'https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop', alt: 'ALLURE photo 1' },
-          { src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop', alt: 'ALLURE photo 2' }
-        ],
-        numero: [
-          { src: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop', alt: 'NUMERO photo 1' },
-          { src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop', alt: 'NUMERO photo 2' }
-        ],
-        essence: [
-          { src: 'https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop', alt: 'ESSENCE photo 1' },
-          { src: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop', alt: 'ESSENCE photo 2' }
-        ],
-        marie: [
-          { src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop', alt: 'MARIE CLAIRE photo 1' },
-          { src: 'https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop', alt: 'MARIE CLAIRE photo 2' }
-        ]
-      };
+    const prefersNoMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
+    const DURATION_MS = 300; // соответствует Tailwind duration-300
+    const OUT_DELAY_MS = prefersNoMotion ? 0 : Math.min(180, DURATION_MS * 0.6);
+    const TIMEOUT_MS = DURATION_MS + 120;
 
-      function swap(setKey) {
-        const pair = sets[setKey];
-        if (!pair) return;
-        // fade out
-        img1.classList.add('opacity-0');
-        img2.classList.add('opacity-0');
+    function waitTransition(el, prop = 'opacity', timeout = TIMEOUT_MS) {
+      return new Promise((resolve) => {
+        let done = false;
+        const onEnd = (e) => {
+          if (e && e.target !== el) return;
+          if (e && e.propertyName !== prop) return;
+          if (done) return;
+          done = true;
+          el.removeEventListener('transitionend', onEnd);
+          resolve();
+        };
+        el.addEventListener('transitionend', onEnd, { once: true });
         setTimeout(() => {
-          img1.src = pair[0].src;
-          img1.alt = pair[0].alt;
-          img2.src = pair[1].src;
-          img2.alt = pair[1].alt;
-          // fade in
-          requestAnimationFrame(() => {
-            img1.classList.remove('opacity-0');
-            img2.classList.remove('opacity-0');
-          });
-        }, 150);
+          if (done) return;
+          el.removeEventListener('transitionend', onEnd);
+          resolve();
+        }, timeout);
+      });
+    }
+
+    function setOpacity0(...els) { els.forEach(el => el && el.classList.add('opacity-0')); }
+    function setOpacity1(...els) { els.forEach(el => el && el.classList.remove('opacity-0')); }
+
+    async function fadeSwap(img1, img2, pair) {
+      if (!img1 || !img2 || !pair) return;
+
+      if (prefersNoMotion) {
+        img1.src = pair[0].src; img1.alt = pair[0].alt;
+        img2.src = pair[1].src; img2.alt = pair[1].alt;
+        return;
       }
 
-      buttons.forEach((btn) => {
-        btn.addEventListener('click', () => swap(btn.dataset.svc));
-      });
-    });
+      // Fade OUT
+      setOpacity0(img1, img2);
+      await Promise.race([
+        new Promise(r => setTimeout(r, OUT_DELAY_MS)),
+        waitTransition(img1),
+        waitTransition(img2),
+      ]);
+
+      // Swap
+      img1.src = pair[0].src; img1.alt = pair[0].alt;
+      img2.src = pair[1].src; img2.alt = pair[1].alt;
+      // Force reflow
+      // eslint-disable-next-line no-unused-expressions
+      img1.offsetHeight;
+
+      // Fade IN
+      setOpacity1(img1, img2);
+    }
+
+    const preloadCache = new Set();
+    function preloadPair(pair) {
+      const key = pair.map(i => i.src).join('|');
+      if (preloadCache.has(key)) return;
+      pair.forEach(({ src }) => { const i = new Image(); i.decoding = 'async'; i.loading = 'eager'; i.src = src; });
+      preloadCache.add(key);
+    }
+
+    function setActiveButton(root, btn) {
+      root.querySelectorAll('[data-svc][aria-pressed="true"]').forEach(b => b.setAttribute('aria-pressed', 'false'));
+      btn?.setAttribute('aria-pressed', 'true');
+    }
+
+    function initServices() {
+      const root = document.getElementById('services');
+      if (!root) return;
+
+      const img1 = root.querySelector('#services-img-1');
+      const img2 = root.querySelector('#services-img-2');
+
+      img1?.classList.remove('opacity-0');
+      img2?.classList.remove('opacity-0');
+
+      const onClick = (e) => {
+        const btn = (e.target instanceof Element) ? e.target.closest('[data-svc]') : null;
+        if (!btn) return;
+        const key = btn.getAttribute('data-svc');
+        const pair = key ? sets[key] : null;
+        if (!pair) return;
+        preloadPair(pair);
+        fadeSwap(img1, img2, pair);
+        setActiveButton(root, btn);
+      };
+
+      root.removeEventListener('click', onClick);
+      root.addEventListener('click', onClick, { passive: true });
+
+      const initialBtn = root.querySelector('[data-svc][aria-pressed="true"]');
+      const initialKey = initialBtn?.getAttribute('data-svc');
+      if (initialKey && sets[initialKey]) {
+        preloadPair(sets[initialKey]);
+      }
+    }
+
+    document.addEventListener('astro:page-load', initServices);
+    document.addEventListener('astro:after-swap', initServices);
+    document.addEventListener('DOMContentLoaded', initServices);
   </script>
