@@ -173,17 +173,26 @@
       }
 
       /* ───── Sections ───── */
-      .about h1 {
+      .about__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .about__text h1 {
+        margin: 0 0 24px;
         font-size: var(--h1);
-        margin: 0 0 28px;
+        line-height: 0.8;
+      }
+      .about__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
       .grid {
         display: grid;
         gap: var(--gap);
-      }
-      .about__grid {
-        grid-template-columns: 1.15fr 0.85fr;
-        align-items: start;
       }
       .intro p {
         margin: 0 0 16px;
@@ -430,19 +439,24 @@
     <!-- ABOUT -->
     <section id="about" class="section about">
       <div class="container">
-        <h1>ABOUT ME</h1>
         <div class="grid about__grid">
-          <div class="intro">
-            <p><span class="chip">My name is Samuel Evans</span></p>
-            <p>
-              Я профессиональный fashion-фотограф. Работаю в разных точках мира
-              и люблю большие задачи.
-            </p>
-            <p>
-              Мои работы выходят в журналах и коммерческих проектах, а также
-              украшают социальные профили медиа-клиентов.
-            </p>
+          <!-- Левая колонка: заголовок + текст -->
+          <div class="about__text">
+            <h1>ABOUT ME</h1>
+            <div class="intro">
+              <p><span class="chip">My name is Vlada Polianskaya</span></p>
+              <p>
+                Я профессиональный fashion-фотограф. Работаю в разных точках
+                мира и люблю большие задачи.
+              </p>
+              <p>
+                Мои работы выходят в журналах и коммерческих проектах, а также
+                украшают социальные профили медиа-клиентов.
+              </p>
+            </div>
           </div>
+
+          <!-- Правая колонка: фото -->
           <div class="about__photo">
             <img
               src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8?q=80&w=1280&auto=format&fit=crop"
