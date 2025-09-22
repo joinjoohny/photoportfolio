@@ -3,22 +3,80 @@
       <div>
         <h2 class="text-3xl sm:text-4xl m-0 mb-6">SERVICES</h2>
         <div class="grid gap-2 mt-2" aria-label="Magazines">
-          <span class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#8a8a8a]">ELLE</span>
-          <span class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#555]">VOGUE</span>
-          <span class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#8a8a8a]">ALLURE</span>
-          <span class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#555]">NUMERO</span>
-          <span class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#8a8a8a]">ESSENCE</span>
-          <span class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#555]">MARIE CLAIRE</span>
+          <button type="button" data-svc="elle" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#8a8a8a] text-left cursor-pointer select-none">ELLE</button>
+          <button type="button" data-svc="vogue" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#555] text-left cursor-pointer select-none">VOGUE</button>
+          <button type="button" data-svc="allure" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#8a8a8a] text-left cursor-pointer select-none">ALLURE</button>
+          <button type="button" data-svc="numero" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#555] text-left cursor-pointer select-none">NUMERO</button>
+          <button type="button" data-svc="essence" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#8a8a8a] text-left cursor-pointer select-none">ESSENCE</button>
+          <button type="button" data-svc="marie" class="text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-[#555] text-left cursor-pointer select-none">MARIE CLAIRE</button>
         </div>
       </div>
 
       <div class="grid grid-cols-2 gap-7 max-w-[620px] lg:max-w-none">
         <div class="aspect-square rounded-[16px] overflow-hidden bg-white border border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(0,0,0,0.08)]">
-          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop" alt="Editorial shot 1" class="w-full h-full object-cover" />
+          <img id="services-img-1" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop" alt="Editorial shot 1" class="w-full h-full object-cover transition-opacity duration-300" />
         </div>
         <div class="aspect-square rounded-[16px] overflow-hidden bg-white border border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(0,0,0,0.08)]">
-          <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop" alt="Editorial shot 2" class="w-full h-full object-cover" />
+          <img id="services-img-2" src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop" alt="Editorial shot 2" class="w-full h-full object-cover transition-opacity duration-300" />
         </div>
       </div>
     </div>
   </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.getElementById('services');
+      const img1 = root.querySelector('#services-img-1');
+      const img2 = root.querySelector('#services-img-2');
+      const buttons = root.querySelectorAll('[data-svc]');
+
+      const sets = {
+        elle: [
+          { src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop', alt: 'ELLE photo 1' },
+          { src: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop', alt: 'ELLE photo 2' }
+        ],
+        vogue: [
+          { src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop', alt: 'VOGUE photo 1' },
+          { src: 'https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop', alt: 'VOGUE photo 2' }
+        ],
+        allure: [
+          { src: 'https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop', alt: 'ALLURE photo 1' },
+          { src: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop', alt: 'ALLURE photo 2' }
+        ],
+        numero: [
+          { src: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop', alt: 'NUMERO photo 1' },
+          { src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop', alt: 'NUMERO photo 2' }
+        ],
+        essence: [
+          { src: 'https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop', alt: 'ESSENCE photo 1' },
+          { src: 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop', alt: 'ESSENCE photo 2' }
+        ],
+        marie: [
+          { src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop', alt: 'MARIE CLAIRE photo 1' },
+          { src: 'https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop', alt: 'MARIE CLAIRE photo 2' }
+        ]
+      };
+
+      function swap(setKey) {
+        const pair = sets[setKey];
+        if (!pair) return;
+        // fade out
+        img1.classList.add('opacity-0');
+        img2.classList.add('opacity-0');
+        setTimeout(() => {
+          img1.src = pair[0].src;
+          img1.alt = pair[0].alt;
+          img2.src = pair[1].src;
+          img2.alt = pair[1].alt;
+          // fade in
+          requestAnimationFrame(() => {
+            img1.classList.remove('opacity-0');
+            img2.classList.remove('opacity-0');
+          });
+        }, 150);
+      }
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => swap(btn.dataset.svc));
+      });
+    });
+  </script>
