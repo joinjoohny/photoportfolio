@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Samuel Evans — Portfolio</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* Светлая тема */
+        --bg: #fffeef;
+        --paper: #ffffff;
+        --text: #dfb2b2;
+        --muted: #6f6f6f;
+        --accent: #3e5348;
+        --border: #e6e6e6;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+        --gap: 28px;
+        --max: 1170px;
+        --h1: clamp(36px, 6vw, 64px);
+        --h2: clamp(28px, 5vw, 48px);
+        --radius: 16px;
+      }
+
+      /* Reset */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: #fffeef;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(100% - 40px, var(--max));
+        margin-inline: auto;
+      }
+      .section {
+        padding: 80px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* ───── Topbar + responsive menu (CSS only) ───── */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: #fffeef;
+        backdrop-filter: saturate(120%) blur(10px);
+      }
+      .topbar__in {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+      }
+      .logo {
+        font: 26px/1 "Pacifico", cursive;
+        color: var(--text);
+        letter-spacing: 0.2px;
+      }
+
+      /* nav desktop */
+      nav ul {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        font-weight: 500;
+        font-size: 14px;
+        color: #3a3a3a;
+        padding: 8px 2px;
+        position: relative;
+        letter-spacing: 0.04em;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -6px;
+        height: 2px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: 0.25s;
+      }
+      nav a:hover {
+        color: #000;
+      }
+      nav a:hover::after {
+        transform: scaleX(1);
+      }
+
+      /* hamburger (checkbox hack) */
+      #nav-toggle {
+        display: none;
+      }
+      .burger {
+        display: none;
+        cursor: pointer;
+        padding: 10px;
+        margin: -10px;
+        border-radius: 10px;
+      }
+      .burger:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+      }
+      .burger svg {
+        width: 28px;
+        height: 28px;
+        color: #333;
+      }
+
+      /* Mobile panel closed by default */
+      @media (max-width: 860px) {
+        nav {
+          position: fixed;
+          inset: 64px 0 auto 0;
+          background: var(--paper);
+          border-bottom: 1px solid var(--border);
+          box-shadow: var(--shadow);
+          transform: translateY(-120%);
+          transition: transform 0.3s ease;
+        }
+        nav ul {
+          flex-direction: column;
+          gap: 0;
+        }
+        nav li {
+          border-top: 1px solid var(--border);
+        }
+        nav a {
+          display: block;
+          padding: 16px 20px;
+          font-size: 16px;
+        }
+        .burger {
+          display: block;
+        }
+        /* open */
+        #nav-toggle:checked ~ nav {
+          transform: translateY(0);
+        }
+      }
+
+      /* ───── Sections ───── */
+      .about h1 {
+        font-size: var(--h1);
+        margin: 0 0 28px;
+      }
+      .grid {
+        display: grid;
+        gap: var(--gap);
+      }
+      .about__grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: start;
+      }
+      .intro p {
+        margin: 0 0 16px;
+        color: #3c3c3c;
+      }
+      .intro p strong,
+      .intro a {
+        color: #000;
+        background: linear-gradient(transparent 55%, var(--accent) 55%);
+        padding: 0 0.15em;
+      }
+      .about__photo {
+        aspect-ratio: 4/5;
+        overflow: hidden;
+        border-radius: var(--radius);
+        background: var(--paper);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      .about__photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%) contrast(1.02);
+      }
+
+      .portfolio h2,
+      .magazines h2,
+      .contacts h2 {
+        font-size: var(--h2);
+        margin: 0 0 24px;
+      }
+
+      .thumbs {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .card {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: var(--shadow);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 28px rgba(0, 0, 0, 0.08);
+      }
+      .card__img {
+        aspect-ratio: 4/5;
+        background: #f2f2f2;
+      }
+      .card__img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card__meta {
+        font-size: 12px;
+        color: #7c7c7c;
+        padding: 0 12px 14px;
+        letter-spacing: 0.08em;
+      }
+
+      .portfolio__nav {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .circle-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: var(--paper);
+        color: #333;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        user-select: none;
+      }
+
+      .magazines {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: start;
+      }
+      .magazines__list {
+        display: grid;
+        gap: 10px;
+        margin-top: 8px;
+      }
+      .magazines__list span {
+        font-size: clamp(18px, 2.4vw, 28px);
+        letter-spacing: 0.06em;
+        color: #555;
+      }
+      .magazines__list span:nth-child(odd) {
+        color: #8a8a8a;
+      }
+      .magazines__shots {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--gap);
+      }
+      .shot {
+        aspect-ratio: 1/1;
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--paper);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      .shot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .eyebrow {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--muted);
+      }
+      .contact a {
+        color: #222;
+        text-decoration: underline;
+        text-decoration-color: var(--accent);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+      }
+      .social {
+        margin-top: 18px;
+        display: flex;
+        gap: 18px;
+        color: #555;
+        font-size: 14px;
+      }
+      .social a {
+        color: #444;
+      }
+      .social a:hover {
+        color: #000;
+      }
+
+      .footer {
+        padding: 24px 0 60px;
+        color: #7a7a7a;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      /* Accent chips */
+      .chip {
+        display: inline-block;
+        background: var(--accent);
+        color: #dfb2b2;
+        padding: 0.2em 0.55em;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+
+      /* Responsive grids */
+      @media (max-width: 1024px) {
+        :root {
+          --gap: 22px;
+        }
+        .about__grid {
+          grid-template-columns: 1fr;
+          gap: var(--gap);
+        }
+        .about__photo {
+          order: -1;
+          max-width: 520px;
+        }
+        .thumbs {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .magazines {
+          grid-template-columns: 1fr;
+        }
+        .magazines__shots {
+          max-width: 620px;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        :root {
+          --gap: 18px;
+        }
+        .thumbs {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .section {
+          padding: 60px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="container topbar__in">
+        <div class="logo" aria-label="Samuel Evans">Vlada<br />Polianskaya</div>
+
+        <!-- Toggle (CSS only) -->
+        <label
+          class="burger"
+          for="nav-toggle"
+          aria-label="Открыть меню"
+          aria-controls="site-nav"
+          aria-expanded="false"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </label>
+        <input type="checkbox" id="nav-toggle" hidden />
+
+        <nav id="site-nav" aria-label="Основная навигация">
+          <ul>
+            <li><a href="#about">about me</a></li>
+            <li><a href="#portfolio">portfolio</a></li>
+            <li><a href="#services">services</a></li>
+            <li><a href="#contacts">contacts</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h1>ABOUT ME</h1>
+        <div class="grid about__grid">
+          <div class="intro">
+            <p><span class="chip">My name is Samuel Evans</span></p>
+            <p>
+              Я профессиональный fashion-фотограф. Работаю в разных точках мира
+              и люблю большие задачи.
+            </p>
+            <p>
+              Мои работы выходят в журналах и коммерческих проектах, а также
+              украшают социальные профили медиа-клиентов.
+            </p>
+          </div>
+          <div class="about__photo">
+            <img
+              src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8?q=80&w=1280&auto=format&fit=crop"
+              alt="Photographer portrait with camera"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section portfolio">
+      <div class="container">
+        <h2>PORTFOLIO</h2>
+        <div class="grid thumbs">
+          <article class="card">
+            <div class="card__img">
+              <img
+                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop"
+                alt="Black and white portrait"
+              />
+            </div>
+            <div class="card__meta">005</div>
+          </article>
+
+          <article class="card">
+            <div class="card__img">
+              <img
+                src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop"
+                alt="Outdoor fashion look"
+              />
+            </div>
+            <div class="card__meta">006</div>
+          </article>
+
+          <article class="card">
+            <div class="card__img">
+              <img
+                src="https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop"
+                alt="Studio portrait in fur coat"
+              />
+            </div>
+            <div class="card__meta">007</div>
+          </article>
+
+          <article class="card">
+            <div class="card__img">
+              <img
+                src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop"
+                alt="Outdoor fashion look"
+              />
+            </div>
+            <div class="card__meta">008</div>
+          </article>
+        </div>
+
+        <div class="portfolio__nav" aria-hidden="true">
+          <div class="circle-btn">←</div>
+          <div class="circle-btn">→</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAGAZINES / SERVICES -->
+    <section id="services" class="section">
+      <div class="container grid magazines">
+        <div>
+          <h2>HARPER'S BAZAAR</h2>
+          <div class="magazines__list" aria-label="Magazines">
+            <span>ELLE</span>
+            <span>VOGUE</span>
+            <span>ALLURE</span>
+            <span>NUMERO</span>
+            <span>ESSENCE</span>
+            <span>MARIE CLAIRE</span>
+          </div>
+        </div>
+        <div class="magazines__shots">
+          <div class="shot">
+            <img
+              src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop"
+              alt="Editorial shot 1"
+            />
+          </div>
+          <div class="shot">
+            <img
+              src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop"
+              alt="Editorial shot 2"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="section contacts">
+      <div class="container">
+        <h2>CONTACTS</h2>
+        <div class="grid contact-grid">
+          <div class="contact-col">
+            <div class="eyebrow">Моя студия</div>
+            <div class="contact">
+              40 Mosholu Boulevard,<br />
+              Bronx County, USA
+            </div>
+            <div class="social">
+              <a href="#" aria-label="Twitter">Twitter ↗</a>
+              <a href="#" aria-label="Instagram">Instagram ↗</a>
+            </div>
+          </div>
+
+          <div class="contact-col">
+            <div class="eyebrow">Телефон</div>
+            <div class="contact">
+              <a href="tel:+15186345786">+1 518 634 57 86</a>
+            </div>
+
+            <div class="eyebrow" style="margin-top: 10px">Почта</div>
+            <div class="contact">
+              <a href="mailto:samuEVans@example.com">samuEVans@example.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">© Samuel Evans — Fashion Photographer</footer>
+  </body>
+</html>
