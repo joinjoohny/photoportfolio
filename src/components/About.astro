@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import imgAboutMe from "../assets/about.jpg";
 ---
 
@@ -41,8 +42,8 @@ import imgAboutMe from "../assets/about.jpg";
       <div
         class="overflow-hidden bg-white border border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] max-h-[580px] lg:justify-self-end order-first lg:order-none max-w-[520px] lg:max-w-none"
       >
-        <img
-          src={imgAboutMe.src}
+        <Image
+          src={imgAboutMe}
           alt="Photographer portrait with camera"
           class="w-full h-full object-cover"
         />
