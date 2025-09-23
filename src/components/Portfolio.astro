@@ -1,74 +1,55 @@
+---
+import { Image } from "astro:assets";
+import { slides } from "../data/slides";
+---
+
 <section id="portfolio" class="py-16 sm:py-20">
-  <div class="mx-auto w-full max-w-[1170px] px-5">
+  <div class="mx-auto w-full max-w-[1170px] px-5" data-portfolio>
     <h2 class="text-3xl sm:text-4xl m-0 mb-6 text-main-rose">PORTFOLIO</h2>
-    <div class="grid gap-7 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-      <article
-        class="overflow-hidden flex flex-col gap-2 transition-transform duration-200 hover:-translate-y-1"
-      >
-        <div class="aspect-[4/5]">
-          <img
-            src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop"
-            alt="Black and white portrait"
-            class="w-full h-full"
-          />
-        </div>
-        <div class="text-[12px] text-[#7c7c7c] px-3 pb-3 tracking-[0.08em]">
-          006
-        </div>
-      </article>
 
-      <article
-        class="overflow-hidden flex flex-col gap-2 transition-transform duration-200 hover:-translate-y-1"
+    <!-- Carousel viewport -->
+    <div class="overflow-hidden" data-viewport>
+      <!-- Carousel track -->
+      <div
+        class="flex gap-7 transition-transform duration-300 will-change-transform"
+        data-track
       >
-        <div class="bg-[#f2f2f2] aspect-[4/5]">
-          <img
-            src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop"
-            alt="Outdoor fashion look"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="text-[12px] text-[#7c7c7c] px-3 pb-3 tracking-[0.08em]">
-          006
-        </div>
-      </article>
-
-      <article
-        class="overflow-hidden flex flex-col gap-2 transition-transform duration-200 hover:-translate-y-1"
-      >
-        <div class="bg-[#f2f2f2] aspect-[4/5]">
-          <img
-            src="https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop"
-            alt="Studio portrait in fur coat"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="text-[12px] text-[#7c7c7c] px-3 pb-3 tracking-[0.08em]">
-          007
-        </div>
-      </article>
-
-      <article
-        class="overflow-hidden flex flex-col gap-2 transition-transform duration-200 hover:-translate-y-1"
-      >
-        <div class="bg-[#f2f2f2] aspect-[4/5]">
-          <img
-            src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop"
-            alt="Outdoor fashion look"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="text-[12px] text-[#7c7c7c] px-3 pb-3 tracking-[0.08em]">
-          008
-        </div>
-      </article>
+        {/* Slides */}
+        {
+          slides.map((s, i) => (
+            <article
+              class="overflow-hidden flex flex-col gap-2 hover:-translate-y-1 transition-transform duration-200"
+              data-slide
+            >
+              <div class="aspect-[4/5] bg-[#f2f2f2]">
+                <Image
+                  src={s.src}
+                  alt={s.alt}
+                  widths={[400, 800, 1200]}
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  class="w-full h-full object-cover"
+                  loading={i < 4 ? "eager" : "lazy"}
+                  fetchpriority={i < 4 ? "high" : "auto"}
+                  decoding="async"
+                />
+              </div>
+              <div class="text-[12px] text-[#7c7c7c] px-3 pb-3 tracking-[0.08em]">
+                {s.code}
+              </div>
+            </article>
+          ))
+        }
+      </div>
     </div>
 
+    <!-- Controls -->
     <div class="flex gap-3 mt-4 justify-end">
       <button
         type="button"
         class="w-10 h-10 rounded-full grid place-items-center bg-main-white text-main-rose border border-main-rose cursor-pointer hover:bg-main-rose transition-colors duration-200 ease-in-out hover:text-main-white focus:outline-none select-none"
         aria-label="Previous"
         title="Previous"
+        data-prev
       >
         ←
       </button>
@@ -77,9 +58,85 @@
         class="w-10 h-10 rounded-full grid place-items-center bg-main-white text-main-rose border border-main-rose select-none cursor-pointer transition-colors duration-200 ease-in-out hover:bg-main-rose hover:text-main-white focus:outline-none"
         aria-label="Next"
         title="Next"
+        data-next
       >
         →
       </button>
     </div>
+
+    <script is:inline>
+      const root = document.querySelector("[data-portfolio]");
+      const viewport = root?.querySelector("[data-viewport]");
+      const track = root?.querySelector("[data-track]");
+      const slides = track
+        ? Array.from(track.querySelectorAll("[data-slide]"))
+        : [];
+      const prevBtn = root?.querySelector("[data-prev]");
+      const nextBtn = root?.querySelector("[data-next]");
+
+      if (root && viewport && track && slides.length) {
+        let currentPage = 0;
+
+        const getSlidesPerView = () => {
+          const w = window.innerWidth;
+          if (w >= 1024) return 4; // lg
+          if (w >= 640) return 3; // sm
+          return 2; // base
+        };
+
+        const applyLayout = () => {
+          const vpWidth = viewport.clientWidth;
+          const styles = getComputedStyle(track);
+          const gap = parseFloat(styles.columnGap || styles.gap || "0");
+          const spp = getSlidesPerView();
+          const slideWidth = (vpWidth - gap * (spp - 1)) / spp;
+          slides.forEach((el) => {
+            el.style.flex = "0 0 auto";
+            el.style.width = `${Math.max(0, slideWidth)}px`;
+          });
+          // Clamp current page in case the count changed
+          const totalPages = Math.max(1, Math.ceil(slides.length / spp));
+          currentPage = Math.min(currentPage, totalPages - 1);
+          // Snap to page after layout
+          track.style.transform = `translateX(-${currentPage * vpWidth}px)`;
+        };
+
+        const next = () => {
+          const totalPages = Math.ceil(slides.length / getSlidesPerView());
+          const vpWidth = viewport.clientWidth;
+          currentPage = (currentPage + 1) % totalPages;
+          track.style.transform = `translateX(-${currentPage * vpWidth}px)`;
+        };
+
+        const prev = () => {
+          const totalPages = Math.ceil(slides.length / getSlidesPerView());
+          const vpWidth = viewport.clientWidth;
+          currentPage = (currentPage - 1 + totalPages) % totalPages;
+          track.style.transform = `translateX(-${currentPage * vpWidth}px)`;
+        };
+
+        // Bind events
+        nextBtn?.addEventListener("click", next);
+        prevBtn?.addEventListener("click", prev);
+
+        // Handle resize
+        let resizeRaf = 0;
+        const onResize = () => {
+          cancelAnimationFrame(resizeRaf);
+          resizeRaf = requestAnimationFrame(applyLayout);
+        };
+        window.addEventListener("resize", onResize);
+
+        // Initial layout
+        applyLayout();
+
+        // Clean up on page navigation (Astro islands not used here, but safe)
+        document.addEventListener("astro:after-swap", () => {
+          window.removeEventListener("resize", onResize);
+          nextBtn?.removeEventListener("click", next);
+          prevBtn?.removeEventListener("click", prev);
+        });
+      }
+    </script>
   </div>
 </section>
