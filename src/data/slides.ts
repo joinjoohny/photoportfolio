@@ -12,4 +12,8 @@ export const slides = [
   { src: p002, alt: "Studio portrait", code: "002" },
   { src: p003, alt: "Outdoor fashion", code: "003" },
   { src: p004, alt: "Editorial look", code: "004" },
+  { src: p001, alt: "Black & white portrait", code: "001" },
+  { src: p002, alt: "Studio portrait", code: "002" },
+  { src: p003, alt: "Outdoor fashion", code: "003" },
+  { src: p004, alt: "Editorial look", code: "004" },
 ];

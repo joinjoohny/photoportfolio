@@ -85,7 +85,7 @@ import { slides } from "../data/slides";
         };
 
         const applyLayout = () => {
-          const vpWidth = viewport.clientWidth;
+          const vpWidth = viewport.getBoundingClientRect().width;
           const styles = getComputedStyle(track);
           const gap = parseFloat(styles.columnGap || styles.gap || "0");
           const spp = getSlidesPerView();
@@ -97,22 +97,43 @@ import { slides } from "../data/slides";
           // Clamp current page in case the count changed
           const totalPages = Math.max(1, Math.ceil(slides.length / spp));
           currentPage = Math.min(currentPage, totalPages - 1);
-          // Snap to page after layout
-          track.style.transform = `translateX(-${currentPage * vpWidth}px)`;
+          // Snap exactly to the first slide of the page
+          const pageStartIndex = currentPage * spp;
+          const baseEl = slides[pageStartIndex];
+          if (baseEl) {
+            const baseLeft = baseEl.getBoundingClientRect().left;
+            const trackLeft = track.getBoundingClientRect().left;
+            const offset = baseLeft - trackLeft;
+            track.style.transform = `translateX(-${offset}px)`;
+          }
         };
 
         const next = () => {
-          const totalPages = Math.ceil(slides.length / getSlidesPerView());
-          const vpWidth = viewport.clientWidth;
+          const spp = getSlidesPerView();
+          const totalPages = Math.ceil(slides.length / spp);
           currentPage = (currentPage + 1) % totalPages;
-          track.style.transform = `translateX(-${currentPage * vpWidth}px)`;
+          const pageStartIndex = currentPage * spp;
+          const baseEl = slides[pageStartIndex];
+          if (baseEl) {
+            const baseLeft = baseEl.getBoundingClientRect().left;
+            const trackLeft = track.getBoundingClientRect().left;
+            const offset = baseLeft - trackLeft;
+            track.style.transform = `translateX(-${offset}px)`;
+          }
         };
 
         const prev = () => {
-          const totalPages = Math.ceil(slides.length / getSlidesPerView());
-          const vpWidth = viewport.clientWidth;
+          const spp = getSlidesPerView();
+          const totalPages = Math.ceil(slides.length / spp);
           currentPage = (currentPage - 1 + totalPages) % totalPages;
-          track.style.transform = `translateX(-${currentPage * vpWidth}px)`;
+          const pageStartIndex = currentPage * spp;
+          const baseEl = slides[pageStartIndex];
+          if (baseEl) {
+            const baseLeft = baseEl.getBoundingClientRect().left;
+            const trackLeft = track.getBoundingClientRect().left;
+            const offset = baseLeft - trackLeft;
+            track.style.transform = `translateX(-${offset}px)`;
+          }
         };
 
         // Bind events
