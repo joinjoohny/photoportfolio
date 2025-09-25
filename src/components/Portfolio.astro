@@ -176,3 +176,10 @@ const images = slides.map((s) => ({
 
   <Carousel images={images} color="#3e5348" />
 </section>
+
+<style>
+  :global(.carousel),
+  :global(.slides) {
+    z-index: 21 !important;
+  }
+</style>
