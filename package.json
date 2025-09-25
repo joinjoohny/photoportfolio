@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "Vlada Photography",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@fontsource-variable/golos-text": "^5.2.8",
-    "@fontsource/allura": "^5.2.8",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.13.10",
     "astro-carousel": "^3.0.3",
