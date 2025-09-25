@@ -35,28 +35,28 @@
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
             href="#about"
-            class="block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] text-[#3a3a3a] hover:text-black active:bg-[#f2f0e6] lg:active:bg-transparent transition-colors relative lg:after:content-[''] lg:after:absolute lg:after:left-0 lg:after:right-0 lg:after:-bottom-[6px] lg:after:h-[2px] lg:after:bg-[#3e5348] lg:after:origin-left lg:after:scale-x-0 lg:after:transition-transform lg:after:duration-200 lg:hover:after:scale-x-100"
+            class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >about me</a
           >
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
             href="#portfolio"
-            class="block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] text-[#3a3a3a] hover:text-black active:bg-[#f2f0e6] lg:active:bg-transparent transition-colors relative lg:after:content-[''] lg:after:absolute lg:after:left-0 lg:after:right-0 lg:after:-bottom-[6px] lg:after:h-[2px] lg:after:bg-[#3e5348] lg:after:origin-left lg:after:scale-x-0 lg:after:transition-transform lg:after:duration-200 lg:hover:after:scale-x-100"
+            class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >portfolio</a
           >
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
             href="#services"
-            class="block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] text-[#3a3a3a] hover:text-black active:bg-[#f2f0e6] lg:active:bg-transparent transition-colors relative lg:after:content-[''] lg:after:absolute lg:after:left-0 lg:after:right-0 lg:after:-bottom-[6px] lg:after:h-[2px] lg:after:bg-[#3e5348] lg:after:origin-left lg:after:scale-x-0 lg:after:transition-transform lg:after:duration-200 lg:hover:after:scale-x-100"
+            class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >services</a
           >
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
             href="#contacts"
-            class="block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] text-[#3a3a3a] hover:text-black active:bg-[#f2f0e6] lg:active:bg-transparent transition-colors relative lg:after:content-[''] lg:after:absolute lg:after:left-0 lg:after:right-0 lg:after:-bottom-[6px] lg:after:h-[2px] lg:after:bg-[#3e5348] lg:after:origin-left lg:after:scale-x-0 lg:after:transition-transform lg:after:duration-200 lg:hover:after:scale-x-100"
+            class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >contacts</a
           >
         </li>
@@ -64,3 +64,21 @@
     </nav>
   </div>
 </header>
+
+<style>
+  /* Minimal, elegant fade effect */
+  .nav-link {
+    color: #3a3a3a;
+    opacity: 0.75;
+    transition: color 180ms ease, opacity 180ms ease;
+  }
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: #111;
+    opacity: 1;
+    outline: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link { transition: none; }
+  }
+</style>
