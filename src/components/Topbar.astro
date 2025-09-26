@@ -5,7 +5,7 @@
     class="mx-auto w-full max-w-[1170px] px-5 flex items-center justify-between py-4"
   >
     <div class="font-logo text-main-rose" aria-label="Vlada Polianskaya">
-      Vlada<br />Polianskaya
+      Vlada<br />Polyanskaya
     </div>
 
     <!-- Toggle (CSS-only via peer) -->
@@ -28,7 +28,7 @@
 
     <nav
       id="site-nav"
-      aria-label="Основная навигация"
+      aria-label="Main navigation"
       class="absolute left-0 right-0 top-full bg-[#fffeef] border-t border-b border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] opacity-0 -translate-y-2 pointer-events-none transition-opacity transition-transform duration-200 ease-out peer-checked:opacity-100 peer-checked:translate-y-0 peer-checked:pointer-events-auto lg:static lg:opacity-100 lg:translate-y-0 lg:pointer-events-auto lg:shadow-none lg:border-none lg:bg-transparent lg:transition-none lg:duration-0 motion-reduce:transition-none"
     >
       <ul class="flex flex-col lg:flex-row lg:gap-7 m-0 p-0 list-none">
@@ -70,7 +70,9 @@
   .nav-link {
     color: #3a3a3a;
     opacity: 0.75;
-    transition: color 180ms ease, opacity 180ms ease;
+    transition:
+      color 180ms ease,
+      opacity 180ms ease;
   }
   .nav-link:hover,
   .nav-link:focus-visible {
@@ -79,6 +81,8 @@
     outline: none;
   }
   @media (prefers-reduced-motion: reduce) {
-    .nav-link { transition: none; }
+    .nav-link {
+      transition: none;
+    }
   }
 </style>
