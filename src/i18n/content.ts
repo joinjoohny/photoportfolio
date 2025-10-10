@@ -1,4 +1,4 @@
-import type { Lang } from './ui';
+import type { Lang } from "./ui";
 
 export const aboutBody: Record<Lang, string> = {
   en: `
@@ -78,152 +78,295 @@ export const bookingTerms: Record<Lang, string> = {
   `,
 };
 
-type SvcKey = 'elle' | 'vogue' | 'allure' | 'numero' | 'essence';
+type SvcKey = "elle" | "vogue" | "allure" | "numero" | "essence";
 
-export const services: Record<Lang, Record<SvcKey, { title: string; body: string }>> = {
+export const services: Record<
+  Lang,
+  Record<SvcKey, { title: string; body: string }>
+> = {
   en: {
     elle: {
-      title: 'Individual Shoot',
+      title: "Individual Shoot",
       body: `
       <p><strong>(personal, couple, commercial, events)</strong></p>
-      <p><strong>Price:</strong> 70&nbsp;€ / 1–1.5 hours. We may move between locations, so I allow extra time.</p>
-      <h3>Details</h3>
-      <p><strong>Duration:</strong> ~1–1.5 hours (outdoors / home / nature / studio or hotel*)</p>
+      <p><strong>Price:</strong> 70&nbsp;€ / 1–1.5 hours. I allow a bit more time because we may move between locations during the session.</p>
+      <p><strong>Duration: </strong>~1–1.5 hours (outdoors / home / nature / studio or hotel*)</p>
       <ul>
         <li>Pre‑shoot consultation</li>
-        <li>3–5 short vertical clips for social media/Reels</li>
-        <li>Image and location selection, personal <em>moodboard</em></li>
-        <li>30–40 photos with my signature editing</li>
-        <li>Delivery within 7–14 business days</li>
+        <li>3–5 short videos for social media and Reels</li>
+        <li>Selection of images and locations; creation of a personal <em>moodboard</em></li>
+        <li>30–40 photos with my editing</li>
+        <li>Ready within 7–14 business days</li>
       </ul>
-      <p><em>(*Studio rent not included.)</em></p>
+      <p><em>(*Studio cost not included.)</em></p>
+      <h3>Each session includes</h3>
+      <ul>
+        <li>Preliminary talk about the shoot plan</li>
+        <li>Ideas, location and outfit guidance</li>
+        <li>Shooting according to the chosen time</li>
+      </ul>
       `,
     },
     vogue: {
-      title: 'Content (photo / video)',
+      title: "Content (photo / video)",
       body: `
-      <h3>Phone content session</h3>
+      <h3>Phone‑based content shoot</h3>
       <ul>
-        <li><strong>One‑off:</strong> 1h / iPhone — <strong>30&nbsp;€</strong></li>
-        <li><strong>Monthly pack:</strong> 3 sessions — <strong>75&nbsp;€</strong></li>
+        <li><strong>One‑off:</strong> 1 hour / iPhone — <strong>30&nbsp;€</strong></li>
+        <li><strong>Monthly subscription:</strong> 3 shoots — <strong>75&nbsp;€</strong></li>
       </ul>
-      <p><strong>Includes:</strong> consultation, location planning, help with ideas and looks. Short vertical clips and photos optimized for social media.</p>
+      <p><strong>Consultation before the shoot</strong>, choosing the place and discussing all details on how to prepare content in an urban style. The monthly pack lets you work with me for 1 month, during which we will have <strong>3 meetings/shoots</strong> to create unique, personal content for social media. This way you have “endless content” and save time on most details.</p>
+      <h3>Each session includes</h3>
+      <ul>
+        <li>Preliminary talk about the shoot plan</li>
+        <li>Ideas, location and outfit guidance</li>
+        <li>Shooting according to the chosen time</li>
+      </ul>
       `,
     },
     allure: {
-      title: 'Film Photoshoot',
+      title: "Film Photoshoot",
       body: `
-      <p>Shoot on 35mm film with authentic grain and colors. Development and scanning included. Digital selection gallery provided.</p>
+      <p><strong>Price:</strong> 60&nbsp;€</p>
+      <p><strong>Duration:</strong> 2 hours</p>
+      <p><strong>Includes:</strong></p>
+      <ul>
+        <li>Location choice, discussing details and looks</li>
+        <li>One roll of film, development and scanning <em>(included)</em></li>
+        <li>Posing assistance, preparation of references</li>
+        <li>Shooting outdoors (agreed location) or in a studio</li>
+      </ul>
+      <p><strong>Result:</strong> 36 photos</p>
+      <p><strong>Ready in:</strong> 10 business days</p>
+      <h3>Each session includes</h3>
+      <ul>
+        <li>Preliminary talk about the shoot plan</li>
+        <li>Ideas, location and outfit guidance</li>
+        <li>Shooting according to the chosen time</li>
+      </ul>
       `,
     },
     numero: {
-      title: 'Couple/Family',
+      title: "Couple/Family",
       body: `
-      <p>Warm, sincere portraits for couples and families. Gentle guidance, posing references, and a relaxed atmosphere.</p>
+      <p><strong>Duration:</strong> 1 hour <em>(discussed individually; sometimes a little more time is needed)</em></p>
+      <ul>
+        <li>Pre‑shoot consultation</li>
+        <li>Choosing location and shot ideas; discussing all details</li>
+        <li>Creating a personal <em>moodboard</em> for the session</li>
+        <li>40–50 photos with my editing</li>
+        <li>Ready within 10–12 business days</li>
+      </ul>
+      <h3>Each session includes</h3>
+      <ul>
+        <li>Preliminary talk about the shoot plan</li>
+        <li>Ideas, location and outfit guidance</li>
+        <li>Shooting according to the chosen time</li>
+      </ul>
       `,
     },
     essence: {
-      title: 'Gift Certificate',
+      title: "Gift Certificate",
       body: `
-      <p>Give the experience of a photoshoot. Personalized digital gift card available for any service.</p>
+      <p>Gift certificate will be sent as a <strong>PDF</strong> with all details so you can print it yourself.</p>
+      <p><strong>Price of the certificate:</strong> equals the price and duration of the individual shoot. <em>(Design can be customized on request.)</em></p>
+      <h3>Each session includes</h3>
+      <ul>
+        <li>Preliminary talk about the shoot plan</li>
+        <li>Ideas, location and outfit guidance</li>
+        <li>Shooting according to the chosen time</li>
+      </ul>
       `,
     },
   },
   de: {
     elle: {
-      title: 'Einzelshooting',
+      title: "Einzelshooting",
       body: `
       <p><strong>(privat, Paar, kommerziell, Events)</strong></p>
-      <p><strong>Preis:</strong> 70&nbsp;€ / 1–1,5 Stunden. Ortswechsel sind möglich — daher etwas Pufferzeit.</p>
-      <h3>Details</h3>
-      <p><strong>Dauer:</strong> ~1–1,5 Stunden (Outdoor / Zuhause / Natur / Studio oder Hotel*)</p>
+      <p><strong>Preis:</strong> 70&nbsp;€ / 1–1,5 Stunden. Ich plane etwas mehr Zeit ein, da wir während des Shootings zwischen Locations wechseln können.</p>
+      <p><strong>Dauer: </strong>~1–1,5 Stunden (Outdoor / Zuhause / Natur / Studio oder Hotel*)</p>
       <ul>
-        <li>Vorgespräch & Beratung</li>
-        <li>3–5 kurze Hochkant‑Clips für Social Media/Reels</li>
-        <li>Auswahl der Motive & Locations, persönliches <em>Moodboard</em></li>
-        <li>30–40 Fotos mit meinem Look</li>
-        <li>Lieferung in 7–14 Werktagen</li>
+        <li>Vorgespräch vor dem Shooting</li>
+        <li>3–5 kurze Videos für Social Media und Reels</li>
+        <li>Auswahl der Motive und Locations; persönliches <em>Moodboard</em></li>
+        <li>30–40 Fotos in meinem Look</li>
+        <li>Fertig in 7–14 Werktagen</li>
       </ul>
-      <p><em>(*Studiomiete nicht inbegriffen.)</em></p>
+      <p><em>(*Studiokosten nicht inbegriffen.)</em></p>
+      <h3>Jede Session enthält</h3>
+      <ul>
+        <li>Vorgespräch zum Ablauf der Session</li>
+        <li>Unterstützung bei Idee, Location und Outfits</li>
+        <li>Shooting entsprechend der gewählten Zeit</li>
+      </ul>
       `,
     },
     vogue: {
-      title: 'Content (Foto / Video)',
+      title: "Content (Foto / Video)",
       body: `
       <h3>Content‑Shooting mit dem Telefon</h3>
       <ul>
-        <li><strong>Einzeln:</strong> 1 Std. / iPhone — <strong>30&nbsp;€</strong></li>
-        <li><strong>Monatspaket:</strong> 3 Sessions — <strong>75&nbsp;€</strong></li>
+        <li><strong>Einzel:</strong> 1 Stunde / iPhone — <strong>30&nbsp;€</strong></li>
+        <li><strong>Monats‑Abo:</strong> 3 Shootings — <strong>75&nbsp;€</strong></li>
       </ul>
-      <p><strong>Enthalten:</strong> Beratung, Locations, Unterstützung bei Idee und Outfits. Kurze Hochkant‑Clips und Fotos für Social Media.</p>
+      <p><strong>Vorgespräch vor dem Shooting</strong>, Wahl des Ortes und Besprechung aller Details, wie man sich für Content im urbanen Stil vorbereitet. Mit dem Monatspaket arbeiten wir 1 Monat zusammen und haben <strong>3 Treffen/Shootings</strong>, in denen ich einzigartigen, persönlichen Content für Social Media erstelle. So hast du „endlosen Content“ und sparst Zeit bei vielen Details.</p>
+      <h3>Jede Session enthält</h3>
+      <ul>
+        <li>Vorgespräch zum Ablauf der Session</li>
+        <li>Unterstützung bei Idee, Location und Outfits</li>
+        <li>Shooting entsprechend der gewählten Zeit</li>
+      </ul>
       `,
     },
     allure: {
-      title: 'Film‑Fotoshooting',
+      title: "Film‑Fotoshooting",
       body: `
-      <p>Shooting auf 35mm‑Film mit authentischem Korn und Farben. Entwicklung & Scan inklusive. Digitale Auswahlgalerie.</p>
+      <p><strong>Preis:</strong> 60&nbsp;€</p>
+      <p><strong>Dauer:</strong> 2 Stunden</p>
+      <p><strong>Enthalten:</strong></p>
+      <ul>
+        <li>Wahl des Ortes, Details und Look‑Besprechung</li>
+        <li>Eine Filmrolle, Entwicklung und Scan <em>(inklusive)</em></li>
+        <li>Posing‑Hilfe, Vorbereitung von Referenzen</li>
+        <li>Shooting outdoor (abgesprochene Location) oder im Studio</li>
+      </ul>
+      <p><strong>Ergebnis:</strong> 36 Fotos</p>
+      <p><strong>Bereit in:</strong> 10 Werktagen</p>
+      <h3>Jede Session enthält</h3>
+      <ul>
+        <li>Vorgespräch zum Ablauf der Session</li>
+        <li>Unterstützung bei Idee, Location und Outfits</li>
+        <li>Shooting entsprechend der gewählten Zeit</li>
+      </ul>
       `,
     },
     numero: {
-      title: 'Paar/Familie',
+      title: "Paar/Familie",
       body: `
-      <p>Herzliche, ehrliche Porträts für Paare und Familien. Sanfte Anleitung, Posing‑Referenzen und entspannte Atmosphäre.</p>
+      <p><strong>Dauer:</strong> 1 Stunde <em>(individuell besprochen; manchmal ist etwas mehr Zeit nötig)</em></p>
+      <ul>
+        <li>Vorgespräch vor dem Shooting</li>
+        <li>Wahl der Location und Motive; Besprechung aller Details</li>
+        <li>Erstellung eines persönlichen <em>Moodboards</em></li>
+        <li>40–50 Fotos in meinem Look</li>
+        <li>Bereit in 10–12 Werktagen</li>
+      </ul>
+      <h3>Jede Session enthält</h3>
+      <ul>
+        <li>Vorgespräch zum Ablauf der Session</li>
+        <li>Unterstützung bei Idee, Location und Outfits</li>
+        <li>Shooting entsprechend der gewählten Zeit</li>
+      </ul>
       `,
     },
     essence: {
-      title: 'Gutschein',
+      title: "Gutschein",
       body: `
-      <p>Verschenke ein Fotoshooting. Personalisierter digitaler Gutschein für alle Leistungen.</p>
+      <p>Der Gutschein wird als <strong>PDF</strong> mit allen Details versendet, damit du ihn selbst ausdrucken kannst.</p>
+      <p><strong>Preis des Gutscheins:</strong> entspricht Preis und Dauer des Einzelshootings. <em>(Design auf Wunsch anpassbar.)</em></p>
+      <h3>Jede Session enthält</h3>
+      <ul>
+        <li>Vorgespräch zum Ablauf der Session</li>
+        <li>Unterstützung bei Idee, Location und Outfits</li>
+        <li>Shooting entsprechend der gewählten Zeit</li>
+      </ul>
       `,
     },
   },
   ru: {
     elle: {
-      title: 'Индивидуальная съёмка',
+      title: "Индивидуальная съёмка",
       body: `
       <p><strong>(личная, парная, коммерческая, мероприятия)</strong></p>
-      <p><strong>Цена:</strong> 70&nbsp;€ / 1–1,5 часа. Возможны переходы между локациями, поэтому время с запасом.</p>
-      <h3>Подробности</h3>
-      <p><strong>Продолжительность:</strong> ~1–1,5 часа (улица / дом / природа / студия или отель*)</p>
+      <p><strong>Цена съёмки:</strong> 70&nbsp;€ / 1–1,30 часа. Закладываю немного больше времени, так как во время фотосессии мы можем перемещаться по локациям.</p>
+      <p><strong>Продолжительность: </strong>~1–1,30 часа (улица / дом / природа / студия или отель*)</p>
       <ul>
         <li>Консультация перед съёмкой</li>
-        <li>3–5 коротких вертикальных видео для соцсетей/Reels</li>
-        <li>Выбор образов и локаций, личный <em>moodboard</em></li>
-        <li>30–40 фото в моём редактировании</li>
-        <li>Готовность: 7–14 рабочих дней</li>
+        <li>Также снимаю 3–5 коротких видео для соцсетей и Reels</li>
+        <li>Выбор изображений и локаций, создание личного <em>moodboard</em></li>
+        <li>30–40 фотографий в личном редактировании</li>
+        <li>Готовые фотографии за 7–14 рабочих дней</li>
       </ul>
-      <p><em>(*Аренда студии не включена.)</em></p>
+      <p><em>(*Цена не включает стоимость студии.)</em></p>
+      <h3>Каждая съёмка включает</h3>
+      <ul>
+        <li>Предварительный разговор о плане нашей съёмки</li>
+        <li>Предложения и помощь по идее, местам и нарядам</li>
+        <li>Фотосессия в соответствии с выбранным временем</li>
+      </ul>
       `,
     },
     vogue: {
-      title: 'Создание контента (фото / видео)',
+      title: "Создание контента (фото / видео)",
       body: `
       <h3>Контент‑съёмка на телефон</h3>
       <ul>
-        <li><strong>Разово:</strong> 1 час / iPhone — <strong>30&nbsp;€</strong></li>
+        <li><strong>Разовая съёмка:</strong> 1 час / iPhone — <strong>30&nbsp;€</strong></li>
         <li><strong>Абонемент на месяц:</strong> 3 съёмки — <strong>75&nbsp;€</strong></li>
       </ul>
-      <p><strong>Включено:</strong> консультация, помощь с идеей и образами, подбор места. Короткие вертикальные видео и фото для соцсетей.</p>
+      <p><strong>Консультация перед съёмкой</strong>, выбор места и обсуждение всех деталей того, как правильно подготовиться к съёмке контента в уличном стиле. Ежемесячный пакет позволяет сотрудничать со мной в течение 1 месяца, в течение которого у нас будет <strong>3 встречи/съёмки</strong>, где я создаю уникальный личный контент по индивидуальному запросу для социальных сетей. Таким образом, у вас есть «бесконечный контент», и вы экономите время на большинстве деталей.</p>
+      <h3>Каждая съёмка включает</h3>
+      <ul>
+        <li>Предварительный разговор о плане нашей съёмки</li>
+        <li>Предложения и помощь по идее, местам и нарядам</li>
+        <li>Фотосессия в соответствии с выбранным временем</li>
+      </ul>
       `,
     },
     allure: {
-      title: 'Плёночная съёмка',
+      title: "Плёночная съёмка",
       body: `
-      <p>Съёмка на 35мм плёнку с аутентичным зерном и цветом. Проявка и сканы включены. Галерея для отбора кадров.</p>
+      <p><strong>Стоимость съёмки:</strong> 60&nbsp;€</p>
+      <p><strong>Продолжительность:</strong> 2 часа</p>
+      <p><strong>Что входит:</strong></p>
+      <ul>
+        <li>Выбор места, обсуждение деталей и образа</li>
+        <li>Катушка плёнки, проявка и отцифровка <em>(входит в стоимость)</em></li>
+        <li>Помощь в позировании, подготовка референсов</li>
+        <li>Съёмка на улице (по согласованной локации) или в студии</li>
+      </ul>
+      <p><strong>Результат:</strong> 36 фото</p>
+      <p><strong>Срок готовности:</strong> 10 рабочих дней</p>
+      <h3>Каждая съёмка включает</h3>
+      <ul>
+        <li>Предварительный разговор о плане нашей съёмки</li>
+        <li>Предложения и помощь по идее, местам и нарядам</li>
+        <li>Фотосессия в соответствии с выбранным временем</li>
+      </ul>
       `,
     },
     numero: {
-      title: 'Пара/Семья',
+      title: "Пара/Семья",
       body: `
-      <p>Тёплые искренние портреты для пар и семей. Деликатные подсказки по позированию и расслабленная атмосфера.</p>
+      <p><strong>Продолжительность:</strong> 1 час <em>(обсуждается индивидуально, иногда требуется чуть больше времени)</em></p>
+      <ul>
+        <li>Консультация перед съёмкой</li>
+        <li>Выбор места и идей для съёмки, обсуждение всех деталей</li>
+        <li>Создание персональной доски настроения (<em>moodboard</em>)</li>
+        <li>40–50 фотографий в личном редактировании</li>
+        <li>Готовые фотографии через 10–12 рабочих дней</li>
+      </ul>
+      <h3>Каждая съёмка включает</h3>
+      <ul>
+        <li>Предварительный разговор о плане нашей съёмки</li>
+        <li>Предложения и помощь по идее, местам и нарядам</li>
+        <li>Фотосессия в соответствии с выбранным временем</li>
+      </ul>
       `,
     },
     essence: {
-      title: 'Подарочный сертификат',
+      title: "Подарочный сертификат 💌",
       body: `
-      <p>Подарите впечатление от фотосессии. Персональный цифровой сертификат на любую услугу.</p>
+      <p>Подарочный сертификат будет отправлен в формате <strong>PDF</strong> со всеми деталями, чтобы вы могли распечатать его самостоятельно.</p>
+      <p><strong>Стоимость сертификата:</strong> равна стоимости и продолжительности личной индивидуальной съёмки. <em>(Дизайн можно настроить по запросу.)</em></p>
+      <h3>Каждая съёмка включает</h3>
+      <ul>
+        <li>Предварительный разговор о плане нашей съёмки</li>
+        <li>Предложения и помощь по идее, местам и нарядам</li>
+        <li>Фотосессия в соответствии с выбранным временем</li>
+      </ul>
       `,
     },
   },
 };
-
