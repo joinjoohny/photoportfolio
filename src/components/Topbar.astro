@@ -1,7 +1,9 @@
 ---
-import { useTranslations } from "../i18n/ui";
+import { useTranslations, getLangFromUrl } from "../i18n/ui";
 import LangSwitcher from "./LangSwitcher.astro";
+import { bookingTerms } from "../i18n/content";
 const t = useTranslations(Astro);
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <header class="sticky top-0 bg-[#fff] backdrop-saturate-150 backdrop-blur z-20">
@@ -95,7 +97,9 @@ const t = useTranslations(Astro);
       <div
         class="flex items-center justify-between px-5 py-4 border-b border-[#eee]"
       >
-        <h3 id="topbar-modal-title" class="text-xl font-semibold m-0"></h3>
+        <h3 id="topbar-modal-title" class="text-xl font-semibold m-0">
+          {t("modal.bookingTitle")}
+        </h3>
         <button
           id="topbar-modal-close"
           type="button"
@@ -114,6 +118,9 @@ const t = useTranslations(Astro);
   </div>
 </div>
 
+<!-- Hidden booking terms template (localized) -->
+<div id="booking-terms-template" class="hidden" set:html={bookingTerms[lang]} />
+
 <script is:inline>
   function initTopbar() {
     const btn = document.getElementById("nav-booking-terms");
@@ -124,43 +131,11 @@ const t = useTranslations(Astro);
     const modalClose = document.getElementById("topbar-modal-close");
     const modalBackdrop = document.getElementById("topbar-modal-backdrop");
 
-    const bookingTermsHTML = `
-    <ul>
-      <li>Я не предоставляю исходные файлы (<strong>RAW</strong>), так как это незаконченный материал.</li>
-      <li>Я не выполняю глубокую ретушь и не изменяю внешность — удаляю только временные недостатки (прыщи, синяки, царапины).</li>
-      <li>Я оставляю за собой право выбора фотографий, которые будут обработаны и переданы. Повторная обработка или изменения по запросу не выполняются.</li>
-      <li>В случае опоздания на съёмку потерянное время вычитается из оплаченной сессии.</li>
-      <li>Обработанные фотографии хранятся ограниченное время после передачи. Ответственность за загрузку и сохранность файлов после этого периода лежит на клиенте.</li>
-      <li>Бронируя дату, вы даёте согласие на использование ваших фотографий в моём портфолио, в социальных сетях и для продвижения моей деятельности.</li>
-    </ul>
-
-    <p><em>Если вы не хотите, чтобы ваши фотографии публиковались, пожалуйста, сообщите об этом до бронирования.</em></p>
-
-    <ul>
-      <li>Бронируя дату, вы соглашаетесь с моим стилем съёмки и подходом к обработке / ретуши, а также с условиями, изложенными здесь. 
-      Пожалуйста, ознакомьтесь с моим портфолио и этими правилами до бронирования.</li>
-    </ul>
-
-    <h3>Мудборд и подготовка к съёмке</h3>
-    <p>Для каждой съёмки я составляю <strong>мудборд</strong> — визуальную концепцию нашей фотосессии. 
-    Мы обсуждаем ваши пожелания, и на их основе я подбираю подходящие референсы. 
-    Если вы затрудняетесь с пожеланиями, вы можете указать на примеры из моего портфолио, и я буду отталкиваться от этого.</p>
-
-    <p>Помимо концепции съёмки, я даю рекомендации по образам и прикрепляю <em>референсы по позированию</em>, 
-    чтобы мы могли обращаться к ним во время съёмки. 
-    Я всегда направляю и подсказываю во время процесса, а референсы носят лишь рекомендательный характер.</p>`;
-
     function openModal() {
       if (!modal || !modalContent) return;
-      const titleEl = document.getElementById("topbar-modal-title");
-      if (titleEl)
-        titleEl.textContent =
-          document.documentElement.lang === "ru"
-            ? "Условия предоставления услуг"
-            : document.documentElement.lang === "de"
-              ? "Buchungsbedingungen"
-              : "Booking Terms";
-      modalContent.innerHTML = `<div class=\"text-[#555] leading-relaxed space-y-3\">${bookingTermsHTML}</div>`;
+      const tpl = document.getElementById("booking-terms-template");
+      const html = tpl ? tpl.innerHTML : "";
+      modalContent.innerHTML = `<div class=\"text-[#555] leading-relaxed space-y-3\">${html}</div>`;
       modal.classList.remove("hidden");
       document.body.style.overflow = "hidden";
     }

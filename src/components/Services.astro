@@ -1,10 +1,15 @@
 ---
-import { useTranslations } from "../i18n/ui";
+import { useTranslations, getLangFromUrl } from "../i18n/ui";
+import { services as svcContent } from "../i18n/content";
 const t = useTranslations(Astro);
+const lang = getLangFromUrl(Astro.url);
 ---
+
 <section id="services" class="py-16 sm:py-20">
   <div class="mx-auto w-full max-w-[1170px] px-5">
-    <h2 class="text-3xl sm:text-4xl m-0 mb-6 text-main-rose">{t('services.title')}</h2>
+    <h2 class="text-3xl sm:text-4xl m-0 mb-6 text-main-rose">
+      {t("services.title")}
+    </h2>
   </div>
   <div
     class="mx-auto w-full max-w-[1170px] px-5 grid gap-7 lg:grid-cols-2 items-start"
@@ -18,7 +23,7 @@ const t = useTranslations(Astro);
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
                    aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
         >
-          {t('services.individual')}
+          {t("services.individual")}
         </button>
         <button
           type="button"
@@ -27,7 +32,7 @@ const t = useTranslations(Astro);
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
                    aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
         >
-          {t('services.content')}
+          {t("services.content")}
         </button>
         <button
           type="button"
@@ -36,7 +41,7 @@ const t = useTranslations(Astro);
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
                    aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
         >
-          {t('services.film')}
+          {t("services.film")}
         </button>
         <button
           type="button"
@@ -45,7 +50,7 @@ const t = useTranslations(Astro);
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
                    aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
         >
-          {t('services.family')}
+          {t("services.family")}
         </button>
         <button
           type="button"
@@ -54,7 +59,7 @@ const t = useTranslations(Astro);
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
                    aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
         >
-          {t('services.gift')}
+          {t("services.gift")}
         </button>
       </div>
     </div>
@@ -67,19 +72,49 @@ const t = useTranslations(Astro);
           id="services-text"
           class="min-h-[240px] sm:min-h-[280px] transition-opacity duration-200 ease-in-out opacity-100 will-change-[opacity]"
         >
-          <h3 class="text-xl sm:text-2xl font-semibold mb-3">{t('services.individual')}</h3>
-          <p class="text-[#555] leading-relaxed">
-            Personalized portrait session tailored to your style and mood.
-            Includes consultation, location advice, and careful editing for a
-            cohesive look.
-          </p>
+          <h3 class="text-xl sm:text-2xl font-semibold mb-3">
+            {svcContent[lang].elle.title}
+          </h3>
+          <div
+            class="text-[#555] leading-relaxed space-y-3"
+            set:html={svcContent[lang].elle.body}
+          />
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- Hidden localized templates for service bodies -->
+<div class="hidden">
+  <div
+    data-svc-template="elle"
+    data-title={svcContent[lang].elle.title}
+    set:html={svcContent[lang].elle.body}
+  />
+  <div
+    data-svc-template="vogue"
+    data-title={svcContent[lang].vogue.title}
+    set:html={svcContent[lang].vogue.body}
+  />
+  <div
+    data-svc-template="allure"
+    data-title={svcContent[lang].allure.title}
+    set:html={svcContent[lang].allure.body}
+  />
+  <div
+    data-svc-template="numero"
+    data-title={svcContent[lang].numero.title}
+    set:html={svcContent[lang].numero.body}
+  />
+  <div
+    data-svc-template="essence"
+    data-title={svcContent[lang].essence.title}
+    set:html={svcContent[lang].essence.body}
+  />
+</div>
 <script is:inline>
-  const texts = {
+  // i18n moved to hidden DOM templates; legacy object kept if needed
+  /* const texts = {
     elle: {
       title: "Individual Shoot",
       body: `
@@ -208,7 +243,7 @@ const t = useTranslations(Astro);
     Я всегда направляю и подсказываю во время процесса, а референсы носят лишь рекомендательный характер.</p>
   `,
     },
-  };
+  }; */
 
   const prefersNoMotion =
     window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
@@ -293,11 +328,15 @@ const t = useTranslations(Astro);
         e.target instanceof Element ? e.target.closest("[data-svc]") : null;
       if (!btn) return;
       const key = btn.getAttribute("data-svc");
-      const data = key ? texts[key] : null;
-      if (!data) return;
+      const tpl = key
+        ? document.querySelector(`[data-svc-template="${key}"]`)
+        : null;
+      if (!tpl) return;
+      const title = tpl.getAttribute("data-title") || "";
+      const body = tpl.innerHTML;
       const html = `
-        <h3 class="text-xl sm:text-2xl font-semibold mb-3">${data.title}</h3>
-        <div class="text-[#555] leading-relaxed space-y-3">${data.body}</div>
+        <h3 class="text-xl sm:text-2xl font-semibold mb-3">${title}</h3>
+        <div class="text-[#555] leading-relaxed space-y-3">${body}</div>
       `;
       fadeTextSwap(textBox, html);
       setActiveButton(root, btn);
@@ -308,12 +347,16 @@ const t = useTranslations(Astro);
 
     const initialBtn = root.querySelector('[data-svc][aria-pressed="true"]');
     const initialKey = initialBtn?.getAttribute("data-svc");
-    if (initialKey && texts[initialKey] && textBox) {
-      const { title, body } = texts[initialKey];
-      textBox.innerHTML = `
-        <h3 class="text-xl sm:text-2xl font-semibold mb-3">${title}</h3>
-        <div class="text-[#555] leading-relaxed space-y-3">${body}</div>
-      `;
+    if (initialKey && textBox) {
+      const tpl = document.querySelector(`[data-svc-template="${initialKey}"]`);
+      if (tpl) {
+        const title = tpl.getAttribute("data-title") || "";
+        const body = tpl.innerHTML;
+        textBox.innerHTML = `
+          <h3 class="text-xl sm:text-2xl font-semibold mb-3">${title}</h3>
+          <div class="text-[#555] leading-relaxed space-y-3">${body}</div>
+        `;
+      }
     }
   }
 
