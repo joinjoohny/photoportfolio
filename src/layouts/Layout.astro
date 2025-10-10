@@ -1,9 +1,12 @@
 ---
 import "../styles/global.css";
+import { useTranslations, getLangFromUrl } from "../i18n/ui";
+const t = useTranslations(Astro);
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth font-display">
+<html lang={lang} class="scroll-smooth font-display">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -14,7 +17,7 @@ import "../styles/global.css";
     />
 
     <meta name="generator" content={Astro.generator} />
-    <title>Vlada Polyanskaya - Photographer Dresden</title>
+    <title>{t("site.title")}</title>
   </head>
   <body class="min-h-screen bg-[#fff] antialiased tracking-widest">
     <slot />

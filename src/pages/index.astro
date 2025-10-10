@@ -1,10 +1,5 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-
+import { defaultLang } from '../i18n/ui';
+Astro.redirect(`/${defaultLang}/`);
 ---
 
-<Layout>
-	<Welcome />
-</Layout>

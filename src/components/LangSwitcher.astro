@@ -1,0 +1,29 @@
+---
+import { languages, getLangFromUrl } from '../i18n/ui';
+const current = getLangFromUrl(Astro.url);
+const path = Astro.url.pathname;
+
+function buildHref(target: string) {
+  const parts = path.split('/');
+  // ['', current, ...rest]
+  if (parts.length > 1 && parts[1] in languages) {
+    parts[1] = target;
+  } else {
+    parts.splice(1, 0, target);
+  }
+  return parts.join('/') + (Astro.url.search || '') + (Astro.url.hash || '');
+}
+---
+<div class="flex items-center gap-2 text-[12px] tracking-[0.08em]">
+  {Object.keys(languages).map((code) => (
+    <a
+      href={buildHref(code)}
+      class={`uppercase hover:underline ${code === current ? 'font-semibold text-[#3e5348]' : 'text-[#666]'}`}
+      aria-current={code === current ? 'true' : 'false'}
+    >
+      {code}
+    </a>
+  ))}
+  
+</div>
+

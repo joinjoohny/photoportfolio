@@ -1,3 +1,8 @@
+---
+import { useTranslations } from '../i18n/ui';
+import LangSwitcher from './LangSwitcher.astro';
+const t = useTranslations(Astro);
+---
 <header class="sticky top-0 bg-[#fff] backdrop-saturate-150 backdrop-blur z-20">
   <div
     class="mx-auto w-full max-w-[1170px] px-5 flex items-center justify-between py-4"
@@ -10,7 +15,7 @@
     <label
       for="nav-toggle"
       class="lg:hidden cursor-pointer p-2 -m-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3e5348] focus:ring-offset-2"
-      aria-label="Открыть меню"
+      aria-label="Menu"
       aria-controls="site-nav"
     >
       <svg
@@ -29,33 +34,33 @@
       aria-label="Main navigation"
       class="absolute left-0 right-0 top-full bg-[#fff] border-t border-b border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] opacity-0 -translate-y-2 pointer-events-none transition-opacity transition-transform duration-200 ease-out peer-checked:opacity-100 peer-checked:translate-y-0 peer-checked:pointer-events-auto lg:static lg:opacity-100 lg:translate-y-0 lg:pointer-events-auto lg:shadow-none lg:border-none lg:bg-transparent lg:transition-none lg:duration-0 motion-reduce:transition-none"
     >
-      <ul class="flex flex-col lg:flex-row lg:gap-7 m-0 p-0 list-none">
+      <ul class="flex flex-col lg:flex-row lg:gap-7 m-0 p-0 list-none items-center">
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
             href="#about"
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
-            >about me</a
+            >{t('nav.about')}</a
           >
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
             href="#portfolio"
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
-            >portfolio</a
+            >{t('nav.portfolio')}</a
           >
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
             href="#services"
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
-            >services</a
+            >{t('nav.services')}</a
           >
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
             href="#contacts"
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
-            >contacts</a
+            >{t('nav.contacts')}</a
           >
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
@@ -63,8 +68,11 @@
             href="#"
             id="nav-booking-terms"
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
-            >booking terms</a
+            >{t('nav.booking')}</a
           >
+        </li>
+        <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0 lg:ml-4">
+          <LangSwitcher />
         </li>
       </ul>
     </nav>
@@ -82,9 +90,7 @@
   >
     <div class="bg-white rounded-md shadow-xl overflow-hidden">
       <div class="flex items-center justify-between px-5 py-4 border-b border-[#eee]">
-        <h3 id="topbar-modal-title" class="text-xl font-semibold m-0">
-          Booking Terms
-        </h3>
+        <h3 id="topbar-modal-title" class="text-xl font-semibold m-0"></h3>
         <button
           id="topbar-modal-close"
           type="button"
@@ -138,7 +144,7 @@
     function openModal() {
       if (!modal || !modalContent) return;
       const titleEl = document.getElementById("topbar-modal-title");
-      if (titleEl) titleEl.textContent = "Условия предоставления услуг";
+      if (titleEl) titleEl.textContent = document.documentElement.lang === 'ru' ? 'Условия предоставления услуг' : (document.documentElement.lang === 'de' ? 'Buchungsbedingungen' : 'Booking Terms');
       modalContent.innerHTML = `<div class=\"text-[#555] leading-relaxed space-y-3\">${bookingTermsHTML}</div>`;
       modal.classList.remove("hidden");
       document.body.style.overflow = "hidden";

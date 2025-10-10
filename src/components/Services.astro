@@ -1,6 +1,10 @@
+---
+import { useTranslations } from "../i18n/ui";
+const t = useTranslations(Astro);
+---
 <section id="services" class="py-16 sm:py-20">
   <div class="mx-auto w-full max-w-[1170px] px-5">
-    <h2 class="text-3xl sm:text-4xl m-0 mb-6 text-main-rose">SERVICES</h2>
+    <h2 class="text-3xl sm:text-4xl m-0 mb-6 text-main-rose">{t('services.title')}</h2>
   </div>
   <div
     class="mx-auto w-full max-w-[1170px] px-5 grid gap-7 lg:grid-cols-2 items-start"
@@ -14,7 +18,7 @@
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
                    aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
         >
-          Individual Shoot
+          {t('services.individual')}
         </button>
         <button
           type="button"
@@ -23,7 +27,7 @@
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
                    aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
         >
-          Content
+          {t('services.content')}
         </button>
         <button
           type="button"
@@ -32,7 +36,7 @@
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
                    aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
         >
-          Film Photoshoot
+          {t('services.film')}
         </button>
         <button
           type="button"
@@ -41,7 +45,7 @@
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
                    aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
         >
-          Couple/Family
+          {t('services.family')}
         </button>
         <button
           type="button"
@@ -50,7 +54,7 @@
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
                    aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
         >
-          Gift Certificate
+          {t('services.gift')}
         </button>
       </div>
     </div>
@@ -63,9 +67,7 @@
           id="services-text"
           class="min-h-[240px] sm:min-h-[280px] transition-opacity duration-200 ease-in-out opacity-100 will-change-[opacity]"
         >
-          <h3 class="text-xl sm:text-2xl font-semibold mb-3">
-            Individual Shoot
-          </h3>
+          <h3 class="text-xl sm:text-2xl font-semibold mb-3">{t('services.individual')}</h3>
           <p class="text-[#555] leading-relaxed">
             Personalized portrait session tailored to your style and mood.
             Includes consultation, location advice, and careful editing for a
