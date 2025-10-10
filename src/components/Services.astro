@@ -64,92 +64,157 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-7 max-w-[620px] lg:max-w-none">
+    <div class="max-w-[620px] lg:max-w-none">
       <div
-        class="aspect-square overflow-hidden bg-white border border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(0,0,0,0.08)]"
+        class="overflow-hidden bg-white transition-transform duration-200 hover:-translate-y-1"
       >
-        <img
-          id="services-img-1"
-          src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop"
-          alt="Editorial shot 1"
-          class="w-full h-full object-cover transition-opacity duration-200 ease-in-out opacity-100 will-change-[opacity]"
-        />
-      </div>
-      <div
-        class="overflow-hidden bg-white border border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(0,0,0,0.08)]"
-      >
-        <img
-          id="services-img-2"
-          src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop"
-          alt="Editorial shot 2"
-          class="w-full h-full object-cover transition-opacity duration-200 ease-in-out opacity-100 will-change-[opacity]"
-        />
+        <div
+          id="services-text"
+          class="p-6 sm:p-8 transition-opacity duration-200 ease-in-out opacity-100 will-change-[opacity]"
+        >
+          <h3 class="text-xl sm:text-2xl font-semibold mb-3">
+            Individual Shoot
+          </h3>
+          <p class="text-[#555] leading-relaxed">
+            Personalized portrait session tailored to your style and mood.
+            Includes consultation, location advice, and careful editing for a
+            cohesive look.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 <script is:inline>
-  const sets = {
-    elle: [
-      {
-        src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        alt: "ELLE photo 1",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop",
-        alt: "ELLE photo 2",
-      },
-    ],
-    vogue: [
-      {
-        src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop",
-        alt: "VOGUE photo 1",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop",
-        alt: "VOGUE photo 2",
-      },
-    ],
-    allure: [
-      {
-        src: "https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop",
-        alt: "ALLURE photo 1",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        alt: "ALLURE photo 2",
-      },
-    ],
-    numero: [
-      {
-        src: "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop",
-        alt: "NUMERO photo 1",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop",
-        alt: "NUMERO photo 2",
-      },
-    ],
-    essence: [
-      {
-        src: "https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop",
-        alt: "ESSENCE photo 1",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?q=80&w=1200&auto=format&fit=crop",
-        alt: "ESSENCE photo 2",
-      },
-    ],
-    marie: [
-      {
-        src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop",
-        alt: "MARIE CLAIRE photo 1",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?q=80&w=1200&auto=format&fit=crop",
-        alt: "MARIE CLAIRE photo 2",
-      },
-    ],
+  const texts = {
+    elle: {
+      title: "Individual Shoot",
+      body: `
+    <p><strong>(личная, парная, коммерческая, мероприятия)</strong></p>
+
+    <p><strong>Цена съёмки:</strong> 70&nbsp;€ / 1–1,30 часа. 
+    Так как мы можем передвигаться по локациям во время фотосессии, 
+    я закладываю немного больше времени.</p>
+
+    <h3>Индивидуальная съёмка</h3>
+    <p><strong>Продолжительность:</strong> ~1–1,30 часа 
+    (улица / дом / природа / студия или отель*)</p>
+
+    <ul>
+      <li>Консультация перед съёмкой</li>
+      <li>3–5 коротких видео для соцсетей и Reels</li>
+      <li>Выбор изображений и локаций, создание личного <em>moodboard</em></li>
+      <li>30–40 фотографий в личном редактировании</li>
+      <li>Готовые фотографии: в течение 7–14 рабочих дней</li>
+    </ul>
+
+    <p><em>(*Цена не включает стоимость студии.)</em></p>
+  `,
+    },
+    vogue: {
+      title: "Создание контента (фото / видео)",
+      body: `
+    <h3>Контент-съёмка на телефон</h3>
+
+    <ul>
+      <li><strong>Разовая съёмка:</strong> 1 час / iPhone — <strong>30&nbsp;€</strong></li>
+      <li><strong>Абонемент на месяц:</strong> 3 съёмки — <strong>75&nbsp;€</strong></li>
+    </ul>
+
+    <p><strong>Включено:</strong></p>
+    <ul>
+      <li>Консультация перед съёмкой</li>
+      <li>Выбор места и обсуждение всех деталей</li>
+      <li>Подготовка к съёмке контента в уличном стиле</li>
+    </ul>
+
+    <p>Ежемесячный пакет позволяет вам сотрудничать со мной в течение 1&nbsp;месяца, 
+    в течение которого у нас будет <strong>4 встречи / съёмки</strong>, 
+    где я создам уникальный личный контент по индивидуальному запросу для социальных сетей.</p>
+
+    <p><em>Таким образом, у вас есть «бесконечный контент» и вы экономите время на большинстве деталей.</em></p>
+  `,
+    },
+    allure: {
+      title: "Фотосессия на плёнку",
+      body: `
+    <p><strong>Стоимость съёмки:</strong> 60&nbsp;€</p>
+    <p><strong>Продолжительность:</strong> 2&nbsp;часа</p>
+
+    <p><strong>Что входит:</strong></p>
+    <ul>
+      <li>Выбор места, обсуждение деталей и образа</li>
+      <li>Катушка плёнки, проявка и отцифровка <em>(входит в стоимость)</em></li>
+      <li>Помощь в позировании, подготовка референсов</li>
+      <li>Съёмка на улице (по согласованной локации) или в студии</li>
+    </ul>
+
+    <p><strong>Результат:</strong> 36&nbsp;фото</p>
+    <p><strong>Срок готовности:</strong> 10&nbsp;рабочих&nbsp;дней</p>
+  `,
+    },
+    numero: {
+      title: "Съёмка пары / семьи",
+      body: `
+    <p><strong>Продолжительность:</strong> 1&nbsp;час 
+    <em>(обсуждается индивидуально, иногда требуется немного больше времени)</em></p>
+
+    <ul>
+      <li>Консультация перед съёмкой</li>
+      <li>Выбор места, изображений для съёмки и обсуждение всех деталей</li>
+      <li>Создание персональной доски настроения (<em>moodboard</em>) для фотосессии</li>
+      <li>40–50 фотографий в личном редактировании</li>
+      <li>Готовые фотографии через 10–12&nbsp;рабочих&nbsp;дней</li>
+    </ul>
+  `,
+    },
+    essence: {
+      title: "Подарочный сертификат 💌",
+      body: `
+    <p>Подарочный сертификат будет отправлен в формате <strong>PDF</strong> со всеми деталями, 
+    чтобы вы могли распечатать его самостоятельно.</p>
+
+    <p><strong>Стоимость сертификата:</strong> равна стоимости и продолжительности 
+    личной индивидуальной съёмки. <br>
+    <em>(Дизайн можно настроить по запросу.)</em></p>
+
+    <p><strong>Каждая съёмка включает в себя:</strong></p>
+    <ul>
+      <li>Предварительный разговор о плане съёмки</li>
+      <li>Предложения и помощь по идее, местам и нарядам</li>
+      <li>Фотосессия в соответствии с выбранным временем</li>
+    </ul>
+  `,
+    },
+    marie: {
+      title: "Условия предоставления услуг ↓",
+      body: `
+    <ul>
+      <li>Я не предоставляю исходные файлы (<strong>RAW</strong>), так как это незаконченный материал.</li>
+      <li>Я не выполняю глубокую ретушь и не изменяю внешность — удаляю только временные недостатки (прыщи, синяки, царапины).</li>
+      <li>Я оставляю за собой право выбора фотографий, которые будут обработаны и переданы. Повторная обработка или изменения по запросу не выполняются.</li>
+      <li>В случае опоздания на съёмку потерянное время вычитается из оплаченной сессии.</li>
+      <li>Обработанные фотографии хранятся ограниченное время после передачи. Ответственность за загрузку и сохранность файлов после этого периода лежит на клиенте.</li>
+      <li>Бронируя дату, вы даёте согласие на использование ваших фотографий в моём портфолио, в социальных сетях и для продвижения моей деятельности.</li>
+    </ul>
+
+    <p><em>Если вы не хотите, чтобы ваши фотографии публиковались, пожалуйста, сообщите об этом до бронирования.</em></p>
+
+    <ul>
+      <li>Бронируя дату, вы соглашаетесь с моим стилем съёмки и подходом к обработке / ретуши, а также с условиями, изложенными здесь. 
+      Пожалуйста, ознакомьтесь с моим портфолио и этими правилами до бронирования.</li>
+    </ul>
+
+    <h3>Мудборд и подготовка к съёмке</h3>
+    <p>Для каждой съёмки я составляю <strong>мудборд</strong> — визуальную концепцию нашей фотосессии. 
+    Мы обсуждаем ваши пожелания, и на их основе я подбираю подходящие референсы. 
+    Если вы затрудняетесь с пожеланиями, вы можете указать на примеры из моего портфолио, и я буду отталкиваться от этого.</p>
+
+    <p>Помимо концепции съёмки, я даю рекомендации по образам и прикрепляю <em>референсы по позированию</em>, 
+    чтобы мы могли обращаться к ним во время съёмки. 
+    Я всегда направляю и подсказываю во время процесса, а референсы носят лишь рекомендательный характер.</p>
+  `,
+    },
   };
 
   const prefersNoMotion =
@@ -189,49 +254,29 @@
     });
   }
 
-  async function fadeSwap(img1, img2, pair) {
-    if (!img1 || !img2 || !pair) return;
+  async function fadeTextSwap(container, content) {
+    if (!container) return;
 
     if (prefersNoMotion) {
-      img1.src = pair[0].src;
-      img1.alt = pair[0].alt;
-      img2.src = pair[1].src;
-      img2.alt = pair[1].alt;
+      container.innerHTML = content;
       return;
     }
 
     // Fade OUT
-    setOpacityLow(img1, img2);
+    setOpacityLow(container);
     await Promise.race([
       new Promise((r) => setTimeout(r, OUT_DELAY_MS)),
-      waitTransition(img1),
-      waitTransition(img2),
+      waitTransition(container),
     ]);
 
     // Swap
-    img1.src = pair[0].src;
-    img1.alt = pair[0].alt;
-    img2.src = pair[1].src;
-    img2.alt = pair[1].alt;
+    container.innerHTML = content;
     // Force reflow
     // eslint-disable-next-line no-unused-expressions
-    img1.offsetHeight;
+    container.offsetHeight;
 
     // Fade IN
-    setOpacityHigh(img1, img2);
-  }
-
-  const preloadCache = new Set();
-  function preloadPair(pair) {
-    const key = pair.map((i) => i.src).join("|");
-    if (preloadCache.has(key)) return;
-    pair.forEach(({ src }) => {
-      const i = new Image();
-      i.decoding = "async";
-      i.loading = "eager";
-      i.src = src;
-    });
-    preloadCache.add(key);
+    setOpacityHigh(container);
   }
 
   function setActiveButton(root, btn) {
@@ -245,21 +290,21 @@
     const root = document.getElementById("services");
     if (!root) return;
 
-    const img1 = root.querySelector("#services-img-1");
-    const img2 = root.querySelector("#services-img-2");
-
-    if (img1) img1.style.opacity = "1";
-    if (img2) img2.style.opacity = "1";
+    const textBox = root.querySelector("#services-text");
+    if (textBox) textBox.style.opacity = "1";
 
     const onClick = (e) => {
       const btn =
         e.target instanceof Element ? e.target.closest("[data-svc]") : null;
       if (!btn) return;
       const key = btn.getAttribute("data-svc");
-      const pair = key ? sets[key] : null;
-      if (!pair) return;
-      preloadPair(pair);
-      fadeSwap(img1, img2, pair);
+      const data = key ? texts[key] : null;
+      if (!data) return;
+      const html = `
+        <h3 class="text-xl sm:text-2xl font-semibold mb-3">${data.title}</h3>
+        <p class="text-[#555] leading-relaxed">${data.body}</p>
+      `;
+      fadeTextSwap(textBox, html);
       setActiveButton(root, btn);
     };
 
@@ -268,8 +313,12 @@
 
     const initialBtn = root.querySelector('[data-svc][aria-pressed="true"]');
     const initialKey = initialBtn?.getAttribute("data-svc");
-    if (initialKey && sets[initialKey]) {
-      preloadPair(sets[initialKey]);
+    if (initialKey && texts[initialKey] && textBox) {
+      const { title, body } = texts[initialKey];
+      textBox.innerHTML = `
+        <h3 class="text-xl sm:text-2xl font-semibold mb-3">${title}</h3>
+        <p class="text-[#555] leading-relaxed">${body}</p>
+      `;
     }
   }
 
