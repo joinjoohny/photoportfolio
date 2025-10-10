@@ -58,10 +58,116 @@
             >contacts</a
           >
         </li>
+        <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
+          <a
+            href="#"
+            id="nav-booking-terms"
+            class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
+            >booking terms</a
+          >
+        </li>
       </ul>
     </nav>
   </div>
 </header>
+
+<!-- Booking Terms Modal -->
+<div id="topbar-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+  <div id="topbar-modal-backdrop" class="absolute inset-0 bg-black/50"></div>
+  <div
+    class="relative mx-auto my-8 max-w-[900px] px-5"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="topbar-modal-title"
+  >
+    <div class="bg-white rounded-md shadow-xl overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-[#eee]">
+        <h3 id="topbar-modal-title" class="text-xl font-semibold m-0">
+          Booking Terms
+        </h3>
+        <button
+          id="topbar-modal-close"
+          type="button"
+          class="inline-flex items-center justify-center text-[#666] hover:text-[#111] transition-colors"
+          aria-label="Close"
+        >
+          ✕
+        </button>
+      </div>
+      <div id="topbar-modal-content" class="px-5 py-5 leading-relaxed text-[#444] overflow-y-auto max-h-[75vh]"></div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  function initTopbar() {
+    const btn = document.getElementById("nav-booking-terms");
+    const toggle = document.getElementById("nav-toggle");
+    // Modal refs
+    const modal = document.getElementById("topbar-modal");
+    const modalContent = document.getElementById("topbar-modal-content");
+    const modalClose = document.getElementById("topbar-modal-close");
+    const modalBackdrop = document.getElementById("topbar-modal-backdrop");
+
+    const bookingTermsHTML = `
+    <ul>
+      <li>Я не предоставляю исходные файлы (<strong>RAW</strong>), так как это незаконченный материал.</li>
+      <li>Я не выполняю глубокую ретушь и не изменяю внешность — удаляю только временные недостатки (прыщи, синяки, царапины).</li>
+      <li>Я оставляю за собой право выбора фотографий, которые будут обработаны и переданы. Повторная обработка или изменения по запросу не выполняются.</li>
+      <li>В случае опоздания на съёмку потерянное время вычитается из оплаченной сессии.</li>
+      <li>Обработанные фотографии хранятся ограниченное время после передачи. Ответственность за загрузку и сохранность файлов после этого периода лежит на клиенте.</li>
+      <li>Бронируя дату, вы даёте согласие на использование ваших фотографий в моём портфолио, в социальных сетях и для продвижения моей деятельности.</li>
+    </ul>
+
+    <p><em>Если вы не хотите, чтобы ваши фотографии публиковались, пожалуйста, сообщите об этом до бронирования.</em></p>
+
+    <ul>
+      <li>Бронируя дату, вы соглашаетесь с моим стилем съёмки и подходом к обработке / ретуши, а также с условиями, изложенными здесь. 
+      Пожалуйста, ознакомьтесь с моим портфолио и этими правилами до бронирования.</li>
+    </ul>
+
+    <h3>Мудборд и подготовка к съёмке</h3>
+    <p>Для каждой съёмки я составляю <strong>мудборд</strong> — визуальную концепцию нашей фотосессии. 
+    Мы обсуждаем ваши пожелания, и на их основе я подбираю подходящие референсы. 
+    Если вы затрудняетесь с пожеланиями, вы можете указать на примеры из моего портфолио, и я буду отталкиваться от этого.</p>
+
+    <p>Помимо концепции съёмки, я даю рекомендации по образам и прикрепляю <em>референсы по позированию</em>, 
+    чтобы мы могли обращаться к ним во время съёмки. 
+    Я всегда направляю и подсказываю во время процесса, а референсы носят лишь рекомендательный характер.</p>`;
+
+    function openModal() {
+      if (!modal || !modalContent) return;
+      const titleEl = document.getElementById("topbar-modal-title");
+      if (titleEl) titleEl.textContent = "Условия предоставления услуг";
+      modalContent.innerHTML = `<div class=\"text-[#555] leading-relaxed space-y-3\">${bookingTermsHTML}</div>`;
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    modalClose?.addEventListener("click", closeModal, { passive: true });
+    modalBackdrop?.addEventListener("click", closeModal, { passive: true });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal?.classList.contains("hidden")) closeModal();
+    });
+
+    if (btn) {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        // close mobile menu if open
+        if (toggle && toggle.checked) toggle.checked = false;
+        openModal();
+      });
+    }
+  }
+  document.addEventListener("astro:page-load", initTopbar);
+  document.addEventListener("astro:after-swap", initTopbar);
+  document.addEventListener("DOMContentLoaded", initTopbar);
+</script>
 
 <style>
   /* Minimal, elegant fade effect */

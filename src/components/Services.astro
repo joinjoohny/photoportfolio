@@ -52,15 +52,6 @@
         >
           Gift Certificate
         </button>
-        <button
-          type="button"
-          data-svc="marie"
-          aria-pressed="false"
-          class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
-                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
-        >
-          Booking Terms
-        </button>
       </div>
     </div>
 
@@ -292,6 +283,8 @@
 
     const textBox = root.querySelector("#services-text");
     if (textBox) textBox.style.opacity = "1";
+
+    // (Booking Terms modal was moved to Topbar)
 
     const onClick = (e) => {
       const btn =
