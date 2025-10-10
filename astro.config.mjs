@@ -10,4 +10,11 @@ export default defineConfig({
   },
   site: "https://www.polyanskaya.photography",
   base: "/",
+  i18n: {
+    locales: ["en", "de", "ru"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
 });

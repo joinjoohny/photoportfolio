@@ -1,13 +1,11 @@
 ---
-import Welcome from '../../components/Welcome.astro';
-import Layout from '../../layouts/Layout.astro';
+import Welcome from "../../components/Welcome.astro";
+import Layout from "../../layouts/Layout.astro";
 export function getStaticPaths() {
-  return ['en', 'de', 'ru'].map((lang) => ({ params: { lang } }));
+  return ["en", "de", "ru"].map((lang) => ({ params: { lang } }));
 }
 ---
 
 <Layout>
   <Welcome />
-  
 </Layout>
-
