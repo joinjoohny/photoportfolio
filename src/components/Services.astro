@@ -70,7 +70,7 @@
       >
         <div
           id="services-text"
-          class="p-6 sm:p-8 transition-opacity duration-200 ease-in-out opacity-100 will-change-[opacity]"
+          class="p-6 sm:p-8 min-h-[240px] sm:min-h-[280px] transition-opacity duration-200 ease-in-out opacity-100 will-change-[opacity]"
         >
           <h3 class="text-xl sm:text-2xl font-semibold mb-3">
             Individual Shoot
@@ -302,7 +302,7 @@
       if (!data) return;
       const html = `
         <h3 class="text-xl sm:text-2xl font-semibold mb-3">${data.title}</h3>
-        <p class="text-[#555] leading-relaxed">${data.body}</p>
+        <div class="text-[#555] leading-relaxed space-y-3">${data.body}</div>
       `;
       fadeTextSwap(textBox, html);
       setActiveButton(root, btn);
@@ -317,7 +317,7 @@
       const { title, body } = texts[initialKey];
       textBox.innerHTML = `
         <h3 class="text-xl sm:text-2xl font-semibold mb-3">${title}</h3>
-        <p class="text-[#555] leading-relaxed">${body}</p>
+        <div class="text-[#555] leading-relaxed space-y-3">${body}</div>
       `;
     }
   }
