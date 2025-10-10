@@ -1,29 +1,111 @@
 ---
-import { languages, getLangFromUrl } from '../i18n/ui';
+import { languages, getLangFromUrl } from "../i18n/ui";
 const current = getLangFromUrl(Astro.url);
 const path = Astro.url.pathname;
 
 function buildHref(target: string) {
-  const parts = path.split('/');
+  const parts = path.split("/");
   // ['', current, ...rest]
   if (parts.length > 1 && parts[1] in languages) {
     parts[1] = target;
   } else {
     parts.splice(1, 0, target);
   }
-  return parts.join('/') + (Astro.url.search || '') + (Astro.url.hash || '');
+  return parts.join("/") + (Astro.url.search || "") + (Astro.url.hash || "");
 }
 ---
-<div class="flex items-center gap-2 text-[12px] tracking-[0.08em]">
-  {Object.keys(languages).map((code) => (
-    <a
-      href={buildHref(code)}
-      class={`uppercase hover:underline ${code === current ? 'font-semibold text-[#3e5348]' : 'text-[#666]'}`}
-      aria-current={code === current ? 'true' : 'false'}
-    >
-      {code}
-    </a>
-  ))}
-  
+<!-- Mobile: inline codes (no dropdown) -->
+<div class="block lg:hidden">
+  <div class="flex items-center gap-5 px-5 py-4">
+    {Object.keys(languages).map((code) => (
+      <a
+        href={buildHref(code)}
+        class={`uppercase text-[14px] tracking-[0.06em] ${
+          code === current ? 'text-[#3e5348] font-semibold' : 'text-[#6b6b6b]'
+        }`}
+        aria-current={code === current ? 'true' : 'false'}
+      >
+        {code.toUpperCase()}
+      </a>
+    ))}
+  </div>
+  <div class="border-t border-[#e6e6e6]"></div>
 </div>
 
+<!-- Desktop: minimal dropdown -->
+<div class="relative hidden lg:inline-block text-left" data-lang-switcher>
+  <button
+    type="button"
+    id="lang-button"
+    class="inline-flex items-center gap-1.5 px-1.5 py-1 text-[12px] uppercase tracking-[0.08em] text-[#3a3a3a] hover:text-[#111] hover:underline underline-offset-2 focus:outline-none focus:ring-1 focus:ring-[#3e5348]/40 rounded-sm"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Language selector"
+  >
+    <span class="font-medium">{current.toUpperCase()}</span>
+    <svg viewBox="0 0 20 20" width="12" height="12" aria-hidden="true" class="opacity-60">
+      <path d="M5 7l5 5 5-5z" fill="currentColor" />
+    </svg>
+  </button>
+  <div
+    id="lang-menu"
+    class="absolute right-0 top-full z-30 mt-1 w-28 origin-top-right rounded-sm border border-[#eaeaea] bg-white hidden"
+    role="menu"
+    aria-label="Switch language"
+  >
+    <ul class="py-1">
+      {Object.keys(languages).map((code) => (
+        <li role="none">
+          <a
+            role="menuitemradio"
+            aria-checked={code === current ? 'true' : 'false'}
+            href={buildHref(code)}
+            class={`block px-2.5 py-1.5 text-[12px] tracking-[0.06em] hover:bg-[#f7f7f7] ${
+              code === current ? 'text-[#3e5348] font-semibold' : 'text-[#444]'
+            }`}
+          >
+            {code.toUpperCase()}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<script is:inline>
+  function initLangDropdown() {
+    const root = document.querySelector("[data-lang-switcher]");
+    if (!root) return;
+    const btn = root.querySelector("#lang-button");
+    const menu = root.querySelector("#lang-menu");
+    if (!btn || !menu) return;
+
+    const open = () => {
+      menu.classList.remove("hidden");
+      btn.setAttribute("aria-expanded", "true");
+      document.addEventListener("click", onDocClick, { capture: true });
+      document.addEventListener("keydown", onKey);
+    };
+    const close = () => {
+      menu.classList.add("hidden");
+      btn.setAttribute("aria-expanded", "false");
+      document.removeEventListener("click", onDocClick, { capture: true });
+      document.removeEventListener("keydown", onKey);
+    };
+    const toggle = () => (menu.classList.contains("hidden") ? open() : close());
+    const onDocClick = (e) => {
+      if (!root.contains(e.target)) close();
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+    };
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggle();
+    });
+  }
+  document.addEventListener("astro:page-load", initLangDropdown);
+  document.addEventListener("astro:after-swap", initLangDropdown);
+  document.addEventListener("DOMContentLoaded", initLangDropdown);
+</script>
