@@ -127,7 +127,7 @@ export const services: Record<
     allure: {
       title: "Film Photoshoot",
       body: `
-      <p><strong>Price:</strong> 60&nbsp;€</p>
+      <p><strong>Price:</strong> 80&nbsp;€</p>
       <p><strong>Duration:</strong> 2 hours</p>
       <p><strong>Includes:</strong></p>
       <ul>
@@ -137,7 +137,7 @@ export const services: Record<
         <li>Shooting outdoors (agreed location) or in a studio</li>
       </ul>
       <p><strong>Result:</strong> 36 photos</p>
-      <p><strong>Ready in:</strong> 10 business days</p>
+      <p><strong>Ready in:</strong> 10–15 business days</p>
       <h3>Each session includes</h3>
       <ul>
         <li>Preliminary talk about the shoot plan</li>
@@ -149,13 +149,15 @@ export const services: Record<
     numero: {
       title: "Couple/Family",
       body: `
-      <p><strong>Duration:</strong> 1 hour <em>(discussed individually; sometimes a little more time is needed)</em></p>
+      <p><strong>Duration:</strong> 1–1.5 hours</p>
+      <p><strong>Price:</strong> 70&nbsp;€</p>
       <ul>
         <li>Pre‑shoot consultation</li>
         <li>Choosing location and shot ideas; discussing all details</li>
         <li>Creating a personal <em>moodboard</em> for the session</li>
-        <li>40–50 photos with my editing</li>
+        <li>30–40 photos with my editing</li>
         <li>Ready within 10–12 business days</li>
+        <li>Support and help with ideas, locations and outfits</li>
       </ul>
       <h3>Each session includes</h3>
       <ul>
@@ -168,14 +170,27 @@ export const services: Record<
     essence: {
       title: "Gift Certificate",
       body: `
-      <p>Gift certificate will be sent as a <strong>PDF</strong> with all details so you can print it yourself.</p>
-      <p><strong>Price of the certificate:</strong> equals the price and duration of the individual shoot. <em>(Design can be customized on request.)</em></p>
-      <h3>Each session includes</h3>
+      <p><strong>Price:</strong> 70&nbsp;€</p>
+      <p><strong>Duration:</strong> ~1&nbsp;hour</p>
+
+      <p>
+        The shoot can take place <strong>outdoors, at home, in nature, in a studio or hotel*</strong>.
+      </p>
+
+      <p><strong>Result:</strong> at least 40 edited photos</p>
+      <p><strong>Ready in:</strong> 10–21 days (depending on the season)</p>
+
+      <p>
+        The gift certificate is valid for <strong>6 months</strong> and can be used in <strong>Dresden, Leipzig or Berlin</strong>.
+      </p>
+
+      <h3>Available in two formats:</h3>
       <ul>
-        <li>Preliminary talk about the shoot plan</li>
-        <li>Ideas, location and outfit guidance</li>
-        <li>Shooting according to the chosen time</li>
+        <li><strong>PDF</strong> — for self‑printing</li>
+        <li><strong>Paper version</strong> — in person or by post</li>
       </ul>
+
+      <p><em>*Studio or hotel rental cost is not included in the voucher price.</em></p>
       `,
     },
   },
@@ -222,7 +237,7 @@ export const services: Record<
     allure: {
       title: "Film‑Fotoshooting",
       body: `
-      <p><strong>Preis:</strong> 60&nbsp;€</p>
+      <p><strong>Preis:</strong> 80&nbsp;€</p>
       <p><strong>Dauer:</strong> 2 Stunden</p>
       <p><strong>Enthalten:</strong></p>
       <ul>
@@ -232,7 +247,7 @@ export const services: Record<
         <li>Shooting outdoor (abgesprochene Location) oder im Studio</li>
       </ul>
       <p><strong>Ergebnis:</strong> 36 Fotos</p>
-      <p><strong>Bereit in:</strong> 10 Werktagen</p>
+      <p><strong>Bereit in:</strong> 10–15 Werktagen</p>
       <h3>Jede Session enthält</h3>
       <ul>
         <li>Vorgespräch zum Ablauf der Session</li>
@@ -244,13 +259,15 @@ export const services: Record<
     numero: {
       title: "Paar/Familie",
       body: `
-      <p><strong>Dauer:</strong> 1 Stunde <em>(individuell besprochen; manchmal ist etwas mehr Zeit nötig)</em></p>
+      <p><strong>Dauer:</strong> 1–1,5 Stunden</p>
+      <p><strong>Preis:</strong> 70&nbsp;€</p>
       <ul>
         <li>Vorgespräch vor dem Shooting</li>
         <li>Wahl der Location und Motive; Besprechung aller Details</li>
         <li>Erstellung eines persönlichen <em>Moodboards</em></li>
-        <li>40–50 Fotos in meinem Look</li>
+        <li>30–40 Fotos in meinem Look</li>
         <li>Bereit in 10–12 Werktagen</li>
+        <li>Unterstützung und Hilfe bei Ideen, Locations und Outfits</li>
       </ul>
       <h3>Jede Session enthält</h3>
       <ul>
@@ -263,14 +280,27 @@ export const services: Record<
     essence: {
       title: "Gutschein",
       body: `
-      <p>Der Gutschein wird als <strong>PDF</strong> mit allen Details versendet, damit du ihn selbst ausdrucken kannst.</p>
-      <p><strong>Preis des Gutscheins:</strong> entspricht Preis und Dauer des Einzelshootings. <em>(Design auf Wunsch anpassbar.)</em></p>
-      <h3>Jede Session enthält</h3>
+      <p><strong>Preis:</strong> 70&nbsp;€</p>
+      <p><strong>Dauer:</strong> ~1&nbsp;Stunde</p>
+
+      <p>
+        Das Shooting kann <strong>Outdoor, zu Hause, in der Natur, im Studio oder Hotel*</strong> stattfinden.
+      </p>
+
+      <p><strong>Ergebnis:</strong> mindestens 40 bearbeitete Fotos</p>
+      <p><strong>Bereit in:</strong> 10–21 Tagen (abhängig von der Saison)</p>
+
+      <p>
+        Der Gutschein ist <strong>6 Monate</strong> gültig und kann in <strong>Dresden, Leipzig oder Berlin</strong> eingelöst werden.
+      </p>
+
+      <h3>Erhältlich in zwei Formaten:</h3>
       <ul>
-        <li>Vorgespräch zum Ablauf der Session</li>
-        <li>Unterstützung bei Idee, Location und Outfits</li>
-        <li>Shooting entsprechend der gewählten Zeit</li>
+        <li><strong>PDF</strong> — zum selbst Ausdrucken</li>
+        <li><strong>Papier‑Variante</strong> — bei persönlicher Übergabe oder per Postversand</li>
       </ul>
+
+      <p><em>*Die Miete für Fotostudio oder Hotel ist nicht im Gutscheinpreis enthalten.</em></p>
       `,
     },
   },
