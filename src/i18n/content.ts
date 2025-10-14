@@ -2,21 +2,21 @@ import type { Lang } from "./ui";
 
 export const aboutBody: Record<Lang, string> = {
   en: `
-  <p><span class="inline-block text-[#dfb2b2] py-0.5 text-lg">My name is Vlada Polyanskaya</span></p>
+  <p><span class="inline-block py-0.5 text-lg">My name is Vlada Polyanskaya</span></p>
   <p>I love portrait photography and minimalism. For me, it’s not just about creating a beautiful photo — trust, openness to the process, and genuine emotions are just as important.</p>
   <p>I’ve been passionate about creativity since childhood and have always loved observing people. Photography combines everything I love: fashion, beauty, and art. I follow trends and use them to highlight each person’s individuality.</p>
   <p>For me, every photoshoot is a creative space and a form of therapy, where we can explore self-love together.</p>
   <p>If you like my work — it means we’ve found each other. See you soon!</p>
   `,
   de: `
-  <p><span class="inline-block text-[#dfb2b2] py-0.5 text-lg">Ich heiße Vlada Polyanskaya</span></p>
+  <p><span class="inline-block py-0.5 text-lg">Ich heiße Vlada Polyanskaya</span></p>
   <p>Ich liebe Porträtfotografie und Minimalismus. Für mich geht es nicht nur um ein schönes Bild — Vertrauen, Offenheit im Prozess und echte Emotionen sind genauso wichtig.</p>
   <p>Kreativität begleitet mich seit meiner Kindheit, und ich habe es immer geliebt, Menschen zu beobachten. Die Fotografie vereint alles, was ich mag: Mode, Schönheit und Kunst. Ich verfolge Trends und nutze sie, um die Einzigartigkeit jeder Person zu betonen.</p>
   <p>Jedes Shooting ist für mich ein kreativer Raum und gleichzeitig eine Art Therapie, in dem wir gemeinsam Selbstliebe entdecken können.</p>
   <p>Wenn dir meine Arbeiten gefallen — dann haben wir uns gefunden. Bis bald!</p>
   `,
   ru: `
-  <p><span class="inline-block text-[#dfb2b2] py-0.5 text-lg">Меня зовут Влада Полянская</span></p>
+  <p><span class="inline-block py-0.5 text-lg">Меня зовут Влада Полянская</span></p>
   <p>Я люблю портретную фотографию и минимализм. Для меня важны не только красивые кадры — доверие, открытость процессу и настоящие эмоции так же важны.</p>
   <p>С детства я увлекаюсь творчеством и люблю наблюдать за людьми. В фотографии соединяется всё, что мне близко: мода, красота и искусство. Я слежу за трендами и использую их, чтобы подчеркнуть индивидуальность каждого.</p>
   <p>Каждая съёмка для меня — это творческое пространство и немного терапия, где мы можем вместе исследовать принятие и любовь к себе.</p>
