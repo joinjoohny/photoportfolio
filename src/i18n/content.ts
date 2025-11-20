@@ -89,7 +89,7 @@ export const services: Record<
       title: "Individual Shoot",
       body: `
       <p><strong>(personal, couple, commercial, events)</strong></p>
-      <p><strong>Price:</strong> 70&nbsp;€ / 1–1.5 hours. I allow a bit more time because we may move between locations during the session.</p>
+      <p><strong>Price:</strong> 60&nbsp;€ / 1–1.5 hours. I allow a bit more time because we may move between locations during the session.</p>
       <p><strong>Duration: </strong>~1–1.5 hours (outdoors / home / nature / studio or hotel*)</p>
       <ul>
         <li>Pre‑shoot consultation</li>
@@ -199,7 +199,7 @@ export const services: Record<
       title: "Einzelshooting",
       body: `
       <p><strong>(privat, Paar, kommerziell, Events)</strong></p>
-      <p><strong>Preis:</strong> 70&nbsp;€ / 1–1,5 Stunden. Ich plane etwas mehr Zeit ein, da wir während des Shootings zwischen Locations wechseln können.</p>
+      <p><strong>Preis:</strong> 60&nbsp;€ / 1–1,5 Stunden. Ich plane etwas mehr Zeit ein, da wir während des Shootings zwischen Locations wechseln können.</p>
       <p><strong>Dauer: </strong>~1–1,5 Stunden (Outdoor / Zuhause / Natur / Studio oder Hotel*)</p>
       <ul>
         <li>Vorgespräch vor dem Shooting</li>
@@ -311,7 +311,7 @@ export const services: Record<
       <p><strong>(личная, парная, коммерческая, мероприятия)</strong></p>
 
       <p><strong>Продолжительность:</strong> 1–1,5&nbsp;часа</p>
-      <p><strong>Стоимость:</strong> 70&nbsp;€</p>
+      <p><strong>Стоимость:</strong> 60&nbsp;€</p>
 
       <p>
         Съёмка может проходить <strong>на улице, дома, в природе, студии или отеле</strong>
