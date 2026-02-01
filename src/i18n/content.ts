@@ -88,8 +88,7 @@ export const services: Record<
     elle: {
       title: "Individual Shoot",
       body: `
-      <p><strong>(personal, couple, commercial, events)</strong></p>
-      <p><strong>Price:</strong> 60&nbsp;€ / 1–1.5 hours. I allow a bit more time because we may move between locations during the session.</p>
+      <p><strong>Price:</strong> 70&nbsp;€ / 1 hour. I allow a bit more time because we may move between locations during the session.</p>
       <p><strong>Duration: </strong>~1–1.5 hours (outdoors / home / nature / studio or hotel*)</p>
       <ul>
         <li>Pre‑shoot consultation</li>
@@ -128,7 +127,7 @@ export const services: Record<
       title: "Film Photoshoot",
       body: `
       <p><strong>Price:</strong> 80&nbsp;€</p>
-      <p><strong>Duration:</strong> 2 hours</p>
+      <p><strong>Duration:</strong> 1 hour</p>
       <p><strong>Includes:</strong></p>
       <ul>
         <li>Location choice, discussing details and looks</li>
@@ -149,7 +148,7 @@ export const services: Record<
     numero: {
       title: "Couple/Family",
       body: `
-      <p><strong>Duration:</strong> 1–1.5 hours</p>
+      <p><strong>Duration:</strong> 1 hour</p>
       <p><strong>Price:</strong> 70&nbsp;€</p>
       <ul>
         <li>Pre‑shoot consultation</li>
@@ -170,15 +169,12 @@ export const services: Record<
     essence: {
       title: "Gift Certificate",
       body: `
-      <p><strong>Price:</strong> 70&nbsp;€</p>
-      <p><strong>Duration:</strong> ~1&nbsp;hour</p>
-
       <p>
         The shoot can take place <strong>outdoors, at home, in nature, in a studio or hotel*</strong>.
       </p>
 
       <p><strong>Result:</strong> at least 40 edited photos</p>
-      <p><strong>Ready in:</strong> 10–21 days (depending on the season)</p>
+      <p><strong>Ready in:</strong> 7–14 days (depending on the season)</p>
 
       <p>
         The gift certificate is valid for <strong>6 months</strong> and can be used in <strong>Dresden, Leipzig or Berlin</strong>.
@@ -198,8 +194,7 @@ export const services: Record<
     elle: {
       title: "Einzelshooting",
       body: `
-      <p><strong>(privat, Paar, kommerziell, Events)</strong></p>
-      <p><strong>Preis:</strong> 60&nbsp;€ / 1–1,5 Stunden. Ich plane etwas mehr Zeit ein, da wir während des Shootings zwischen Locations wechseln können.</p>
+      <p><strong>Preis:</strong> 70&nbsp;€ / 1 Stunden. Ich plane etwas mehr Zeit ein, da wir während des Shootings zwischen Locations wechseln können.</p>
       <p><strong>Dauer: </strong>~1–1,5 Stunden (Outdoor / Zuhause / Natur / Studio oder Hotel*)</p>
       <ul>
         <li>Vorgespräch vor dem Shooting</li>
@@ -222,7 +217,7 @@ export const services: Record<
       body: `
       <h3>Content‑Shooting mit dem Telefon</h3>
       <ul>
-        <li><strong>Einzel:</strong> 1 Stunde / iPhone — <strong>30&nbsp;€</strong></li>
+        <li><strong>Einzel:</strong> 1 Stunden / iPhone — <strong>30&nbsp;€</strong></li>
         <li><strong>Monats‑Abo:</strong> 3 Shootings — <strong>75&nbsp;€</strong></li>
       </ul>
       <p><strong>Vorgespräch vor dem Shooting</strong>, Wahl des Ortes und Besprechung aller Details, wie man sich für Content im urbanen Stil vorbereitet. Mit dem Monatspaket arbeiten wir 1 Monat zusammen und haben <strong>3 Treffen/Shootings</strong>, in denen ich einzigartigen, persönlichen Content für Social Media erstelle. So hast du „endlosen Content“ und sparst Zeit bei vielen Details.</p>
@@ -238,7 +233,7 @@ export const services: Record<
       title: "Film‑Fotoshooting",
       body: `
       <p><strong>Preis:</strong> 80&nbsp;€</p>
-      <p><strong>Dauer:</strong> 2 Stunden</p>
+      <p><strong>Dauer:</strong> 1 Stunden</p>
       <p><strong>Enthalten:</strong></p>
       <ul>
         <li>Wahl des Ortes, Details und Look‑Besprechung</li>
@@ -259,7 +254,7 @@ export const services: Record<
     numero: {
       title: "Paar/Familie",
       body: `
-      <p><strong>Dauer:</strong> 1–1,5 Stunden</p>
+      <p><strong>Dauer:</strong> 1 Stunden</p>
       <p><strong>Preis:</strong> 70&nbsp;€</p>
       <ul>
         <li>Vorgespräch vor dem Shooting</li>
@@ -280,9 +275,6 @@ export const services: Record<
     essence: {
       title: "Gutschein",
       body: `
-      <p><strong>Preis:</strong> 70&nbsp;€</p>
-      <p><strong>Dauer:</strong> ~1&nbsp;Stunde</p>
-
       <p>
         Das Shooting kann <strong>Outdoor, zu Hause, in der Natur, im Studio oder Hotel*</strong> stattfinden.
       </p>
