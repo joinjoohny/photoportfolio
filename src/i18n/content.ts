@@ -2,25 +2,25 @@ import type { Lang } from "./ui";
 
 export const aboutBody: Record<Lang, string> = {
   en: `
-  <p><span class="inline-block py-0.5 text-lg">My name is Vlada Polyanskaya</span></p>
-  <p>I love portrait photography and minimalism. For me, it’s not just about creating a beautiful photo — trust, openness to the process, and genuine emotions are just as important.</p>
-  <p>I’ve been passionate about creativity since childhood and have always loved observing people. Photography combines everything I love: fashion, beauty, and art. I follow trends and use them to highlight each person’s individuality.</p>
-  <p>For me, every photoshoot is a creative space and a form of therapy, where we can explore self-love together.</p>
-  <p>If you like my work — it means we’ve found each other. See you soon!</p>
+  <p><span class="inline-block py-0.5 text-lg">Hi, I’m Vlada.</span></p>
+  <p>I create minimalist portrait photography, working with both digital and film.</p>
+  <p>I focus on natural, unposed moments where you simply feel your body and your presence.</p>
+  <p>Each photoshoot is a creative space and a form of therapy, where we explore self-acceptance and self-love together.</p>
+  <p>If my work resonates with you, it means we’ve found each other. See you soon ❣️</p>
   `,
   de: `
-  <p><span class="inline-block py-0.5 text-lg">Ich heiße Vlada Polyanskaya</span></p>
-  <p>Ich liebe Porträtfotografie und Minimalismus. Für mich geht es nicht nur um ein schönes Bild — Vertrauen, Offenheit im Prozess und echte Emotionen sind genauso wichtig.</p>
-  <p>Kreativität begleitet mich seit meiner Kindheit, und ich habe es immer geliebt, Menschen zu beobachten. Die Fotografie vereint alles, was ich mag: Mode, Schönheit und Kunst. Ich verfolge Trends und nutze sie, um die Einzigartigkeit jeder Person zu betonen.</p>
-  <p>Jedes Shooting ist für mich ein kreativer Raum und gleichzeitig eine Art Therapie, in dem wir gemeinsam Selbstliebe entdecken können.</p>
-  <p>Wenn dir meine Arbeiten gefallen — dann haben wir uns gefunden. Bis bald!</p>
+  <p><span class="inline-block py-0.5 text-lg">Hi, ich bin Vlada.</span></p>
+  <p>Ich kreiere minimalistische Porträtfotografie und arbeite sowohl digital als auch analog.</p>
+  <p>Ich lege den Fokus auf natürliche, ungestellte Momente in denen du deinen Körper und deine Präsenz bewusst wahrnimmst.</p>
+  <p>Jedes Shooting ist für mich ein kreativer Raum und eine Form von Therapie, in dem wir gemeinsam Selbstakzeptanz und Selbstliebe erforschen.</p>
+  <p>Wenn meine Arbeit dich berührt, haben wir einander gefunden. Bis bald ❣️</p>
   `,
   ru: `
-  <p><span class="inline-block py-0.5 text-lg">Меня зовут Влада Полянская</span></p>
-  <p>Я люблю портретную фотографию и минимализм. Для меня важны не только красивые кадры — доверие, открытость процессу и настоящие эмоции так же важны.</p>
-  <p>С детства я увлекаюсь творчеством и люблю наблюдать за людьми. В фотографии соединяется всё, что мне близко: мода, красота и искусство. Я слежу за трендами и использую их, чтобы подчеркнуть индивидуальность каждого.</p>
-  <p>Каждая съёмка для меня — это творческое пространство и немного терапия, где мы можем вместе исследовать принятие и любовь к себе.</p>
-  <p>Если вам откликаются мои работы — значит, мы нашли друг друга. До встречи!</p>
+  <p><span class="inline-block py-0.5 text-lg">Привет, я Влада.</span></p>
+  <p>Я снимаю портреты в стиле минимализм на цифру и плёнку.</p>
+  <p>Мне важны живые кадры  без позирования, где вы просто чувствуете своё тело и ощущения.</p>
+  <p>Каждая фотосъёмка для меня это творческое пространство и своего рода терапия, где мы вместе можем исследовать принятие и любовь к себе.</p>
+  <p>Если вам откликаются мои работы  значит, мы нашли друг друга. До встречи ❣️</p>
   `,
 };
 
