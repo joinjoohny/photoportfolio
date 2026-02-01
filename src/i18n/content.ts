@@ -308,10 +308,8 @@ export const services: Record<
     elle: {
       title: "Индивидуальная съёмка",
       body: `
-      <p><strong>(личная, парная, коммерческая, мероприятия)</strong></p>
-
-      <p><strong>Продолжительность:</strong> 1–1,5&nbsp;часа</p>
-      <p><strong>Стоимость:</strong> 60&nbsp;€</p>
+      <p><strong>Продолжительность:</strong> 1 час</p>
+      <p><strong>Стоимость:</strong> 70&nbsp;€</p>
 
       <p>
         Съёмка может проходить <strong>на улице, дома, в природе, студии или отеле</strong>
@@ -351,7 +349,7 @@ export const services: Record<
       title: "Плёночная съёмка",
       body: `
       <p><strong>Стоимость съёмки:</strong> 80&nbsp;€</p>
-      <p><strong>Продолжительность:</strong> 2 часа</p>
+      <p><strong>Продолжительность:</strong> 1 час</p>
       <p><strong>Что входит:</strong></p>
       <ul>
         <li>Выбор места, обсуждение деталей и образа</li>
@@ -372,7 +370,7 @@ export const services: Record<
     numero: {
       title: "Пара/Семья",
       body: `
-    <p><strong>Продолжительность:</strong> 1–1,5&nbsp;часа</p>
+    <p><strong>Продолжительность:</strong> 1 час</p>
     <p><strong>Стоимость:</strong> 70&nbsp;€</p>
 
     <p>
@@ -395,15 +393,12 @@ export const services: Record<
     essence: {
       title: "Подарочный сертификат 💌",
       body: `
-        <p><strong>Стоимость:</strong> 70&nbsp;€</p>
-        <p><strong>Продолжительность:</strong> ~1&nbsp;час</p>
-
         <p>
           Съёмка может проходить <strong>на улице, дома, в природе, студии или отеле*</strong>.
         </p>
 
         <p><strong>Результат:</strong> минимум 40&nbsp;обработанных фотографий</p>
-        <p><strong>Срок готовности:</strong> 10–21&nbsp;день (в зависимости от сезона)</p>
+        <p><strong>Срок готовности:</strong> 7–14&nbsp;дней (в зависимости от сезона)</p>
 
         <p>
           Подарочный сертификат действует в течение <strong>6&nbsp;месяцев</strong> 
