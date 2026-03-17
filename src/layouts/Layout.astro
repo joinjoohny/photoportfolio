@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { useTranslations, getLangFromUrl } from "../i18n/ui";
+import CookieConsent from "../components/CookiesPopup.astro";
 const t = useTranslations(Astro);
 const lang = getLangFromUrl(Astro.url);
 ---
@@ -21,5 +22,6 @@ const lang = getLangFromUrl(Astro.url);
   </head>
   <body class="min-h-screen bg-[#fff] antialiased tracking-widest">
     <slot />
+    <CookieConsent />
   </body>
 </html>
