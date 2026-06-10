@@ -1,0 +1,24 @@
+---
+import GalleryCmp from "../../../components/gallery/Gallery.astro";
+import GalleryPage from "../../../components/gallery/GalleryPage.astro";
+import { galleries } from "../../../data/galleries";
+import Layout from "../../../layouts/Layout.astro";
+import { localeParams } from "../../../i18n/ui";
+
+export function getStaticPaths() {
+  return localeParams.flatMap((lang) =>
+    galleries.map((gallery) => ({
+      params: { lang, gallery: gallery.slug },
+      props: { gallery },
+    })),
+  );
+}
+
+const { gallery } = Astro.props;
+---
+
+<Layout>
+  <GalleryPage>
+    <GalleryCmp gallery={gallery} />
+  </GalleryPage>
+</Layout>

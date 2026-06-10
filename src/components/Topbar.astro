@@ -2,8 +2,26 @@
 import { useTranslations, getLangFromUrl } from "../i18n/ui";
 import LangSwitcher from "./LangSwitcher.astro";
 import { bookingTerms } from "../i18n/content";
+import { galleries } from "../data/galleries";
 const t = useTranslations(Astro);
 const lang = getLangFromUrl(Astro.url);
+const galleryBase = lang === "en" ? "/gallery" : `/${lang}/gallery`;
+const currentPath = Astro.url.pathname.replace(/\/+$/, "");
+const activeSlug =
+  galleries.find(
+    (gallery) => currentPath === `${galleryBase}/${gallery.slug}`,
+  )?.slug ?? null;
+
+// Home page: "" for en, "/de"/"/ru" for others. Anchor links scroll in-page on
+// the home page, but jump to the home page (with hash) from anywhere else.
+const homeBase = lang === "en" ? "" : `/${lang}`;
+const isHome = currentPath === homeBase;
+const anchor = (id: string) => (isHome ? `#${id}` : `${homeBase}/#${id}`);
+
+// "Book me" CTA → opens the Telegram chat with a localized prefilled message.
+const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
+  t("book.message"),
+)}`;
 ---
 
 <header class="sticky top-0 bg-[#fff] backdrop-saturate-150 backdrop-blur z-20">
@@ -37,31 +55,72 @@ const lang = getLangFromUrl(Astro.url);
       aria-label="Main navigation"
       class="absolute left-0 right-0 top-full bg-[#fff] border-t border-b border-[#e6e6e6] shadow-[0_10px_30px_rgba(0,0,0,0.06)] opacity-0 -translate-y-2 pointer-events-none transition-opacity transition-transform duration-200 ease-out peer-checked:opacity-100 peer-checked:translate-y-0 peer-checked:pointer-events-auto lg:static lg:opacity-100 lg:translate-y-0 lg:pointer-events-auto lg:shadow-none lg:border-none lg:bg-transparent lg:transition-none lg:duration-0 motion-reduce:transition-none"
     >
-      <ul class="flex flex-col lg:flex-row lg:items-center lg:gap-7 m-0 p-0 list-none">
+      <ul
+        class="flex flex-col lg:flex-row lg:items-center lg:gap-7 m-0 p-0 list-none"
+      >
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
-            href="#about"
+            href={anchor("about")}
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >{t("nav.about")}</a
           >
         </li>
-        <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
+        <li
+          class="group relative border-t first:border-t-0 border-[#e6e6e6] lg:border-0"
+        >
           <a
-            href="#portfolio"
-            class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
-            >{t("nav.portfolio")}</a
+            href={galleryBase}
+            aria-haspopup="true"
+            class:list={[
+              "nav-link flex items-center gap-1.5 px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent",
+              activeSlug && "is-active",
+            ]}
           >
+            {t("nav.portfolio")}
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-3.5 w-3.5 transition-transform duration-200 lg:group-hover:rotate-180"
+              aria-hidden="true"
+            >
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </a>
+          <ul
+            class="m-0 list-none p-0 lg:invisible lg:absolute lg:left-0 lg:top-full lg:min-w-[230px] lg:-translate-y-1 lg:rounded-md lg:border lg:border-[#e6e6e6] lg:bg-white lg:pt-2 lg:pb-2 lg:opacity-0 lg:shadow-[0_10px_30px_rgba(0,0,0,0.08)] lg:transition lg:duration-200 lg:before:absolute lg:before:-top-3 lg:before:left-0 lg:before:h-3 lg:before:w-full lg:before:content-[''] lg:group-hover:visible lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:translate-y-0 lg:group-focus-within:opacity-100"
+          >
+            {
+              galleries.map((gallery) => (
+                <li>
+                  <a
+                    href={`${galleryBase}/${gallery.slug}/`}
+                    aria-current={gallery.slug === activeSlug ? "page" : undefined}
+                    class:list={[
+                      "nav-link block px-8 py-3 text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:px-4 lg:py-2 lg:active:bg-transparent",
+                      gallery.slug === activeSlug && "is-active",
+                    ]}
+                  >
+                    {gallery.title[lang]}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
-            href="#services"
+            href={anchor("services")}
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >{t("nav.services")}</a
           >
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
-            href="#contacts"
+            href={anchor("contacts")}
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >{t("nav.contacts")}</a
           >
@@ -73,6 +132,29 @@ const lang = getLangFromUrl(Astro.url);
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >{t("nav.booking")}</a
           >
+        </li>
+        <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0 lg:ml-2">
+          <a
+            href={bookUrl}
+            target="_blank"
+            rel="noopener"
+            class="mx-5 my-3 flex items-center justify-center gap-2 rounded-full bg-rose px-5 py-3 text-[14px] font-semibold tracking-[0.04em] text-[#4a2f2f] no-underline transition-colors hover:bg-[#d49f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dfb2b2]/60 lg:mx-0 lg:my-0 lg:px-4 lg:py-2"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+              aria-hidden="true"
+            >
+              <path d="M22 2 11 13"></path>
+              <path d="M22 2 15 22l-4-9-9-4 20-7z"></path>
+            </svg>
+            {t("nav.book")}
+          </a>
         </li>
         <li
           class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0 lg:ml-4"
@@ -180,6 +262,10 @@ const lang = getLangFromUrl(Astro.url);
     color: #111;
     opacity: 1;
     outline: none;
+  }
+  .nav-link.is-active {
+    color: var(--color-main-rose);
+    opacity: 1;
   }
   @media (prefers-reduced-motion: reduce) {
     .nav-link {

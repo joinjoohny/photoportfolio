@@ -1,17 +1,16 @@
 ---
-import { languages, getLangFromUrl } from "../i18n/ui";
+import { languages, getLangFromUrl, defaultLang } from "../i18n/ui";
 const current = getLangFromUrl(Astro.url);
 const path = Astro.url.pathname;
 
 function buildHref(target: string) {
-  const parts = path.split("/");
-  // ['', current, ...rest]
-  if (parts.length > 1 && parts[1] in languages) {
-    parts[1] = target;
-  } else {
-    parts.splice(1, 0, target);
-  }
-  return parts.join("/") + (Astro.url.search || "") + (Astro.url.hash || "");
+  const parts = path.split("/"); // ['', maybeLang, ...rest]
+  const hasLangPrefix = parts.length > 1 && parts[1] in languages;
+  const rest = parts.slice(hasLangPrefix ? 2 : 1);
+  // Default locale lives at the root (no prefix); others get a `/lang` segment.
+  const segments = target === defaultLang ? rest : [target, ...rest];
+  const suffix = (Astro.url.search || "") + (Astro.url.hash || "");
+  return "/" + segments.join("/") + suffix;
 }
 ---
 <!-- Mobile: inline codes (no dropdown) -->

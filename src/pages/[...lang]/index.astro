@@ -1,8 +1,10 @@
 ---
 import Welcome from "../../components/Welcome.astro";
 import Layout from "../../layouts/Layout.astro";
+import { localeParams } from "../../i18n/ui";
+
 export function getStaticPaths() {
-  return ["en", "de", "ru"].map((lang) => ({ params: { lang } }));
+  return localeParams.map((lang) => ({ params: { lang } }));
 }
 ---
 

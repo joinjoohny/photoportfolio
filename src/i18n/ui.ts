@@ -8,6 +8,13 @@ export type Lang = keyof typeof languages;
 
 export const defaultLang: Lang = "en";
 
+// Locale values for the `[...lang]` rest param in getStaticPaths: the default
+// locale has no prefix (undefined -> "/..."), others use their code ("/de/...").
+// Adding a language here wires up every localized route automatically.
+export const localeParams: Array<Lang | undefined> = (
+  Object.keys(languages) as Lang[]
+).map((lang) => (lang === defaultLang ? undefined : lang));
+
 // Minimal UI dictionary. Extend as needed.
 export const ui: Record<Lang, Record<string, string>> = {
   en: {
@@ -17,6 +24,8 @@ export const ui: Record<Lang, Record<string, string>> = {
     "nav.services": "services",
     "nav.contacts": "contacts",
     "nav.booking": "booking terms",
+    "nav.book": "Book me",
+    "book.message": "Hi! I'd like to book a photoshoot.",
     "modal.bookingTitle": "Booking Terms",
     "about.title": "ABOUT ME",
     "portfolio.title": "PORTFOLIO",
@@ -33,6 +42,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     "contacts.instagram": "Instagram",
     "controls.prev": "Previous",
     "controls.next": "Next",
+    "gallery.back": "Back",
+    "coming.title": "Still developing…",
+    "coming.text": "This gallery is in the darkroom. The photos will be here very soon — check back!",
     "footer.copy": "© Vlada Polyanskaya — Photographer",
     "footer.cookies": "Cookie Settings",
   },
@@ -43,6 +55,8 @@ export const ui: Record<Lang, Record<string, string>> = {
     "nav.services": "leistungen",
     "nav.contacts": "kontakt",
     "nav.booking": "buchungsbedingungen",
+    "nav.book": "Termin buchen",
+    "book.message": "Hallo! Ich möchte ein Fotoshooting buchen.",
     "modal.bookingTitle": "Buchungsbedingungen",
     "about.title": "ÜBER MICH",
     "portfolio.title": "PORTFOLIO",
@@ -59,6 +73,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     "contacts.instagram": "Instagram",
     "controls.prev": "Zurück",
     "controls.next": "Weiter",
+    "gallery.back": "Zurück",
+    "coming.title": "Wird noch entwickelt…",
+    "coming.text": "Diese Galerie ist noch in der Dunkelkammer. Die Fotos sind bald hier — schau wieder vorbei!",
     "footer.copy": "© Vlada Polyanskaya — Fotografin",
     "footer.cookies": "Cookie-Einstellungen",
   },
@@ -69,6 +86,8 @@ export const ui: Record<Lang, Record<string, string>> = {
     "nav.services": "услуги",
     "nav.contacts": "контакты",
     "nav.booking": "условия бронирования",
+    "nav.book": "Записаться",
+    "book.message": "Здравствуйте! Хочу записаться на съёмку.",
     "modal.bookingTitle": "Условия предоставления услуг",
     "about.title": "ОБО МНЕ",
     "portfolio.title": "ПОРТФОЛИО",
@@ -85,6 +104,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     "contacts.instagram": "Инстаграм",
     "controls.prev": "Назад",
     "controls.next": "Вперёд",
+    "gallery.back": "Назад",
+    "coming.title": "Ещё проявляется…",
+    "coming.text": "Эта галерея пока в фотолаборатории. Снимки появятся здесь совсем скоро — загляните позже!",
     "footer.copy": "© Влада Полянская — Фотограф",
     "footer.cookies": "Настройки файлов cookie",
   },
