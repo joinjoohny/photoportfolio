@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import { galleries } from "../data/galleries";
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
+
+const t = useTranslations(Astro);
+const lang = getLangFromUrl(Astro.url);
+const firstPathSegment = Astro.url.pathname.split("/").filter(Boolean)[0] ?? "";
+const galleryBasePath = ["en", "de", "ru"].includes(firstPathSegment)
+  ? `/${firstPathSegment}/gallery`
+  : "/gallery";
+---
+
+<section id="gallery" class="py-16 sm:py-20">
+  <div class="mx-auto w-full max-w-[1170px] px-5">
+    <div class="mb-8 flex items-center justify-between gap-4">
+      <h1 class="m-0 text-3xl sm:text-4xl text-main-rose">
+        {t("portfolio.title")}
+      </h1>
+      <a
+        href={["en", "de", "ru"].includes(firstPathSegment)
+          ? `/${firstPathSegment}/`
+          : "/"}
+        class="text-sm tracking-[0.08em] text-[#3a3a3a] opacity-75 transition-opacity hover:opacity-100 focus-visible:outline-[#3e5348]"
+      >
+        {t("gallery.back")}
+      </a>
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        galleries.map((gallery, i) => {
+          const cover = gallery.slides[0];
+          if (!cover) return null;
+
+          return (
+            <a
+              href={`${galleryBasePath}/${gallery.slug}/`}
+              class="group block overflow-hidden bg-[#f5f3f1] focus-visible:outline-[#3e5348]"
+            >
+              <div class="aspect-[4/3] overflow-hidden">
+                <Image
+                  src={cover.src}
+                  alt={cover.alt}
+                  widths={[360, 540, 720, 960]}
+                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                  class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+                  loading={i === 0 ? "eager" : "lazy"}
+                  fetchpriority={i === 0 ? "high" : "auto"}
+                  decoding="async"
+                />
+              </div>
+              <div class="flex items-center justify-between gap-4 px-4 py-3">
+                <h2 class="m-0 text-base tracking-[0.08em] text-[#222]">
+                  {gallery.title[lang]}
+                </h2>
+                <span class="text-xs tracking-[0.12em] text-[#777]">
+                  {gallery.slides.length}
+                </span>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

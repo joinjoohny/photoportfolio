@@ -1,12 +1,15 @@
 ---
+import GalleryIndex from "../../components/GalleryIndex.astro";
 import GalleryPage from "../../components/GalleryPage.astro";
 import Layout from "../../layouts/Layout.astro";
 
 export function getStaticPaths() {
-  return ["en", "de", "ru"].map((lang) => ({ params: { lang } }));
+  return ["de", "ru"].map((lang) => ({ params: { lang } }));
 }
 ---
 
 <Layout>
-  <GalleryPage />
+  <GalleryPage>
+    <GalleryIndex />
+  </GalleryPage>
 </Layout>

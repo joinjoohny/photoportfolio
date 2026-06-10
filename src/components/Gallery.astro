@@ -2,10 +2,18 @@
 import { Carousel } from "astro-carousel";
 import type { ComponentProps } from "astro/types";
 import { Image } from "astro:assets";
-import { slides } from "../data/slides";
-import { useTranslations } from "../i18n/ui";
+import type { galleries } from "../data/galleries";
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
+
+type Gallery = (typeof galleries)[number];
+interface Props {
+  gallery: Gallery;
+}
+
 const t = useTranslations(Astro);
-const images = slides.map((s) => ({
+const lang = getLangFromUrl(Astro.url);
+const { gallery } = Astro.props;
+const images = gallery.slides.map((s) => ({
   src: s.src,
   alt: s.alt,
   width: s.src.width,
@@ -14,19 +22,19 @@ const images = slides.map((s) => ({
 })) as ComponentProps<typeof Carousel>["images"];
 const galleryPath = Astro.url.pathname;
 const firstPathSegment = galleryPath.split("/").filter(Boolean)[0] ?? "";
-const homePath = ["en", "de", "ru"].includes(firstPathSegment)
-  ? `/${firstPathSegment}/`
-  : "/";
+const galleryIndexPath = ["en", "de", "ru"].includes(firstPathSegment)
+  ? `/${firstPathSegment}/gallery/`
+  : "/gallery/";
 ---
 
 <section id="gallery" class="py-16 sm:py-20">
   <div class="mx-auto w-full max-w-[1170px] px-5">
     <div class="mb-8 flex items-center justify-between gap-4">
       <h1 class="m-0 text-3xl sm:text-4xl text-main-rose">
-        {t("portfolio.title")}
+        {gallery.title[lang]}
       </h1>
       <a
-        href={homePath}
+        href={galleryIndexPath}
         class="text-sm tracking-[0.08em] text-[#3a3a3a] opacity-75 transition-opacity hover:opacity-100 focus-visible:outline-[#3e5348]"
       >
         {t("gallery.back")}
@@ -37,7 +45,7 @@ const homePath = ["en", "de", "ru"].includes(firstPathSegment)
   <div class="w-full px-3 sm:px-5">
     <div id="carouselTargetList" class="portfolio-gallery">
       {
-        slides.map((s, i) => (
+        gallery.slides.map((s, i) => (
           <a
             href={`${galleryPath}?image=${i}`}
             class="portfolio-gallery__item group"

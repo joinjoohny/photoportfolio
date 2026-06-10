@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+/.vite-cache-codex
+/.vite-cache-local
+/.vite-cache-user

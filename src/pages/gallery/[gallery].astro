@@ -1,0 +1,21 @@
+---
+import Gallery from "../../components/Gallery.astro";
+import GalleryPage from "../../components/GalleryPage.astro";
+import { galleries } from "../../data/galleries";
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+  return galleries.map((gallery) => ({
+    params: { gallery: gallery.slug },
+    props: { gallery },
+  }));
+}
+
+const { gallery } = Astro.props;
+---
+
+<Layout>
+  <GalleryPage>
+    <Gallery gallery={gallery} />
+  </GalleryPage>
+</Layout>
