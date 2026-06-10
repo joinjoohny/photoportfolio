@@ -3,9 +3,10 @@ import GalleryCmp from "../../../components/Gallery.astro";
 import GalleryPage from "../../../components/GalleryPage.astro";
 import { galleries } from "../../../data/galleries";
 import Layout from "../../../layouts/Layout.astro";
+import { localeParams } from "../../../i18n/ui";
 
 export function getStaticPaths() {
-  return ["en", "de", "ru"].flatMap((lang) =>
+  return localeParams.flatMap((lang) =>
     galleries.map((gallery) => ({
       params: { lang, gallery: gallery.slug },
       props: { gallery },

@@ -2,9 +2,10 @@
 import GalleryIndex from "../../components/GalleryIndex.astro";
 import GalleryPage from "../../components/GalleryPage.astro";
 import Layout from "../../layouts/Layout.astro";
+import { localeParams } from "../../i18n/ui";
 
 export function getStaticPaths() {
-  return ["de", "ru"].map((lang) => ({ params: { lang } }));
+  return localeParams.map((lang) => ({ params: { lang } }));
 }
 ---
 

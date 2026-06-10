@@ -8,6 +8,13 @@ export type Lang = keyof typeof languages;
 
 export const defaultLang: Lang = "en";
 
+// Locale values for the `[...lang]` rest param in getStaticPaths: the default
+// locale has no prefix (undefined -> "/..."), others use their code ("/de/...").
+// Adding a language here wires up every localized route automatically.
+export const localeParams: Array<Lang | undefined> = (
+  Object.keys(languages) as Lang[]
+).map((lang) => (lang === defaultLang ? undefined : lang));
+
 // Minimal UI dictionary. Extend as needed.
 export const ui: Record<Lang, Record<string, string>> = {
   en: {
