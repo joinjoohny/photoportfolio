@@ -3,8 +3,10 @@ import { Carousel } from "astro-carousel";
 import type { ComponentProps } from "astro/types";
 import { Image } from "astro:assets";
 import { slides } from "../data/slides";
-import { useTranslations } from "../i18n/ui";
+import { useTranslations, getLangFromUrl } from "../i18n/ui";
 const t = useTranslations(Astro);
+const lang = getLangFromUrl(Astro.url);
+const galleryBase = lang === "en" ? "/gallery" : `/${lang}/gallery`;
 const images = slides.map((s) => ({
   src: s.src,
   alt: s.alt,
@@ -16,9 +18,27 @@ const images = slides.map((s) => ({
 
 <section id="portfolio" class="py-16 sm:py-20">
   <div class="mx-auto w-full max-w-[1170px] px-5" data-portfolio>
-    <h2 class="text-3xl sm:text-4xl m-0 mb-6 text-main-rose">
-      {t("portfolio.title")}
-    </h2>
+    <a
+      href={galleryBase}
+      class="group mb-6 inline-flex items-center gap-2 text-main-rose no-underline transition-opacity hover:opacity-80 focus-visible:outline-[#3e5348]"
+      aria-label={`${t("portfolio.title")} — ${galleryBase}`}
+    >
+      <h2 class="m-0 text-3xl sm:text-4xl">
+        {t("portfolio.title")}
+      </h2>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="mt-1 h-6 w-6 transition-transform duration-200 ease-out group-hover:translate-x-1"
+        aria-hidden="true"
+      >
+        <path d="M5 12h14M13 6l6 6-6 6"></path>
+      </svg>
+    </a>
 
     <!-- Carousel viewport -->
     <div class="overflow-hidden" data-viewport>
