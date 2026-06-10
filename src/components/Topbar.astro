@@ -17,6 +17,11 @@ const activeSlug =
 const homeBase = lang === "en" ? "" : `/${lang}`;
 const isHome = currentPath === homeBase;
 const anchor = (id: string) => (isHome ? `#${id}` : `${homeBase}/#${id}`);
+
+// "Book me" CTA → opens the Telegram chat with a localized prefilled message.
+const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
+  t("book.message"),
+)}`;
 ---
 
 <header class="sticky top-0 bg-[#fff] backdrop-saturate-150 backdrop-blur z-20">
@@ -127,6 +132,29 @@ const anchor = (id: string) => (isHome ? `#${id}` : `${homeBase}/#${id}`);
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >{t("nav.booking")}</a
           >
+        </li>
+        <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0 lg:ml-2">
+          <a
+            href={bookUrl}
+            target="_blank"
+            rel="noopener"
+            class="mx-5 my-3 flex items-center justify-center gap-2 rounded-full bg-rose px-5 py-3 text-[14px] font-semibold tracking-[0.04em] text-[#4a2f2f] no-underline transition-colors hover:bg-[#d49f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dfb2b2]/60 lg:mx-0 lg:my-0 lg:px-4 lg:py-2"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4"
+              aria-hidden="true"
+            >
+              <path d="M22 2 11 13"></path>
+              <path d="M22 2 15 22l-4-9-9-4 20-7z"></path>
+            </svg>
+            {t("nav.book")}
+          </a>
         </li>
         <li
           class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0 lg:ml-4"
