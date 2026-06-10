@@ -11,6 +11,12 @@ const activeSlug =
   galleries.find(
     (gallery) => currentPath === `${galleryBase}/${gallery.slug}`,
   )?.slug ?? null;
+
+// Home page: "" for en, "/de"/"/ru" for others. Anchor links scroll in-page on
+// the home page, but jump to the home page (with hash) from anywhere else.
+const homeBase = lang === "en" ? "" : `/${lang}`;
+const isHome = currentPath === homeBase;
+const anchor = (id: string) => (isHome ? `#${id}` : `${homeBase}/#${id}`);
 ---
 
 <header class="sticky top-0 bg-[#fff] backdrop-saturate-150 backdrop-blur z-20">
@@ -49,7 +55,7 @@ const activeSlug =
       >
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
-            href="#about"
+            href={anchor("about")}
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >{t("nav.about")}</a
           >
@@ -102,14 +108,14 @@ const activeSlug =
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
-            href="#services"
+            href={anchor("services")}
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >{t("nav.services")}</a
           >
         </li>
         <li class="border-t first:border-t-0 border-[#e6e6e6] lg:border-0">
           <a
-            href="#contacts"
+            href={anchor("contacts")}
             class="nav-link block px-5 py-4 lg:px-0 lg:py-2 font-medium text-[14px] tracking-[0.04em] active:bg-[#f2f0e6] lg:active:bg-transparent"
             >{t("nav.contacts")}</a
           >
