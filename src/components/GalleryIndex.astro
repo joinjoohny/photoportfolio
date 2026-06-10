@@ -45,7 +45,7 @@ const galleryBasePath = ["en", "de", "ru"].includes(firstPathSegment)
                   widths={[360, 540, 720, 960]}
                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
                   class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.02]"
-                  loading={i === 0 ? "eager" : "lazy"}
+                  loading={i < 3 ? "eager" : "lazy"}
                   fetchpriority={i === 0 ? "high" : "auto"}
                   decoding="async"
                 />
