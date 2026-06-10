@@ -88,7 +88,7 @@ export const services: Record<
     elle: {
       title: "Individual Shoot",
       body: `
-      <p><strong>Price:</strong> 70&nbsp;€ / 1 hour. I allow a bit more time because we may move between locations during the session.</p>
+      <p><strong>Price:</strong> 100&nbsp;€ / 1 hour. I allow a bit more time because we may move between locations during the session.</p>
       <p><strong>Duration: </strong>~1–1.5 hours (outdoors / home / nature / studio or hotel*)</p>
       <ul>
         <li>Pre‑shoot consultation</li>
@@ -111,8 +111,8 @@ export const services: Record<
       body: `
       <h3>Phone‑based content shoot</h3>
       <ul>
-        <li><strong>One‑off:</strong> 1 hour / iPhone — <strong>30&nbsp;€</strong></li>
-        <li><strong>Monthly subscription:</strong> 3 shoots — <strong>75&nbsp;€</strong></li>
+        <li><strong>One‑off:</strong> 1 hour / iPhone — <strong>50&nbsp;€</strong></li>
+        <li><strong>Monthly subscription:</strong> 3 shoots — <strong>120&nbsp;€</strong></li>
       </ul>
       <p><strong>Consultation before the shoot</strong>, choosing the place and discussing all details on how to prepare content in an urban style. The monthly pack lets you work with me for 1 month, during which we will have <strong>3 meetings/shoots</strong> to create unique, personal content for social media. This way you have “endless content” and save time on most details.</p>
       <h3>Each session includes</h3>
@@ -149,7 +149,7 @@ export const services: Record<
       title: "Couple/Family",
       body: `
       <p><strong>Duration:</strong> 1 hour</p>
-      <p><strong>Price:</strong> 70&nbsp;€</p>
+      <p><strong>Price:</strong> 120&nbsp;€</p>
       <ul>
         <li>Pre‑shoot consultation</li>
         <li>Choosing location and shot ideas; discussing all details</li>
@@ -194,7 +194,7 @@ export const services: Record<
     elle: {
       title: "Einzelshooting",
       body: `
-      <p><strong>Preis:</strong> 70&nbsp;€ / 1 Stunden. Ich plane etwas mehr Zeit ein, da wir während des Shootings zwischen Locations wechseln können.</p>
+      <p><strong>Preis:</strong> 100&nbsp;€ / 1 Stunden. Ich plane etwas mehr Zeit ein, da wir während des Shootings zwischen Locations wechseln können.</p>
       <p><strong>Dauer: </strong>~1–1,5 Stunden (Outdoor / Zuhause / Natur / Studio oder Hotel*)</p>
       <ul>
         <li>Vorgespräch vor dem Shooting</li>
@@ -217,8 +217,8 @@ export const services: Record<
       body: `
       <h3>Content‑Shooting mit dem Telefon</h3>
       <ul>
-        <li><strong>Einzel:</strong> 1 Stunden / iPhone — <strong>30&nbsp;€</strong></li>
-        <li><strong>Monats‑Abo:</strong> 3 Shootings — <strong>75&nbsp;€</strong></li>
+        <li><strong>Einzel:</strong> 1 Stunden / iPhone — <strong>50&nbsp;€</strong></li>
+        <li><strong>Monats‑Abo:</strong> 3 Shootings — <strong>120&nbsp;€</strong></li>
       </ul>
       <p><strong>Vorgespräch vor dem Shooting</strong>, Wahl des Ortes und Besprechung aller Details, wie man sich für Content im urbanen Stil vorbereitet. Mit dem Monatspaket arbeiten wir 1 Monat zusammen und haben <strong>3 Treffen/Shootings</strong>, in denen ich einzigartigen, persönlichen Content für Social Media erstelle. So hast du „endlosen Content“ und sparst Zeit bei vielen Details.</p>
       <h3>Jede Session enthält</h3>
@@ -255,7 +255,7 @@ export const services: Record<
       title: "Paar/Familie",
       body: `
       <p><strong>Dauer:</strong> 1 Stunden</p>
-      <p><strong>Preis:</strong> 70&nbsp;€</p>
+      <p><strong>Preis:</strong> 120&nbsp;€</p>
       <ul>
         <li>Vorgespräch vor dem Shooting</li>
         <li>Wahl der Location und Motive; Besprechung aller Details</li>
@@ -301,7 +301,7 @@ export const services: Record<
       title: "Индивидуальная съёмка",
       body: `
       <p><strong>Продолжительность:</strong> 1 час</p>
-      <p><strong>Стоимость:</strong> 70&nbsp;€</p>
+      <p><strong>Стоимость:</strong> 100&nbsp;€</p>
 
       <p>
         Съёмка может проходить <strong>на улице, дома, в природе, студии или отеле</strong>
@@ -325,8 +325,8 @@ export const services: Record<
       body: `
       <h3>Контент‑съёмка на телефон</h3>
       <ul>
-        <li><strong>Разовая съёмка:</strong> 1 час / iPhone — <strong>30&nbsp;€</strong></li>
-        <li><strong>Абонемент на месяц:</strong> 3 съёмки — <strong>75&nbsp;€</strong></li>
+        <li><strong>Разовая съёмка:</strong> 1 час / iPhone — <strong>50&nbsp;€</strong></li>
+        <li><strong>Абонемент на месяц:</strong> 3 съёмки — <strong>120&nbsp;€</strong></li>
       </ul>
       <p><strong>Консультация перед съёмкой</strong>, выбор места и обсуждение всех деталей того, как правильно подготовиться к съёмке контента в уличном стиле. Ежемесячный пакет позволяет сотрудничать со мной в течение 1 месяца, в течение которого у нас будет <strong>3 встречи/съёмки</strong>, где я создаю уникальный личный контент по индивидуальному запросу для социальных сетей. Таким образом, у вас есть «бесконечный контент», и вы экономите время на большинстве деталей.</p>
       <h3>Каждая съёмка включает</h3>
@@ -363,7 +363,7 @@ export const services: Record<
       title: "Пара/Семья",
       body: `
     <p><strong>Продолжительность:</strong> 1 час</p>
-    <p><strong>Стоимость:</strong> 70&nbsp;€</p>
+    <p><strong>Стоимость:</strong> 120&nbsp;€</p>
 
     <p>
       Съёмка может проходить <strong>на улице, дома, в природе, студии или отеле</strong>
