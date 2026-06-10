@@ -2,68 +2,68 @@ import type { Lang } from "../i18n/ui";
 import { slides } from "./slides";
 
 export const gallerySlugs = [
-  "portrait",
-  "studio",
-  "outdoor",
-  "content",
-  "film",
+  "individual",
   "couple-family",
+  "maternity",
+  "film",
+  "event",
+  "wedding",
 ] as const;
 
 export type GallerySlug = (typeof gallerySlugs)[number];
 
 export const galleries = [
   {
-    slug: "portrait",
+    slug: "individual",
     title: {
-      en: "Portrait",
-      de: "Porträt",
-      ru: "Портрет",
+      en: "Individual Shoot",
+      de: "Einzelshooting",
+      ru: "Индивидуальная съёмка",
     },
     slides: slides.slice(0, 14),
   },
   {
-    slug: "studio",
+    slug: "couple-family",
     title: {
-      en: "Studio",
-      de: "Studio",
-      ru: "Студия",
+      en: "Couple / Families & Children",
+      de: "Paar / Familie & Kinder",
+      ru: "Пара / семья и дети",
     },
     slides: slides.slice(4, 8),
   },
   {
-    slug: "outdoor",
+    slug: "maternity",
     title: {
-      en: "Outdoor",
-      de: "Outdoor",
-      ru: "На улице",
+      en: "Maternity",
+      de: "Schwangerschaft",
+      ru: "Беременность",
     },
     slides: slides.slice(8, 12),
   },
   {
-    slug: "content",
+    slug: "film",
     title: {
-      en: "Content",
-      de: "Content",
-      ru: "Контент",
+      en: "Film Photoshoot",
+      de: "Analoge Fotografie",
+      ru: "Плёночная съёмка",
     },
     slides: slides.slice(12, 16),
   },
   {
-    slug: "film",
+    slug: "event",
     title: {
-      en: "Film",
-      de: "Analog",
-      ru: "Плёнка",
+      en: "Event",
+      de: "Event",
+      ru: "Мероприятие",
     },
     slides: slides.slice(16, 20),
   },
   {
-    slug: "couple-family",
+    slug: "wedding",
     title: {
-      en: "Couple / Family",
-      de: "Paar / Familie",
-      ru: "Пара / семья",
+      en: "Wedding",
+      de: "Hochzeit",
+      ru: "Свадьба",
     },
     slides: slides.slice(20, 24),
   },

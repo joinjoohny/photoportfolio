@@ -1,11 +1,11 @@
 ---
-import Gallery from "../../../components/Gallery.astro";
+import GalleryCmp from "../../../components/Gallery.astro";
 import GalleryPage from "../../../components/GalleryPage.astro";
 import { galleries } from "../../../data/galleries";
 import Layout from "../../../layouts/Layout.astro";
 
 export function getStaticPaths() {
-  return ["de", "ru"].flatMap((lang) =>
+  return ["en", "de", "ru"].flatMap((lang) =>
     galleries.map((gallery) => ({
       params: { lang, gallery: gallery.slug },
       props: { gallery },
@@ -18,6 +18,6 @@ const { gallery } = Astro.props;
 
 <Layout>
   <GalleryPage>
-    <Gallery gallery={gallery} />
+    <GalleryCmp gallery={gallery} />
   </GalleryPage>
 </Layout>
