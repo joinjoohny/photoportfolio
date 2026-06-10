@@ -1,0 +1,191 @@
+---
+import { useTranslations } from "../i18n/ui";
+const t = useTranslations(Astro);
+---
+
+<div class="coming-wrap">
+  <div class="coming-card">
+    <div class="coming-art" aria-hidden="true">
+      <!-- floating film frames -->
+      <span class="film film--a"></span>
+      <span class="film film--b"></span>
+      <span class="film film--c"></span>
+
+      <svg
+        class="cam"
+        viewBox="0 0 120 96"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- flash -->
+        <rect x="40" y="6" width="22" height="9" rx="2" fill="#3e5348"></rect>
+        <!-- body -->
+        <rect
+          x="10"
+          y="18"
+          width="100"
+          height="68"
+          rx="12"
+          fill="#fff"
+          stroke="#3e5348"
+          stroke-width="3"></rect>
+        <!-- lens -->
+        <circle
+          cx="60"
+          cy="52"
+          r="24"
+          fill="#dfb2b2"
+          stroke="#3e5348"
+          stroke-width="3"></circle>
+        <circle class="aperture" cx="60" cy="52" r="13" fill="#3e5348"></circle>
+        <circle cx="60" cy="52" r="5" fill="#fff" opacity="0.85"></circle>
+        <!-- shutter blink -->
+        <circle class="blink" cx="96" cy="28" r="4" fill="#dfb2b2"></circle>
+      </svg>
+    </div>
+
+    <h2 class="coming-title">{t("coming.title")}</h2>
+    <p class="coming-text">{t("coming.text")}</p>
+
+    <div class="coming-dots" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .coming-wrap {
+    display: grid;
+    place-items: center;
+    min-height: 52vh;
+    padding: 2rem 1.25rem 4rem;
+  }
+  .coming-card {
+    max-width: 460px;
+    text-align: center;
+  }
+  .coming-art {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+  .cam {
+    width: 168px;
+    height: auto;
+    animation: float 4s ease-in-out infinite;
+  }
+  .aperture {
+    transform-origin: 60px 52px;
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+  .blink {
+    animation: blink 2.6s steps(1) infinite;
+  }
+  .film {
+    position: absolute;
+    width: 22px;
+    height: 28px;
+    border-radius: 4px;
+    background: #fff;
+    border: 2px solid #3e5348;
+    opacity: 0.85;
+  }
+  .film--a {
+    top: -6px;
+    left: -28px;
+    animation: float 5s ease-in-out infinite;
+  }
+  .film--b {
+    bottom: 4px;
+    right: -30px;
+    animation: float 4.4s ease-in-out infinite reverse;
+  }
+  .film--c {
+    top: 30px;
+    right: -44px;
+    width: 16px;
+    height: 20px;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .coming-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.6rem;
+    color: #3e5348;
+    letter-spacing: 0.01em;
+  }
+  .coming-text {
+    margin: 0 auto;
+    max-width: 36ch;
+    color: #6b6b6b;
+    line-height: 1.6;
+  }
+  .coming-dots {
+    margin-top: 1.25rem;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+  }
+  .coming-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #dfb2b2;
+    animation: bounce 1.4s ease-in-out infinite;
+  }
+  .coming-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .coming-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.7);
+    }
+  }
+  @keyframes blink {
+    0%,
+    45% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0.15;
+    }
+  }
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-6px);
+      opacity: 1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cam,
+    .aperture,
+    .blink,
+    .film,
+    .coming-dots span {
+      animation: none;
+    }
+  }
+</style>
