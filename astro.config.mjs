@@ -5,7 +5,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  cacheDir: "./.astro-cache",
   vite: {
+    cacheDir: ".vite-cache",
     plugins: [tailwindcss()],
   },
   site: "https://www.polyanskaya.photography",

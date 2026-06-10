@@ -1,0 +1,133 @@
+---
+import { Carousel } from "astro-carousel";
+import type { ComponentProps } from "astro/types";
+import { Image } from "astro:assets";
+import { slides } from "../data/slides";
+import { useTranslations } from "../i18n/ui";
+const t = useTranslations(Astro);
+const images = slides.map((s) => ({
+  src: s.src,
+  alt: s.alt,
+  width: s.src.width,
+  height: s.src.height,
+  widths: [400, 800, 1200],
+})) as ComponentProps<typeof Carousel>["images"];
+const galleryPath = Astro.url.pathname;
+const firstPathSegment = galleryPath.split("/").filter(Boolean)[0] ?? "";
+const homePath = ["en", "de", "ru"].includes(firstPathSegment)
+  ? `/${firstPathSegment}/`
+  : "/";
+---
+
+<section id="gallery" class="py-16 sm:py-20">
+  <div class="mx-auto w-full max-w-[1170px] px-5">
+    <div class="mb-8 flex items-center justify-between gap-4">
+      <h1 class="m-0 text-3xl sm:text-4xl text-main-rose">
+        {t("portfolio.title")}
+      </h1>
+      <a
+        href={homePath}
+        class="text-sm tracking-[0.08em] text-[#3a3a3a] opacity-75 transition-opacity hover:opacity-100 focus-visible:outline-[#3e5348]"
+      >
+        {t("gallery.back")}
+      </a>
+    </div>
+
+    <div id="carouselTargetList" class="portfolio-gallery">
+      {
+        slides.map((s, i) => (
+          <a
+            href={`${galleryPath}?image=${i}`}
+            class="portfolio-gallery__item group"
+            data-carousel-index={i}
+            aria-label={`${t("portfolio.title")} ${s.code}`}
+          >
+            <Image
+              src={s.src}
+              alt={s.alt}
+              widths={[360, 540, 720, 960, 1200]}
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+              class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.025]"
+              loading={i < 6 ? "eager" : "lazy"}
+              fetchpriority={i < 3 ? "high" : "auto"}
+              decoding="async"
+            />
+            <span
+              class="pointer-events-none absolute bottom-0 left-0 right-0 translate-y-2 bg-gradient-to-t from-black/45 to-transparent px-4 pb-3 pt-10 text-[11px] tracking-[0.14em] text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+            >
+              {s.code}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <Carousel images={images} color="#3e5348" />
+</section>
+
+<style>
+  .portfolio-gallery {
+    display: grid;
+    grid-auto-flow: dense;
+    grid-auto-rows: 10px;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .portfolio-gallery__item {
+    position: relative;
+    display: block;
+    min-height: 280px;
+    overflow: hidden;
+    background: #f4f1ef;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    transition:
+      outline-color 200ms ease,
+      opacity 200ms ease;
+  }
+
+  .portfolio-gallery__item:focus-visible {
+    outline-color: #3e5348;
+  }
+
+  .portfolio-gallery__item:nth-child(6n + 1),
+  .portfolio-gallery__item:nth-child(6n + 5) {
+    grid-row: span 42;
+  }
+
+  .portfolio-gallery__item:nth-child(6n + 2),
+  .portfolio-gallery__item:nth-child(6n + 4),
+  .portfolio-gallery__item:nth-child(6n + 6) {
+    grid-row: span 34;
+  }
+
+  .portfolio-gallery__item:nth-child(6n + 3) {
+    grid-row: span 50;
+  }
+
+  @media (min-width: 640px) {
+    .portfolio-gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .portfolio-gallery {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .portfolio-gallery__item:nth-child(8n + 1) {
+      grid-column: span 2;
+      grid-row: span 54;
+    }
+  }
+
+  :global(.carousel),
+  :global(.slides) {
+    z-index: 21 !important;
+  }
+</style>
