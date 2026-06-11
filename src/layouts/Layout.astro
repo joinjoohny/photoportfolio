@@ -1,9 +1,49 @@
 ---
 import "../styles/global.css";
-import { useTranslations, getLangFromUrl } from "../i18n/ui";
+import { getImage } from "astro:assets";
+import {
+  useTranslations,
+  getLangFromUrl,
+  getAlternateUrls,
+} from "../i18n/ui";
 import CookieConsent from "../components/CookiesPopup.astro";
+import ogImageSource from "../assets/about_v2.jpg";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
 const t = useTranslations(Astro);
 const lang = getLangFromUrl(Astro.url);
+
+const pageTitle = title ?? t("site.title");
+const pageDescription = description ?? t("site.description");
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const alternateUrls = getAlternateUrls(Astro.url);
+
+const ogImage = await getImage({ src: ogImageSource, width: 1200 });
+const ogImageUrl = new URL(ogImage.src, Astro.site).toString();
+
+const ogLocales = { en: "en_US", de: "de_DE", ru: "ru_RU" } as const;
+const siteName = "Vlada Polyanskaya Photography";
+
+const businessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: siteName,
+  image: ogImageUrl,
+  url: Astro.site?.toString(),
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Dresden",
+    addressCountry: "DE",
+  },
+  sameAs: ["https://instagram.com/vladavada", "https://t.me/vladisssllava"],
+};
 ---
 
 <!doctype html>
@@ -12,13 +52,40 @@ const lang = getLangFromUrl(Astro.url);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    {
+      Object.entries(alternateUrls).map(([hreflang, href]) => (
+        <link rel="alternate" hreflang={hreflang} href={href} />
+      ))
+    }
     <link
       href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;600&family=Pacifico&display=swap"
       rel="stylesheet"
     />
 
     <meta name="generator" content={Astro.generator} />
-    <title>{t("site.title")}</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={ogLocales[lang]} />
+    {
+      Object.entries(ogLocales)
+        .filter(([locale]) => locale !== lang)
+        .map(([, alt]) => <meta property="og:locale:alternate" content={alt} />)
+    }
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(businessJsonLd)} />
   </head>
   <body class="min-h-screen bg-[#fff] antialiased tracking-widest">
     <slot />
