@@ -3,7 +3,7 @@ import GalleryCmp from "../../../components/gallery/Gallery.astro";
 import GalleryPage from "../../../components/gallery/GalleryPage.astro";
 import { galleries } from "../../../data/galleries";
 import Layout from "../../../layouts/Layout.astro";
-import { localeParams } from "../../../i18n/ui";
+import { localeParams, getLangFromUrl } from "../../../i18n/ui";
 
 export function getStaticPaths() {
   return localeParams.flatMap((lang) =>
@@ -15,9 +15,11 @@ export function getStaticPaths() {
 }
 
 const { gallery } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const seo = gallery.seo[lang];
 ---
 
-<Layout>
+<Layout title={seo.title} description={seo.description}>
   <GalleryPage>
     <GalleryCmp gallery={gallery} />
   </GalleryPage>
