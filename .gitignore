@@ -24,6 +24,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# brainstorming visual companion
+.superpowers/
 /.vite-cache-codex
 /.vite-cache-local
 /.vite-cache-user
+CLAUDE.md
