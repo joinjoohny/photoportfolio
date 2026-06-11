@@ -19,6 +19,8 @@ export const localeParams: Array<Lang | undefined> = (
 export const ui: Record<Lang, Record<string, string>> = {
   en: {
     "site.title": "Vlada Polyanskaya - Photographer Dresden",
+    "site.description":
+      "Vlada Polyanskaya is a portrait photographer in Dresden, Germany, creating minimalist digital and film photography for individuals, couples and families.",
     "nav.about": "about me",
     "nav.portfolio": "portfolio",
     "nav.services": "services",
@@ -50,6 +52,8 @@ export const ui: Record<Lang, Record<string, string>> = {
   },
   de: {
     "site.title": "Vlada Polyanskaya - Fotografin Dresden",
+    "site.description":
+      "Vlada Polyanskaya ist Porträtfotografin in Dresden und gestaltet minimalistische Digital- und Filmfotografie für Einzelpersonen, Paare und Familien.",
     "nav.about": "über mich",
     "nav.portfolio": "portfolio",
     "nav.services": "leistungen",
@@ -81,6 +85,8 @@ export const ui: Record<Lang, Record<string, string>> = {
   },
   ru: {
     "site.title": "Влада Полянская — Фотограф Дрезден",
+    "site.description":
+      "Влада Полянская — портретный фотограф в Дрездене (Германия). Минималистичная съёмка на цифру и плёнку для индивидуальных, парных и семейных фотосессий.",
     "nav.about": "обо мне",
     "nav.portfolio": "портфолио",
     "nav.services": "услуги",
@@ -121,4 +127,31 @@ export function getLangFromUrl(url: URL): Lang {
 export function useTranslations(Astro: any) {
   const lang = getLangFromUrl(Astro.url);
   return (key: string) => ui[lang][key] ?? ui[defaultLang][key] ?? key;
+}
+
+// Strips the locale prefix from a pathname, returning the locale-agnostic path
+// (e.g. "/de/gallery/portraits" -> "/gallery/portraits", "/de" -> "/").
+function getPathWithoutLang(pathname: string, lang: Lang): string {
+  if (lang === defaultLang) return pathname;
+  const stripped = pathname.replace(new RegExp(`^/${lang}(?=/|$)`), "");
+  return stripped === "" ? "/" : stripped;
+}
+
+// Builds one absolute URL per supported locale (plus "x-default") for the
+// current page, for use in hreflang alternate links.
+export function getAlternateUrls(
+  url: URL,
+): Record<Lang | "x-default", string> {
+  const lang = getLangFromUrl(url);
+  const basePath = getPathWithoutLang(url.pathname, lang);
+
+  const urls = {} as Record<Lang | "x-default", string>;
+  for (const locale of Object.keys(languages) as Lang[]) {
+    const prefix = locale === defaultLang ? "" : `/${locale}`;
+    const path = prefix + (basePath === "/" ? "/" : basePath);
+    urls[locale] = new URL(path, url).toString();
+  }
+  urls["x-default"] = urls[defaultLang];
+
+  return urls;
 }
