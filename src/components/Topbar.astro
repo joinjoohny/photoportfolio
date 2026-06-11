@@ -15,6 +15,7 @@ const activeSlug =
 // Home page: "" for en, "/de"/"/ru" for others. Anchor links scroll in-page on
 // the home page, but jump to the home page (with hash) from anywhere else.
 const homeBase = lang === "en" ? "" : `/${lang}`;
+const homeUrl = homeBase || "/";
 const isHome = currentPath === homeBase;
 const anchor = (id: string) => (isHome ? `#${id}` : `${homeBase}/#${id}`);
 
@@ -28,9 +29,13 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
   <div
     class="mx-auto w-full max-w-[1170px] px-5 flex items-center justify-between py-4"
   >
-    <div class="font-logo text-main-rose" aria-label="Vlada Polianskaya">
+    <a
+      href={homeUrl}
+      class="font-logo text-main-rose"
+      aria-label="Vlada Polianskaya"
+    >
       Vlada<br />Polyanskaya
-    </div>
+    </a>
 
     <!-- Toggle (CSS-only via peer) -->
     <label
@@ -138,7 +143,7 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
             href={bookUrl}
             target="_blank"
             rel="noopener"
-            class="mx-5 my-3 flex items-center justify-center gap-2 rounded-full bg-rose px-5 py-3 text-[14px] font-semibold tracking-[0.04em] text-[#4a2f2f] no-underline transition-colors hover:bg-[#d49f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dfb2b2]/60 lg:mx-0 lg:my-0 lg:px-4 lg:py-2"
+            class="mx-5 my-3 flex items-center justify-center gap-2 rounded-full bg-rose px-5 py-3 text-[14px] font-semibold tracking-[0.04em] text-[#4a2f2f] no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d49f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dfb2b2]/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:mx-0 lg:my-0 lg:px-4 lg:py-2"
           >
             <svg
               viewBox="0 0 24 24"
