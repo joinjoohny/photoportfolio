@@ -31,6 +31,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     "modal.bookingTitle": "Booking Terms",
     "about.title": "ABOUT ME",
     "portfolio.title": "PORTFOLIO",
+    "gallery.seo.title": "Portfolio | Vlada Polyanskaya Photography Dresden",
+    "gallery.seo.description":
+      "Browse portrait photography portfolios in Dresden — individual, couple, family, maternity, film and wedding photoshoots by Vlada Polyanskaya.",
     "services.title": "SERVICES",
     "services.individual": "Individual Shoot",
     "services.content": "Content",
@@ -64,6 +67,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     "modal.bookingTitle": "Buchungsbedingungen",
     "about.title": "ÜBER MICH",
     "portfolio.title": "PORTFOLIO",
+    "gallery.seo.title": "Portfolio | Vlada Polyanskaya Fotografin Dresden",
+    "gallery.seo.description":
+      "Entdecken Sie Porträtfotografie-Portfolios in Dresden — Einzel-, Paar-, Familien-, Babybauch-, Analog- und Hochzeitsfotos von Vlada Polyanskaya.",
     "services.title": "LEISTUNGEN",
     "services.individual": "Einzelshooting",
     "services.content": "Content",
@@ -97,6 +103,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     "modal.bookingTitle": "Условия предоставления услуг",
     "about.title": "ОБО МНЕ",
     "portfolio.title": "ПОРТФОЛИО",
+    "gallery.seo.title": "Портфолио | Влада Полянская — фотограф в Дрездене",
+    "gallery.seo.description":
+      "Портфолио портретной фотографии в Дрездене — индивидуальные, парные, семейные, беременные, плёночные и свадебные съёмки от Влады Полянской.",
     "services.title": "УСЛУГИ",
     "services.individual": "Индивидуальная съёмка",
     "services.content": "Контент",
