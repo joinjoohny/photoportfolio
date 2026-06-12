@@ -20,7 +20,7 @@ function buildHref(target: string) {
       <a
         href={buildHref(code)}
         class={`uppercase text-[14px] tracking-[0.06em] ${
-          code === current ? 'text-[#3e5348] font-semibold' : 'text-[#6b6b6b]'
+          code === current ? 'text-[#3e5348] font-semibold' : 'text-muted'
         }`}
         aria-current={code === current ? 'true' : 'false'}
       >
@@ -36,7 +36,7 @@ function buildHref(target: string) {
   <button
     type="button"
     id="lang-button"
-    class="inline-flex items-center gap-1.5 px-1.5 py-1 text-[12px] uppercase tracking-[0.08em] text-[#3a3a3a] hover:text-[#111] hover:underline underline-offset-2 focus:outline-none focus:ring-1 focus:ring-[#3e5348]/40 rounded-sm"
+    class="inline-flex items-center gap-1.5 px-1.5 py-1 text-[12px] uppercase tracking-[0.08em] text-body hover:text-ink hover:underline underline-offset-2 focus:outline-none focus:ring-1 focus:ring-[#3e5348]/40 rounded-sm"
     aria-haspopup="true"
     aria-expanded="false"
     aria-label="Language selector"
@@ -60,7 +60,7 @@ function buildHref(target: string) {
             aria-checked={code === current ? 'true' : 'false'}
             href={buildHref(code)}
             class={`block px-2.5 py-1.5 text-[12px] tracking-[0.06em] hover:bg-[#f7f7f7] ${
-              code === current ? 'text-[#3e5348] font-semibold' : 'text-[#444]'
+              code === current ? 'text-[#3e5348] font-semibold' : 'text-body'
             }`}
           >
             {code.toUpperCase()}
