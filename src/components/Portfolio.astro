@@ -4,6 +4,7 @@ import type { ComponentProps } from "astro/types";
 import { Image } from "astro:assets";
 import { getPortfolioPhotos } from "../data/galleryPhotos";
 import { useTranslations, getLangFromUrl } from "../i18n/ui";
+import Eyebrow from "./Eyebrow.astro";
 const t = useTranslations(Astro);
 const lang = getLangFromUrl(Astro.url);
 const galleryBase = lang === "en" ? "/gallery" : `/${lang}/gallery`;
@@ -19,27 +20,29 @@ const images = slides.map((s) => ({
 
 <section id="portfolio" class="py-16 sm:py-20">
   <div class="mx-auto w-full max-w-[1170px] px-5" data-portfolio>
-    <a
-      href={galleryBase}
-      class="group mb-6 inline-flex items-center gap-2 text-main-rose no-underline transition-opacity hover:opacity-80 focus-visible:outline-[#3e5348]"
-      aria-label={`${t("portfolio.title")} — ${galleryBase}`}
-    >
-      <h2 class="font-heading m-0 text-3xl sm:text-4xl">
-        {t("portfolio.title")}
-      </h2>
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="mt-1 h-6 w-6 transition-transform duration-200 ease-out group-hover:translate-x-1"
-        aria-hidden="true"
+    <Eyebrow num="02">
+      <a
+        href={galleryBase}
+        class="group inline-flex items-center gap-2 text-main-rose no-underline transition-opacity hover:opacity-80 focus-visible:outline-[#3e5348]"
+        aria-label={`${t("portfolio.title")} — ${galleryBase}`}
       >
-        <path d="M5 12h14M13 6l6 6-6 6"></path>
-      </svg>
-    </a>
+        <h2 class="font-heading m-0 text-3xl sm:text-4xl">
+          {t("portfolio.title")}
+        </h2>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mt-1 h-6 w-6 transition-transform duration-200 ease-out group-hover:translate-x-1"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14M13 6l6 6-6 6"></path>
+        </svg>
+      </a>
+    </Eyebrow>
 
     <!-- Carousel viewport -->
     <div class="overflow-hidden" data-viewport>

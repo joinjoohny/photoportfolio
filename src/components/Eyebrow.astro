@@ -1,0 +1,19 @@
+---
+// Editorial section-heading row: the running index numeral sits as a small
+// raised superscript-style index just before the heading (passed via the
+// default slot). Adds rhythm and a sense of progression with a delicate,
+// footnote-like marker rather than a stacked label.
+interface Props {
+  num: string;
+}
+const { num } = Astro.props;
+---
+
+<div class="mb-6 flex items-start gap-2">
+  <span
+    class="font-display shrink-0 translate-y-0.5 text-[12px] font-semibold tracking-[0.25em] text-main-green"
+  >
+    {num}
+  </span>
+  <slot />
+</div>
