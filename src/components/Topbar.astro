@@ -25,13 +25,20 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
 )}`;
 ---
 
-<header class="sticky top-0 bg-[#fff] backdrop-saturate-150 backdrop-blur z-20">
+<header
+  id="site-header"
+  data-home={isHome ? "true" : "false"}
+  class:list={[
+    "top-0 inset-x-0 z-30 transition-colors duration-300",
+    isHome ? "fixed" : "sticky bg-[#fff] backdrop-saturate-150 backdrop-blur",
+  ]}
+>
   <div
     class="mx-auto w-full max-w-[1170px] px-5 flex items-center justify-between py-4"
   >
     <a
       href={homeUrl}
-      class="block leading-none text-main-rose"
+      class="logo block leading-none text-main-rose"
       aria-label="Vlada Polianskaya"
     >
       <span class="block font-heading text-[22px] font-medium tracking-[0.01em]"
@@ -55,7 +62,7 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
         fill="none"
         stroke="currentColor"
         stroke-width="2"
-        class="w-7 h-7 text-ink"
+        class="burger w-7 h-7 text-ink"
         ><path d="M3 6h18M3 12h18M3 18h18"></path></svg
       >
     </label>
@@ -102,7 +109,7 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
             </svg>
           </a>
           <ul
-            class="m-0 list-none p-0 lg:invisible lg:absolute lg:left-0 lg:top-full lg:min-w-[230px] lg:-translate-y-1 lg:rounded-md lg:border lg:border-[#e6e6e6] lg:bg-white lg:pt-2 lg:pb-2 lg:opacity-0 lg:shadow-[0_10px_30px_rgba(0,0,0,0.08)] lg:transition lg:duration-200 lg:before:absolute lg:before:-top-3 lg:before:left-0 lg:before:h-3 lg:before:w-full lg:before:content-[''] lg:group-hover:visible lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:translate-y-0 lg:group-focus-within:opacity-100"
+            class="submenu m-0 list-none p-0 lg:invisible lg:absolute lg:left-0 lg:top-full lg:min-w-[230px] lg:-translate-y-1 lg:rounded-md lg:border lg:border-[#e6e6e6] lg:bg-white lg:pt-2 lg:pb-2 lg:opacity-0 lg:shadow-[0_10px_30px_rgba(0,0,0,0.08)] lg:transition lg:duration-200 lg:before:absolute lg:before:-top-3 lg:before:left-0 lg:before:h-3 lg:before:w-full lg:before:content-[''] lg:group-hover:visible lg:group-hover:translate-y-0 lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:translate-y-0 lg:group-focus-within:opacity-100"
           >
             {
               galleries.map((gallery) => (
@@ -257,6 +264,25 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
   document.addEventListener("astro:page-load", initTopbar);
   document.addEventListener("astro:after-swap", initTopbar);
   document.addEventListener("DOMContentLoaded", initTopbar);
+
+  // Transparent-over-hero header → turns solid once the hero is mostly
+  // scrolled past. Only active on the home page (data-home="true").
+  let headerScrollBound = false;
+  function updateHeaderSolid() {
+    const h = document.getElementById("site-header");
+    if (!h || h.dataset.home !== "true") return;
+    h.classList.toggle("is-solid", window.scrollY > window.innerHeight * 0.7);
+  }
+  function initHeaderScroll() {
+    updateHeaderSolid();
+    if (headerScrollBound) return;
+    window.addEventListener("scroll", updateHeaderSolid, { passive: true });
+    window.addEventListener("resize", updateHeaderSolid, { passive: true });
+    headerScrollBound = true;
+  }
+  document.addEventListener("astro:page-load", initHeaderScroll);
+  document.addEventListener("astro:after-swap", initHeaderScroll);
+  document.addEventListener("DOMContentLoaded", initHeaderScroll);
 </script>
 
 <style>
@@ -306,6 +332,60 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
     .book-cta::after {
       animation: none;
       display: none;
+    }
+  }
+
+  /* Transparent header overlaying the hero (home page, before scroll):
+     the whole logo + hamburger turn white over the photo. */
+  #site-header[data-home="true"]:not(.is-solid) .logo,
+  #site-header[data-home="true"]:not(.is-solid) .logo *,
+  #site-header[data-home="true"]:not(.is-solid) .burger {
+    color: #fff;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+  }
+  /* Solid header once scrolled (home page). */
+  #site-header.is-solid {
+    background-color: #fff;
+    backdrop-filter: saturate(1.5) blur(8px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+  }
+  /* Smooth white→gray fade for the lang button, matching the nav links.
+     :global() is required because the button lives in LangSwitcher. */
+  #site-header :global(#lang-button) {
+    transition: color 180ms ease;
+  }
+  /* Desktop nav + lang button also go white over the hero. (On mobile the
+     links live inside a white dropdown, so they stay dark.) */
+  @media (min-width: 1024px) {
+    #site-header[data-home="true"]:not(.is-solid) .nav-link {
+      color: #fff;
+      opacity: 0.9;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+    }
+    #site-header[data-home="true"]:not(.is-solid) .nav-link:hover,
+    #site-header[data-home="true"]:not(.is-solid) .nav-link:focus-visible {
+      color: #fff;
+      opacity: 1;
+    }
+    #site-header[data-home="true"]:not(.is-solid) :global(#lang-button) {
+      color: #fff;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+    }
+    /* The Portfolio dropdown opens on a white panel, so its links must
+       stay dark even while the header is transparent over the hero. */
+    #site-header[data-home="true"]:not(.is-solid) .submenu .nav-link {
+      color: var(--color-body);
+      opacity: 0.85;
+      text-shadow: none;
+    }
+    #site-header[data-home="true"]:not(.is-solid) .submenu .nav-link:hover,
+    #site-header[data-home="true"]:not(.is-solid) .submenu .nav-link:focus-visible {
+      color: var(--color-ink);
+      opacity: 1;
+    }
+    #site-header[data-home="true"]:not(.is-solid) .submenu .nav-link.is-active {
+      color: var(--color-main-rose);
+      opacity: 1;
     }
   }
 </style>

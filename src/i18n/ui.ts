@@ -32,6 +32,7 @@ export const ui: Record<Lang, Record<string, string>> = {
     "book.message": "Hi! I'd like to book a photoshoot.",
     "modal.bookingTitle": "Booking Terms",
     "about.title": "ABOUT ME",
+    "hero.tagline": "Portrait & film photography · Dresden",
     "portfolio.title": "PORTFOLIO",
     "gallery.seo.title": "Portfolio | Vlada Polyanskaya Photography Dresden",
     "gallery.seo.description":
@@ -72,6 +73,7 @@ export const ui: Record<Lang, Record<string, string>> = {
     "book.message": "Hallo! Ich möchte ein Fotoshooting buchen.",
     "modal.bookingTitle": "Buchungsbedingungen",
     "about.title": "ÜBER MICH",
+    "hero.tagline": "Porträt- & Filmfotografie · Dresden",
     "portfolio.title": "PORTFOLIO",
     "gallery.seo.title": "Portfolio | Vlada Polyanskaya Fotografin Dresden",
     "gallery.seo.description":
@@ -112,6 +114,7 @@ export const ui: Record<Lang, Record<string, string>> = {
     "book.message": "Здравствуйте! Хочу записаться на съёмку.",
     "modal.bookingTitle": "Условия предоставления услуг",
     "about.title": "ОБО МНЕ",
+    "hero.tagline": "Портретная и плёночная фотография · Дрезден",
     "portfolio.title": "ПОРТФОЛИО",
     "gallery.seo.title": "Портфолио | Влада Полянская — фотограф в Дрездене",
     "gallery.seo.description":
