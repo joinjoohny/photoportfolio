@@ -156,7 +156,7 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
             href={bookUrl}
             target="_blank"
             rel="noopener"
-            class="book-cta relative mx-auto my-3 flex w-fit items-center justify-center gap-2 rounded-full bg-main-green px-5 py-3 text-[14px] font-semibold tracking-[0.04em] text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#4a6357] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3e5348]/40 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:mx-0 lg:my-0 lg:w-auto lg:px-4 lg:py-2"
+            class="book-cta relative mx-auto my-3 flex w-fit items-center justify-center gap-2 rounded-full border-[1.5px] border-main-green bg-transparent px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-main-green no-underline transition-colors duration-200 hover:bg-main-green hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3e5348]/40 lg:mx-0 lg:my-0 lg:w-auto lg:px-4 lg:py-2"
           >
             <svg
               viewBox="0 0 24 24"
@@ -288,8 +288,13 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
 <style>
   /* Minimal, elegant fade effect */
   .nav-link {
-    color: var(--color-body);
-    opacity: 0.75;
+    color: var(--color-muted);
+    opacity: 1;
+    /* Editorial uppercase label nav (variant A), matching section labels. */
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
     transition:
       color 180ms ease,
       opacity 180ms ease;
@@ -304,34 +309,9 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
     color: var(--color-main-rose);
     opacity: 1;
   }
-  /* Expanding "radar" ring pulsing out from the Book me CTA */
-  .book-cta::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 999px;
-    border: 2px solid rgba(62, 83, 72, 0.6);
-    animation: book-cta-ring 2.2s ease-out infinite;
-    pointer-events: none;
-  }
-  @keyframes book-cta-ring {
-    0% {
-      transform: scale(1);
-      opacity: 0.75;
-    }
-    70%,
-    100% {
-      transform: scale(1.45);
-      opacity: 0;
-    }
-  }
   @media (prefers-reduced-motion: reduce) {
     .nav-link {
       transition: none;
-    }
-    .book-cta::after {
-      animation: none;
-      display: none;
     }
   }
 
@@ -344,6 +324,19 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
     text-shadow:
       0 1px 3px rgba(0, 0, 0, 0.65),
       0 0 18px rgba(0, 0, 0, 0.5);
+  }
+  /* Over the hero the Book me CTA is a white hairline outline that fills
+     white (with dark text) on hover; on the solid header it's the green
+     outline → green fill defined by its utility classes. */
+  #site-header[data-home="true"]:not(.is-solid) .book-cta {
+    border-color: rgba(255, 255, 255, 0.85);
+    color: #fff;
+    background-color: transparent;
+  }
+  #site-header[data-home="true"]:not(.is-solid) .book-cta:hover {
+    border-color: #fff;
+    background-color: #fff;
+    color: #1a1a1a;
   }
   /* Solid header once scrolled (home page). */
   #site-header.is-solid {
