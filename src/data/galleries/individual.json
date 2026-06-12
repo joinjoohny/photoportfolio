@@ -1,0 +1,60 @@
+{
+  "photos": [
+    {
+      "image": "/src/assets/portfolio/p001.jpg",
+      "alt": "Black & white portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p002.jpg",
+      "alt": "Studio portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p003.jpg",
+      "alt": "Outdoor fashion"
+    },
+    {
+      "image": "/src/assets/portfolio/p004.jpg",
+      "alt": "Editorial look"
+    },
+    {
+      "image": "/src/assets/portfolio/p005.jpg",
+      "alt": "Candid street"
+    },
+    {
+      "image": "/src/assets/portfolio/p006.jpg",
+      "alt": "Nature portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p007.jpg",
+      "alt": "Urban fashion"
+    },
+    {
+      "image": "/src/assets/portfolio/p008.jpg",
+      "alt": "Glamour shot"
+    },
+    {
+      "image": "/src/assets/portfolio/p009.jpg",
+      "alt": "Artistic pose"
+    },
+    {
+      "image": "/src/assets/portfolio/p010.jpg",
+      "alt": "Monochrome style"
+    },
+    {
+      "image": "/src/assets/portfolio/p011.jpg",
+      "alt": "High fashion"
+    },
+    {
+      "image": "/src/assets/portfolio/p012.jpg",
+      "alt": "Vintage look"
+    },
+    {
+      "image": "/src/assets/portfolio/p013.jpg",
+      "alt": "Studio portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p014.jpg",
+      "alt": "Studio portrait"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "photos": [
+    {
+      "image": "/src/assets/portfolio/p005.jpg",
+      "alt": "Candid street"
+    },
+    {
+      "image": "/src/assets/portfolio/p006.jpg",
+      "alt": "Nature portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p007.jpg",
+      "alt": "Urban fashion"
+    },
+    {
+      "image": "/src/assets/portfolio/p008.jpg",
+      "alt": "Glamour shot"
+    }
+  ]
+}

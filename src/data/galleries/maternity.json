@@ -1,0 +1,20 @@
+{
+  "photos": [
+    {
+      "image": "/src/assets/portfolio/p009.jpg",
+      "alt": "Artistic pose"
+    },
+    {
+      "image": "/src/assets/portfolio/p010.jpg",
+      "alt": "Monochrome style"
+    },
+    {
+      "image": "/src/assets/portfolio/p011.jpg",
+      "alt": "High fashion"
+    },
+    {
+      "image": "/src/assets/portfolio/p012.jpg",
+      "alt": "Vintage look"
+    }
+  ]
+}
