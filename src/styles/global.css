@@ -21,3 +21,20 @@
   --color-muted: #6f6f6f; /* labels, secondary text */
   --color-subtle: #8a8a8a; /* faint / inactive text */
 }
+
+/* Sub-headings inside rich service/about descriptions (injected via
+   set:html). Styled as small-caps labels so subsections read clearly
+   without competing with the serif service titles. The doubled class
+   selector outranks Tailwind's space-y top-margin on the wrapper. */
+.text-body.rich-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+.text-body.rich-content h3:first-child {
+  margin-top: 0;
+}
