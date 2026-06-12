@@ -2,7 +2,6 @@
 
 @theme {
   --font-display: "Golos Text", sans-serif;
-  --font-logo: "Pacifico", cursive;
   /* Editorial serif for section headings (h1/h2) — adds a premium,
      magazine-like feel that the sans body alone doesn't convey. */
   --font-heading: "Playfair Display", "Times New Roman", serif;

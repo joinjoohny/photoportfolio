@@ -31,10 +31,16 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
   >
     <a
       href={homeUrl}
-      class="font-logo text-main-rose"
+      class="block leading-none text-main-rose"
       aria-label="Vlada Polianskaya"
     >
-      Vlada<br />Polyanskaya
+      <span class="block font-heading text-[22px] font-medium tracking-[0.01em]"
+        >Vlada<span class="text-main-green">.</span></span
+      >
+      <span
+        class="mt-[3px] block font-display text-[9.5px] uppercase tracking-[0.34em] text-main-green"
+        >Polyanskaya</span
+      >
     </a>
 
     <!-- Toggle (CSS-only via peer) -->
@@ -143,7 +149,7 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
             href={bookUrl}
             target="_blank"
             rel="noopener"
-            class="book-cta relative mx-auto my-3 flex w-fit items-center justify-center gap-2 rounded-full bg-rose px-5 py-3 text-[14px] font-semibold tracking-[0.04em] text-[#4a2f2f] no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d49f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dfb2b2]/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:mx-0 lg:my-0 lg:w-auto lg:px-4 lg:py-2"
+            class="book-cta relative mx-auto my-3 flex w-fit items-center justify-center gap-2 rounded-full bg-main-green px-5 py-3 text-[14px] font-semibold tracking-[0.04em] text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#4a6357] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3e5348]/40 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:mx-0 lg:my-0 lg:w-auto lg:px-4 lg:py-2"
           >
             <svg
               viewBox="0 0 24 24"
@@ -278,7 +284,7 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
     position: absolute;
     inset: 0;
     border-radius: 999px;
-    border: 2px solid rgba(191, 110, 110, 0.6);
+    border: 2px solid rgba(62, 83, 72, 0.6);
     animation: book-cta-ring 2.2s ease-out infinite;
     pointer-events: none;
   }
