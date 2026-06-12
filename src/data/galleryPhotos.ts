@@ -13,6 +13,19 @@ const docs = import.meta.glob<GalleryDoc>("./galleries/*.json", {
   import: "default",
 });
 
+// Home-page Portfolio carousel photo list (single file, CMS-edited).
+const portfolioDoc = import.meta.glob<GalleryDoc>("./portfolio.json", {
+  eager: true,
+  import: "default",
+});
+
+// Single "About me" photo (CMS-edited).
+type AboutDoc = { image?: string; alt?: string };
+const aboutDoc = import.meta.glob<AboutDoc>("./about.json", {
+  eager: true,
+  import: "default",
+});
+
 // All optimizable portfolio images. Extensions are listed in both cases because
 // Vite's glob matching is case-sensitive and cameras/phones often emit
 // uppercase extensions (e.g. IMG_0001.PNG, .JPG).
@@ -33,27 +46,47 @@ function resolveImage(path: string): ImageMetadata | null {
   return mod?.default ?? null;
 }
 
-/** Ordered, optimized slides for a gallery slug (empty if no photos yet). */
-export function getGalleryPhotos(slug: string): Slide[] {
-  const doc = docs[`./galleries/${slug}.json`];
+// Resolve a photo list into ordered, optimized slides. Missing references are
+// skipped (with a warning) so one bad/transient entry never breaks the page.
+function slidesFromDoc(doc: GalleryDoc | undefined, label: string): Slide[] {
   if (!doc?.photos?.length) return [];
 
-  const slides: Omit<Slide, "code">[] = [];
+  const resolved: Omit<Slide, "code">[] = [];
   for (const photo of doc.photos) {
     const src = resolveImage(photo.image);
     if (!src) {
-      // Don't break the whole gallery on one bad/transient reference —
-      // skip it and surface a warning in the build/dev log instead.
       console.warn(
-        `[galleryPhotos] "${slug}": image not found, skipping → ${photo.image}`,
+        `[galleryPhotos] ${label}: image not found, skipping → ${photo.image}`,
       );
       continue;
     }
-    slides.push({ src, alt: photo.alt ?? "" });
+    resolved.push({ src, alt: photo.alt ?? "" });
   }
 
-  return slides.map((s, i) => ({
+  return resolved.map((s, i) => ({
     ...s,
     code: String(i + 1).padStart(3, "0"),
   }));
+}
+
+/** Ordered, optimized slides for a gallery slug (empty if no photos yet). */
+export function getGalleryPhotos(slug: string): Slide[] {
+  return slidesFromDoc(docs[`./galleries/${slug}.json`], `"${slug}"`);
+}
+
+/** Ordered, optimized slides for the home-page Portfolio carousel. */
+export function getPortfolioPhotos(): Slide[] {
+  return slidesFromDoc(portfolioDoc["./portfolio.json"], "portfolio");
+}
+
+/** The single optimized "About me" photo, or null if unset/missing. */
+export function getAboutPhoto(): { src: ImageMetadata; alt: string } | null {
+  const doc = aboutDoc["./about.json"];
+  if (!doc?.image) return null;
+  const src = resolveImage(doc.image);
+  if (!src) {
+    console.warn(`[galleryPhotos] about: image not found → ${doc.image}`);
+    return null;
+  }
+  return { src, alt: doc.alt ?? "" };
 }

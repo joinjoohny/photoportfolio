@@ -2,11 +2,12 @@
 import { Carousel } from "astro-carousel";
 import type { ComponentProps } from "astro/types";
 import { Image } from "astro:assets";
-import { slides } from "../data/slides";
+import { getPortfolioPhotos } from "../data/galleryPhotos";
 import { useTranslations, getLangFromUrl } from "../i18n/ui";
 const t = useTranslations(Astro);
 const lang = getLangFromUrl(Astro.url);
 const galleryBase = lang === "en" ? "/gallery" : `/${lang}/gallery`;
+const slides = getPortfolioPhotos();
 const images = slides.map((s) => ({
   src: s.src,
   alt: s.alt,

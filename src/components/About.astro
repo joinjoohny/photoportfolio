@@ -1,10 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import imgAboutMe from "../assets/about_v2.jpg";
+import { getAboutPhoto } from "../data/galleryPhotos";
 import { useTranslations, getLangFromUrl } from "../i18n/ui";
 import { aboutBody } from "../i18n/content";
 const t = useTranslations(Astro);
 const lang = getLangFromUrl(Astro.url);
+const aboutPhoto = getAboutPhoto();
 ---
 
 <section id="about" class="py-16 sm:py-20">
@@ -19,16 +20,18 @@ const lang = getLangFromUrl(Astro.url);
         <div class="text-[#3a3a3a] max-w-prose space-y-2" set:html={aboutBody[lang]} />
       </div>
 
-      <div
-        class="overflow-hidden max-h-[580px] order-first lg:order-none max-w-[520px] lg:max-w-none mx-auto lg:mx-0 mb-6 lg:mb-0"
-      >
-        <Image
-          src={imgAboutMe}
-          alt="Photographer portrait with camera"
-          class="w-full h-full object-cover"
-          loading="eager"
-        />
-      </div>
+      {
+        aboutPhoto && (
+          <div class="overflow-hidden max-h-[580px] order-first lg:order-none max-w-[520px] lg:max-w-none mx-auto lg:mx-0 mb-6 lg:mb-0">
+            <Image
+              src={aboutPhoto.src}
+              alt={aboutPhoto.alt}
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+        )
+      }
     </div>
   </div>
 </section>
