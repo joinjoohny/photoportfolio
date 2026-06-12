@@ -9,6 +9,14 @@ backend:
   # Uncomment and set this to your deployed sveltia-cms-auth Worker URL:
   # base_url: https://YOUR-WORKER.workers.dev
 
+# Title shown on the login screen / header in place of "Sveltia CMS".
+app_title: Admin Panel
+
+# Brand logo shown on the login screen and in the CMS header.
+logo:
+  src: /favicon.svg
+  show_in_header: true
+
 # Where uploaded photos are committed (Astro optimizes them at build time).
 media_folder: "src/assets/portfolio"
 public_folder: "/src/assets/portfolio"
