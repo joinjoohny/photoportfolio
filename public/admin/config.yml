@@ -1,0 +1,97 @@
+# Sveltia CMS configuration.
+# Docs: https://github.com/sveltia/sveltia-cms
+
+backend:
+  name: github
+  repo: joinjoohny/photoportfolio
+  branch: main
+  # OAuth proxy for GitHub login on a static host (see public/admin/README.md).
+  # Uncomment and set this to your deployed sveltia-cms-auth Worker URL:
+  # base_url: https://YOUR-WORKER.workers.dev
+
+# Where uploaded photos are committed (Astro optimizes them at build time).
+media_folder: "src/assets/portfolio"
+public_folder: "/src/assets/portfolio"
+
+# Show a live "Local Repository" workflow when running `npm run dev`.
+local_backend: true
+
+collections:
+  - name: galleries
+    label: "Galleries"
+    label_singular: "Gallery"
+    description: "Upload, reorder and caption the photos for each gallery. Drag rows to reorder."
+    delete: false
+    files:
+      - name: individual
+        label: "Individual Shoot"
+        file: "src/data/galleries/individual.json"
+        fields:
+          - label: "Photos"
+            label_singular: "Photo"
+            name: photos
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Image", name: image, widget: image, choose_url: false }
+              - { label: "Alt text (for SEO & accessibility)", name: alt, widget: string, required: false }
+      - name: couple-family
+        label: "Couple / Families & Children"
+        file: "src/data/galleries/couple-family.json"
+        fields:
+          - label: "Photos"
+            label_singular: "Photo"
+            name: photos
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Image", name: image, widget: image, choose_url: false }
+              - { label: "Alt text (for SEO & accessibility)", name: alt, widget: string, required: false }
+      - name: maternity
+        label: "Maternity"
+        file: "src/data/galleries/maternity.json"
+        fields:
+          - label: "Photos"
+            label_singular: "Photo"
+            name: photos
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Image", name: image, widget: image, choose_url: false }
+              - { label: "Alt text (for SEO & accessibility)", name: alt, widget: string, required: false }
+      - name: film
+        label: "Film Photoshoot"
+        file: "src/data/galleries/film.json"
+        fields:
+          - label: "Photos"
+            label_singular: "Photo"
+            name: photos
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Image", name: image, widget: image, choose_url: false }
+              - { label: "Alt text (for SEO & accessibility)", name: alt, widget: string, required: false }
+      - name: event
+        label: "Event"
+        file: "src/data/galleries/event.json"
+        fields:
+          - label: "Photos"
+            label_singular: "Photo"
+            name: photos
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Image", name: image, widget: image, choose_url: false }
+              - { label: "Alt text (for SEO & accessibility)", name: alt, widget: string, required: false }
+      - name: wedding
+        label: "Wedding"
+        file: "src/data/galleries/wedding.json"
+        fields:
+          - label: "Photos"
+            label_singular: "Photo"
+            name: photos
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Image", name: image, widget: image, choose_url: false }
+              - { label: "Alt text (for SEO & accessibility)", name: alt, widget: string, required: false }
