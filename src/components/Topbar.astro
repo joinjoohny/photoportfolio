@@ -143,7 +143,7 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
             href={bookUrl}
             target="_blank"
             rel="noopener"
-            class="mx-5 my-3 flex items-center justify-center gap-2 rounded-full bg-rose px-5 py-3 text-[14px] font-semibold tracking-[0.04em] text-[#4a2f2f] no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d49f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dfb2b2]/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:mx-0 lg:my-0 lg:px-4 lg:py-2"
+            class="book-cta relative mx-auto my-3 flex w-fit items-center justify-center gap-2 rounded-full bg-rose px-5 py-3 text-[14px] font-semibold tracking-[0.04em] text-[#4a2f2f] no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#d49f9f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dfb2b2]/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0 lg:mx-0 lg:my-0 lg:w-auto lg:px-4 lg:py-2"
           >
             <svg
               viewBox="0 0 24 24"
@@ -152,11 +152,11 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="h-4 w-4"
+              class="book-icon h-4 w-4"
               aria-hidden="true"
             >
-              <path d="M22 2 11 13"></path>
-              <path d="M22 2 15 22l-4-9-9-4 20-7z"></path>
+              <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path>
+              <circle cx="12" cy="13" r="3"></circle>
             </svg>
             {t("nav.book")}
           </a>
@@ -272,9 +272,34 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
     color: var(--color-main-rose);
     opacity: 1;
   }
+  /* Expanding "radar" ring pulsing out from the Book me CTA */
+  .book-cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    border: 2px solid rgba(191, 110, 110, 0.6);
+    animation: book-cta-ring 2.2s ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes book-cta-ring {
+    0% {
+      transform: scale(1);
+      opacity: 0.75;
+    }
+    70%,
+    100% {
+      transform: scale(1.45);
+      opacity: 0;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
     .nav-link {
       transition: none;
+    }
+    .book-cta::after {
+      animation: none;
+      display: none;
     }
   }
 </style>
