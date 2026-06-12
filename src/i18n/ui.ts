@@ -21,6 +21,8 @@ export const ui: Record<Lang, Record<string, string>> = {
     "site.title": "Vlada Polyanskaya - Photographer Dresden",
     "site.description":
       "Vlada Polyanskaya is a portrait photographer in Dresden, Germany, creating minimalist digital and film photography for individuals, couples and families.",
+    "site.keywords":
+      "portrait photographer Dresden, photographer Dresden, photography portfolio Dresden, Vlada Polyanskaya",
     "nav.about": "about me",
     "nav.portfolio": "portfolio",
     "nav.services": "services",
@@ -33,7 +35,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     "portfolio.title": "PORTFOLIO",
     "gallery.seo.title": "Portfolio | Vlada Polyanskaya Photography Dresden",
     "gallery.seo.description":
-      "Browse portrait photography portfolios in Dresden — individual, couple, family, maternity, film and wedding photoshoots by Vlada Polyanskaya.",
+      "Browse portrait photography portfolios in Dresden — individual, couple, family, maternity, film and wedding photoshoots by Vlada Polyanskaya. Book now.",
+    "gallery.seo.keywords":
+      "portrait photographer Dresden, photography portfolio Dresden, wedding photographer Dresden, family photographer Dresden, maternity photographer Dresden, Vlada Polyanskaya",
     "services.title": "SERVICES",
     "services.individual": "Individual Shoot",
     "services.content": "Content",
@@ -57,6 +61,8 @@ export const ui: Record<Lang, Record<string, string>> = {
     "site.title": "Vlada Polyanskaya - Fotografin Dresden",
     "site.description":
       "Vlada Polyanskaya ist Porträtfotografin in Dresden und gestaltet minimalistische Digital- und Filmfotografie für Einzelpersonen, Paare und Familien.",
+    "site.keywords":
+      "Fotograf Dresden, Porträtfotograf Dresden, Fotoshooting Dresden, Vlada Polyanskaya",
     "nav.about": "über mich",
     "nav.portfolio": "portfolio",
     "nav.services": "leistungen",
@@ -69,7 +75,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     "portfolio.title": "PORTFOLIO",
     "gallery.seo.title": "Portfolio | Vlada Polyanskaya Fotografin Dresden",
     "gallery.seo.description":
-      "Entdecken Sie Porträtfotografie-Portfolios in Dresden — Einzel-, Paar-, Familien-, Babybauch-, Analog- und Hochzeitsfotos von Vlada Polyanskaya.",
+      "Entdecken Sie Porträtfotografie-Portfolios in Dresden — Einzel-, Paar-, Familien-, Babybauch-, Analog- und Hochzeitsfotos von Vlada Polyanskaya. Jetzt anfragen.",
+    "gallery.seo.keywords":
+      "Fotograf Dresden, Fotoshooting Dresden, Hochzeitsfotograf Dresden, Familienfotograf Dresden, Babybauch Fotograf Dresden, Eventfotograf Dresden, Vlada Polyanskaya",
     "services.title": "LEISTUNGEN",
     "services.individual": "Einzelshooting",
     "services.content": "Content",
@@ -93,6 +101,8 @@ export const ui: Record<Lang, Record<string, string>> = {
     "site.title": "Влада Полянская — Фотограф Дрезден",
     "site.description":
       "Влада Полянская — портретный фотограф в Дрездене (Германия). Минималистичная съёмка на цифру и плёнку для индивидуальных, парных и семейных фотосессий.",
+    "site.keywords":
+      "фотограф Дрезден, портретный фотограф Дрезден, фотосессия Дрезден, Влада Полянская",
     "nav.about": "обо мне",
     "nav.portfolio": "портфолио",
     "nav.services": "услуги",
@@ -105,7 +115,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     "portfolio.title": "ПОРТФОЛИО",
     "gallery.seo.title": "Портфолио | Влада Полянская — фотограф в Дрездене",
     "gallery.seo.description":
-      "Портфолио портретной фотографии в Дрездене — индивидуальные, парные, семейные, беременные, плёночные и свадебные съёмки от Влады Полянской.",
+      "Портфолио портретной фотографии в Дрездене — индивидуальные, парные, семейные, беременные, плёночные и свадебные съёмки от Влады Полянской. Забронируйте съёмку.",
+    "gallery.seo.keywords":
+      "фотограф Дрезден, портретная съёмка Дрезден, свадебный фотограф Дрезден, семейный фотограф Дрезден, фотосессия для беременных Дрезден, Влада Полянская",
     "services.title": "УСЛУГИ",
     "services.individual": "Индивидуальная съёмка",
     "services.content": "Контент",

@@ -19,7 +19,7 @@ const lang = getLangFromUrl(Astro.url);
 const seo = gallery.seo[lang];
 ---
 
-<Layout title={seo.title} description={seo.description}>
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
   <GalleryPage>
     <GalleryCmp gallery={gallery} />
   </GalleryPage>
