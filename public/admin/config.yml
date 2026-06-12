@@ -9,6 +9,9 @@ backend:
   # Uncomment and set this to your deployed sveltia-cms-auth Worker URL:
   # base_url: https://YOUR-WORKER.workers.dev
 
+# Title shown on the login screen / header in place of "Sveltia CMS".
+app_title: Admin Panel
+
 # Brand logo shown on the login screen and in the CMS header.
 logo:
   src: /favicon.svg
