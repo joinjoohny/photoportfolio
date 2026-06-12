@@ -1,5 +1,4 @@
 import type { Lang } from "../i18n/ui";
-import { slides } from "./slides";
 
 export const gallerySlugs = [
   "individual",
@@ -43,7 +42,6 @@ export const galleries = [
           "индивидуальная фотосессия Дрезден, портретная съёмка Дрезден, фотограф Дрезден, Влада Полянская",
       },
     },
-    slides: slides.slice(0, 14),
   },
   {
     slug: "couple-family",
@@ -75,7 +73,6 @@ export const galleries = [
           "семейный фотограф Дрезден, семейная фотосессия Дрезден, парная фотосессия Дрезден, Влада Полянская",
       },
     },
-    slides: slides.slice(4, 8),
   },
   {
     slug: "maternity",
@@ -107,7 +104,6 @@ export const galleries = [
           "фотосессия для беременных Дрезден, беременность фотограф Дрезден, Влада Полянская",
       },
     },
-    slides: slides.slice(8, 12),
   },
   {
     slug: "film",
@@ -139,7 +135,6 @@ export const galleries = [
           "плёночная фотосъёмка Дрезден, аналоговая фотография Дрезден, фотограф Дрезден, Влада Полянская",
       },
     },
-    slides: slides.slice(12, 16),
   },
   {
     slug: "event",
@@ -171,7 +166,6 @@ export const galleries = [
           "фотограф на мероприятия Дрезден, репортажная съёмка Дрезден, событийная фотосъёмка, Влада Полянская",
       },
     },
-    slides: slides.slice(16, 20),
   },
   {
     slug: "wedding",
@@ -203,13 +197,11 @@ export const galleries = [
           "свадебный фотограф Дрезден, свадебная фотосъёмка Дрезден, Влада Полянская",
       },
     },
-    slides: slides.slice(20, 24),
   },
 ] satisfies Array<{
   slug: GallerySlug;
   title: Record<Lang, string>;
   seo: Record<Lang, { title: string; description: string; keywords: string }>;
-  slides: typeof slides;
 }>;
 
 export function getGallery(slug: string | undefined) {

@@ -1,0 +1,20 @@
+{
+  "photos": [
+    {
+      "image": "/src/assets/portfolio/p013.jpg",
+      "alt": "Studio portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p014.jpg",
+      "alt": "Studio portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p015.jpg",
+      "alt": "Studio portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p016.jpg",
+      "alt": "Vintage look"
+    }
+  ]
+}

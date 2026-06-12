@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# moved-aside build/cache backups (local cleanup artifacts)
+*.root-old*/
+
 # generated types
 .astro/
 .astro-cache/

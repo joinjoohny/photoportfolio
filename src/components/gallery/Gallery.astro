@@ -3,12 +3,13 @@ import { Carousel } from "astro-carousel";
 import type { ComponentProps } from "astro/types";
 import { Image } from "astro:assets";
 import type { galleries } from "../../data/galleries";
+import { getGalleryPhotos } from "../../data/galleryPhotos";
 import { getLangFromUrl, useTranslations } from "../../i18n/ui";
 import GalleryComingSoon from "./GalleryComingSoon.astro";
 
 // Temporary: show a "work in progress" placeholder instead of the photos.
 // Flip to false to restore the real gallery grid + carousel.
-const comingSoon = true;
+const comingSoon = false;
 
 type Gallery = (typeof galleries)[number];
 interface Props {
@@ -18,7 +19,8 @@ interface Props {
 const t = useTranslations(Astro);
 const lang = getLangFromUrl(Astro.url);
 const { gallery } = Astro.props;
-const images = gallery.slides.map((s) => ({
+const photos = getGalleryPhotos(gallery.slug);
+const images = photos.map((s) => ({
   src: s.src,
   alt: s.alt,
   width: s.src.width,
@@ -54,7 +56,7 @@ const galleryIndexPath = ["en", "de", "ru"].includes(firstPathSegment)
       <>
         <div class="w-full px-3 sm:px-5">
           <div id="carouselTargetList" class="portfolio-gallery">
-            {gallery.slides.map((s, i) => (
+            {photos.map((s, i) => (
               <a
                 href={`${galleryPath}?image=${i}`}
                 class="portfolio-gallery__item group"

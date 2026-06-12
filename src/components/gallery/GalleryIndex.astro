@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { galleries } from "../../data/galleries";
+import { getGalleryPhotos } from "../../data/galleryPhotos";
 import { getLangFromUrl, useTranslations } from "../../i18n/ui";
 
 const t = useTranslations(Astro);
@@ -30,7 +31,8 @@ const galleryBasePath = ["en", "de", "ru"].includes(firstPathSegment)
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
         galleries.map((gallery, i) => {
-          const cover = gallery.slides[0];
+          const photos = getGalleryPhotos(gallery.slug);
+          const cover = photos[0];
           if (!cover) return null;
 
           return (
@@ -55,7 +57,7 @@ const galleryBasePath = ["en", "de", "ru"].includes(firstPathSegment)
                   {gallery.title[lang]}
                 </h2>
                 <span class="text-xs tracking-[0.12em] text-[#777]">
-                  {gallery.slides.length}
+                  {photos.length}
                 </span>
               </div>
             </a>
