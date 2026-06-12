@@ -2,12 +2,39 @@
 
 @theme {
   --font-display: "Golos Text", sans-serif;
-  --font-logo: "Pacifico", cursive;
+  /* Editorial serif for section headings (h1/h2) — adds a premium,
+     magazine-like feel that the sans body alone doesn't convey. */
+  --font-heading: "Playfair Display", "Times New Roman", serif;
 }
 
 @theme {
   --color-main-white: #fff;
-  --color-main-rose: #000;
+  /* Headings + logo: softened from pure #000 for a warmer, premium feel */
+  --color-main-rose: #1a1a1a;
   --color-main-green: #3e5348;
   --color-rose: #dfb2b2;
+
+  /* Neutral text scale — consolidates the ad-hoc grays scattered across
+     components into four semantic tokens. */
+  --color-ink: #1f1f1f; /* strongest body text / hover state */
+  --color-body: #444444; /* default body copy */
+  --color-muted: #6f6f6f; /* labels, secondary text */
+  --color-subtle: #8a8a8a; /* faint / inactive text */
+}
+
+/* Sub-headings inside rich service/about descriptions (injected via
+   set:html). Styled as small-caps labels so subsections read clearly
+   without competing with the serif service titles. The doubled class
+   selector outranks Tailwind's space-y top-margin on the wrapper. */
+.text-body.rich-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+.text-body.rich-content h3:first-child {
+  margin-top: 0;
 }

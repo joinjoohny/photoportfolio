@@ -3,24 +3,24 @@ import { useTranslations } from "../i18n/ui";
 const t = useTranslations(Astro);
 ---
 
-<footer class="pt-6 pb-14 text-[#7a7a7a] text-xs text-center">
+<footer class="pt-6 pb-14 text-muted text-xs text-center">
   {t("footer.copy")}
   <div class="flex flex-col justify-center gap-4 mt-2 md:flex-row">
     <a
       target="_blank"
       href="https://docs.google.com/document/d/1s7RhxkF5r4Vjn7Fds7Oacicu1BJe1DVoo3Up874UyKM/edit?tab=t.0"
-      class="text-[#222] underline decoration-[#3e5348] decoration-2 underline-offset-2"
+      class="text-ink underline decoration-[#3e5348] decoration-2 underline-offset-2"
       >Impressum</a
     >
     <a
       target="_blank"
       href="https://docs.google.com/document/d/1s7RhxkF5r4Vjn7Fds7Oacicu1BJe1DVoo3Up874UyKM/edit?tab=t.0"
-      class="text-[#222] underline decoration-[#3e5348] decoration-2 underline-offset-2"
+      class="text-ink underline decoration-[#3e5348] decoration-2 underline-offset-2"
       >Datenschutz</a
     >
     <a
       href="#"
-      class="text-[#222] underline decoration-[#3e5348] decoration-2 underline-offset-2"
+      class="text-ink underline decoration-[#3e5348] decoration-2 underline-offset-2"
       data-cc="show-preferencesModal">{t("footer.cookies")}</a
     >
   </div>

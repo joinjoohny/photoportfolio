@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getAboutPhoto } from "../data/galleryPhotos";
 import { useTranslations, getLangFromUrl } from "../i18n/ui";
 import { aboutBody } from "../i18n/content";
+import Eyebrow from "./Eyebrow.astro";
 const t = useTranslations(Astro);
 const lang = getLangFromUrl(Astro.url);
 const aboutPhoto = getAboutPhoto();
@@ -12,12 +13,14 @@ const aboutPhoto = getAboutPhoto();
   <div class="mx-auto w-full max-w-[1170px] px-5">
     <div class="grid lg:grid-cols-[1fr_0.3fr] items-stretch">
       <div class="flex flex-col justify-between">
-        <h1
-          class="m-0 mb-6 tracking-[0.06em] text-3xl sm:text-4xl text-main-rose lg:text-left"
-        >
-          {t("about.title")}
-        </h1>
-        <div class="text-[#3a3a3a] max-w-prose space-y-2" set:html={aboutBody[lang]} />
+        <Eyebrow num="01">
+          <h1
+            class="font-heading m-0 tracking-[0.06em] text-3xl sm:text-4xl text-main-rose"
+          >
+            {t("about.title")}
+          </h1>
+        </Eyebrow>
+        <div class="text-body rich-content max-w-prose space-y-2" set:html={aboutBody[lang]} />
       </div>
 
       {

@@ -15,14 +15,14 @@ const galleryBasePath = ["en", "de", "ru"].includes(firstPathSegment)
 <section id="gallery" class="py-16 sm:py-20">
   <div class="mx-auto w-full max-w-[1170px] px-5">
     <div class="mb-8 flex items-center justify-between gap-4">
-      <h1 class="m-0 text-3xl sm:text-4xl text-main-rose">
+      <h1 class="font-heading m-0 text-3xl sm:text-4xl text-main-rose">
         {t("portfolio.title")}
       </h1>
       <a
         href={["en", "de", "ru"].includes(firstPathSegment)
           ? `/${firstPathSegment}/`
           : "/"}
-        class="text-sm tracking-[0.08em] text-[#3a3a3a] opacity-75 transition-opacity hover:opacity-100 focus-visible:outline-[#3e5348]"
+        class="text-sm tracking-[0.08em] text-body opacity-75 transition-opacity hover:opacity-100 focus-visible:outline-[#3e5348]"
       >
         {t("gallery.back")}
       </a>
@@ -53,10 +53,10 @@ const galleryBasePath = ["en", "de", "ru"].includes(firstPathSegment)
                 />
               </div>
               <div class="flex items-center justify-between gap-4 px-4 py-3">
-                <h2 class="m-0 text-base tracking-[0.08em] text-[#222]">
+                <h2 class="m-0 text-base tracking-[0.08em] text-ink">
                   {gallery.title[lang]}
                 </h2>
-                <span class="text-xs tracking-[0.12em] text-[#777]">
+                <span class="text-xs tracking-[0.12em] text-muted">
                   {photos.length}
                 </span>
               </div>

@@ -1,15 +1,18 @@
 ---
 import { useTranslations, getLangFromUrl } from "../i18n/ui";
 import { services as svcContent } from "../i18n/content";
+import Eyebrow from "./Eyebrow.astro";
 const t = useTranslations(Astro);
 const lang = getLangFromUrl(Astro.url);
 ---
 
 <section id="services" class="py-16 sm:py-20">
   <div class="mx-auto w-full max-w-[1170px] px-5">
-    <h2 class="text-3xl sm:text-4xl m-0 mb-6 text-main-rose">
-      {t("services.title")}
-    </h2>
+    <Eyebrow num="03">
+      <h2 class="font-heading text-3xl sm:text-4xl m-0 text-main-rose">
+        {t("services.title")}
+      </h2>
+    </Eyebrow>
   </div>
   <div
     class="mx-auto w-full max-w-[1170px] px-5 grid gap-7 lg:grid-cols-2 items-start"
@@ -21,7 +24,7 @@ const lang = getLangFromUrl(Astro.url);
           data-svc="elle"
           aria-pressed="true"
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
-                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-subtle hover:text-ink"
         >
           {t("services.individual")}
         </button>
@@ -30,7 +33,7 @@ const lang = getLangFromUrl(Astro.url);
           data-svc="vogue"
           aria-pressed="false"
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
-                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-subtle hover:text-ink"
         >
           {t("services.content")}
         </button>
@@ -39,7 +42,7 @@ const lang = getLangFromUrl(Astro.url);
           data-svc="allure"
           aria-pressed="false"
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
-                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-subtle hover:text-ink"
         >
           {t("services.film")}
         </button>
@@ -48,7 +51,7 @@ const lang = getLangFromUrl(Astro.url);
           data-svc="numero"
           aria-pressed="false"
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
-                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-subtle hover:text-ink"
         >
           {t("services.family")}
         </button>
@@ -57,7 +60,7 @@ const lang = getLangFromUrl(Astro.url);
           data-svc="essence"
           aria-pressed="false"
           class="uppercase text-[clamp(18px,2.4vw,28px)] tracking-[0.06em] text-left cursor-pointer select-none transition-colors
-                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-[#8a8a8a] hover:text-[#111]"
+                   aria-pressed:text-[#DFB2B2] aria-pressed:font-semibold aria-[pressed=false]:text-subtle hover:text-ink"
         >
           {t("services.gift")}
         </button>
@@ -72,11 +75,11 @@ const lang = getLangFromUrl(Astro.url);
           id="services-text"
           class="min-h-[240px] sm:min-h-[280px] transition-opacity duration-200 ease-in-out opacity-100 will-change-[opacity]"
         >
-          <h3 class="text-xl sm:text-2xl font-semibold mb-3">
+          <h3 class="font-heading text-xl sm:text-2xl font-medium mb-3">
             {svcContent[lang].elle.title}
           </h3>
           <div
-            class="text-[#555] leading-relaxed space-y-3"
+            class="text-body rich-content leading-relaxed space-y-3"
             set:html={svcContent[lang].elle.body}
           />
         </div>
@@ -335,8 +338,8 @@ const lang = getLangFromUrl(Astro.url);
       const title = tpl.getAttribute("data-title") || "";
       const body = tpl.innerHTML;
       const html = `
-        <h3 class="text-xl sm:text-2xl font-semibold mb-3">${title}</h3>
-        <div class="text-[#555] leading-relaxed space-y-3">${body}</div>
+        <h3 class="font-heading text-xl sm:text-2xl font-medium mb-3">${title}</h3>
+        <div class="text-body rich-content leading-relaxed space-y-3">${body}</div>
       `;
       fadeTextSwap(textBox, html);
       setActiveButton(root, btn);
@@ -353,8 +356,8 @@ const lang = getLangFromUrl(Astro.url);
         const title = tpl.getAttribute("data-title") || "";
         const body = tpl.innerHTML;
         textBox.innerHTML = `
-          <h3 class="text-xl sm:text-2xl font-semibold mb-3">${title}</h3>
-          <div class="text-[#555] leading-relaxed space-y-3">${body}</div>
+          <h3 class="font-heading text-xl sm:text-2xl font-medium mb-3">${title}</h3>
+          <div class="text-body rich-content leading-relaxed space-y-3">${body}</div>
         `;
       }
     }
