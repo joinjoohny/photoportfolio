@@ -341,7 +341,9 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
   #site-header[data-home="true"]:not(.is-solid) .logo *,
   #site-header[data-home="true"]:not(.is-solid) .burger {
     color: #fff;
-    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.65),
+      0 0 18px rgba(0, 0, 0, 0.5);
   }
   /* Solid header once scrolled (home page). */
   #site-header.is-solid {
@@ -359,8 +361,10 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
   @media (min-width: 1024px) {
     #site-header[data-home="true"]:not(.is-solid) .nav-link {
       color: #fff;
-      opacity: 0.9;
-      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+      opacity: 1;
+      text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.65),
+      0 0 18px rgba(0, 0, 0, 0.5);
     }
     #site-header[data-home="true"]:not(.is-solid) .nav-link:hover,
     #site-header[data-home="true"]:not(.is-solid) .nav-link:focus-visible {
@@ -369,7 +373,9 @@ const bookUrl = `https://t.me/vladisssllava?text=${encodeURIComponent(
     }
     #site-header[data-home="true"]:not(.is-solid) :global(#lang-button) {
       color: #fff;
-      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+      text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.65),
+      0 0 18px rgba(0, 0, 0, 0.5);
     }
     /* The Portfolio dropdown opens on a white panel, so its links must
        stay dark even while the header is transparent over the hero. */
