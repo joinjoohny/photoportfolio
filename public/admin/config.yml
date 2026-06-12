@@ -27,7 +27,7 @@ local_backend: true
 collections:
   - name: home
     label: "Home page"
-    description: "Photos shown in the Portfolio carousel on the home page."
+    description: "Photos shown on the home page."
     delete: false
     files:
       - name: portfolio
@@ -42,6 +42,12 @@ collections:
             fields:
               - { label: "Image", name: image, widget: image, choose_url: false }
               - { label: "Alt text (for SEO & accessibility)", name: alt, widget: string, required: false }
+      - name: about
+        label: "About me photo"
+        file: "src/data/about.json"
+        fields:
+          - { label: "Image", name: image, widget: image, choose_url: false }
+          - { label: "Alt text (for SEO & accessibility)", name: alt, widget: string, required: false }
 
   - name: galleries
     label: "Galleries"

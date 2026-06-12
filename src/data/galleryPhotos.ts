@@ -19,6 +19,13 @@ const portfolioDoc = import.meta.glob<GalleryDoc>("./portfolio.json", {
   import: "default",
 });
 
+// Single "About me" photo (CMS-edited).
+type AboutDoc = { image?: string; alt?: string };
+const aboutDoc = import.meta.glob<AboutDoc>("./about.json", {
+  eager: true,
+  import: "default",
+});
+
 // All optimizable portfolio images. Extensions are listed in both cases because
 // Vite's glob matching is case-sensitive and cameras/phones often emit
 // uppercase extensions (e.g. IMG_0001.PNG, .JPG).
@@ -70,4 +77,16 @@ export function getGalleryPhotos(slug: string): Slide[] {
 /** Ordered, optimized slides for the home-page Portfolio carousel. */
 export function getPortfolioPhotos(): Slide[] {
   return slidesFromDoc(portfolioDoc["./portfolio.json"], "portfolio");
+}
+
+/** The single optimized "About me" photo, or null if unset/missing. */
+export function getAboutPhoto(): { src: ImageMetadata; alt: string } | null {
+  const doc = aboutDoc["./about.json"];
+  if (!doc?.image) return null;
+  const src = resolveImage(doc.image);
+  if (!src) {
+    console.warn(`[galleryPhotos] about: image not found → ${doc.image}`);
+    return null;
+  }
+  return { src, alt: doc.alt ?? "" };
 }
