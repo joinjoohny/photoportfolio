@@ -12,15 +12,17 @@ import ogImageSource from "../assets/about_v2.jpg";
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, keywords } = Astro.props;
 
 const t = useTranslations(Astro);
 const lang = getLangFromUrl(Astro.url);
 
 const pageTitle = title ?? t("site.title");
 const pageDescription = description ?? t("site.description");
+const pageKeywords = keywords ?? t("site.keywords");
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const alternateUrls = getAlternateUrls(Astro.url);
@@ -66,6 +68,7 @@ const businessJsonLd = {
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={pageKeywords} />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteName} />

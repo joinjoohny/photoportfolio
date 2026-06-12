@@ -11,7 +11,11 @@ export function getStaticPaths() {
 const t = useTranslations(Astro);
 ---
 
-<Layout title={t("gallery.seo.title")} description={t("gallery.seo.description")}>
+<Layout
+  title={t("gallery.seo.title")}
+  description={t("gallery.seo.description")}
+  keywords={t("gallery.seo.keywords")}
+>
   <GalleryPage>
     <GalleryIndex />
   </GalleryPage>
