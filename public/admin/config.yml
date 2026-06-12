@@ -25,6 +25,24 @@ public_folder: "/src/assets/portfolio"
 local_backend: true
 
 collections:
+  - name: home
+    label: "Home page"
+    description: "Photos shown in the Portfolio carousel on the home page."
+    delete: false
+    files:
+      - name: portfolio
+        label: "Portfolio carousel"
+        file: "src/data/portfolio.json"
+        fields:
+          - label: "Photos"
+            label_singular: "Photo"
+            name: photos
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Image", name: image, widget: image, choose_url: false }
+              - { label: "Alt text (for SEO & accessibility)", name: alt, widget: string, required: false }
+
   - name: galleries
     label: "Galleries"
     label_singular: "Gallery"

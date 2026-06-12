@@ -1,0 +1,100 @@
+{
+  "photos": [
+    {
+      "image": "/src/assets/portfolio/p001.jpg",
+      "alt": "Black & white portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p002.jpg",
+      "alt": "Studio portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p003.jpg",
+      "alt": "Outdoor fashion"
+    },
+    {
+      "image": "/src/assets/portfolio/p004.jpg",
+      "alt": "Editorial look"
+    },
+    {
+      "image": "/src/assets/portfolio/p005.jpg",
+      "alt": "Candid street"
+    },
+    {
+      "image": "/src/assets/portfolio/p006.jpg",
+      "alt": "Nature portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p007.jpg",
+      "alt": "Urban fashion"
+    },
+    {
+      "image": "/src/assets/portfolio/p008.jpg",
+      "alt": "Glamour shot"
+    },
+    {
+      "image": "/src/assets/portfolio/p009.jpg",
+      "alt": "Artistic pose"
+    },
+    {
+      "image": "/src/assets/portfolio/p010.jpg",
+      "alt": "Monochrome style"
+    },
+    {
+      "image": "/src/assets/portfolio/p011.jpg",
+      "alt": "High fashion"
+    },
+    {
+      "image": "/src/assets/portfolio/p012.jpg",
+      "alt": "Vintage look"
+    },
+    {
+      "image": "/src/assets/portfolio/p013.jpg",
+      "alt": "Studio portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p014.jpg",
+      "alt": "Studio portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p015.jpg",
+      "alt": "Studio portrait"
+    },
+    {
+      "image": "/src/assets/portfolio/p016.jpg",
+      "alt": "Vintage look"
+    },
+    {
+      "image": "/src/assets/portfolio/p017.jpg",
+      "alt": "Vintage look"
+    },
+    {
+      "image": "/src/assets/portfolio/p018.jpg",
+      "alt": "Vintage look"
+    },
+    {
+      "image": "/src/assets/portfolio/p019.jpg",
+      "alt": "Vintage look"
+    },
+    {
+      "image": "/src/assets/portfolio/p020.jpg",
+      "alt": "Vintage look"
+    },
+    {
+      "image": "/src/assets/portfolio/p021.jpg",
+      "alt": "Vintage look"
+    },
+    {
+      "image": "/src/assets/portfolio/p022.jpg",
+      "alt": "Vintage look"
+    },
+    {
+      "image": "/src/assets/portfolio/p023.jpg",
+      "alt": "Vintage look"
+    },
+    {
+      "image": "/src/assets/portfolio/p024.jpg",
+      "alt": "Vintage look"
+    }
+  ]
+}
