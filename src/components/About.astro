@@ -26,8 +26,12 @@ const aboutPhoto = getAboutPhoto();
             <Image
               src={aboutPhoto.src}
               alt={aboutPhoto.alt}
+              widths={[360, 540, 720, 1080]}
+              sizes="(min-width: 1024px) 360px, min(520px, 100vw)"
+              width={1080}
               class="w-full h-full object-cover"
               loading="eager"
+              fetchpriority="high"
             />
           </div>
         )
