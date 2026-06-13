@@ -14,11 +14,11 @@ const aboutPhoto = getAboutPhoto();
     <div class="grid lg:grid-cols-[1fr_0.3fr] items-stretch">
       <div class="flex flex-col justify-between">
         <Eyebrow num="01">
-          <h1
+          <h2
             class="font-heading m-0 tracking-[0.06em] text-3xl sm:text-4xl text-main-rose"
           >
             {t("about.title")}
-          </h1>
+          </h2>
         </Eyebrow>
         <div class="text-body rich-content max-w-prose space-y-2" set:html={aboutBody[lang]} />
       </div>
