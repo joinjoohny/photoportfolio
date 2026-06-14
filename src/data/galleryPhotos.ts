@@ -13,6 +13,12 @@ const docs = import.meta.glob<GalleryDoc>("./galleries/*.json", {
   import: "default",
 });
 
+// Home-page Hero triptych photo list (single file, CMS-edited).
+const heroDoc = import.meta.glob<GalleryDoc>("./hero.json", {
+  eager: true,
+  import: "default",
+});
+
 // Home-page Portfolio carousel photo list (single file, CMS-edited).
 const portfolioDoc = import.meta.glob<GalleryDoc>("./portfolio.json", {
   eager: true,
@@ -72,6 +78,11 @@ function slidesFromDoc(doc: GalleryDoc | undefined, label: string): Slide[] {
 /** Ordered, optimized slides for a gallery slug (empty if no photos yet). */
 export function getGalleryPhotos(slug: string): Slide[] {
   return slidesFromDoc(docs[`./galleries/${slug}.json`], `"${slug}"`);
+}
+
+/** Ordered, optimized slides for the home-page Hero triptych. */
+export function getHeroPhotos(): Slide[] {
+  return slidesFromDoc(heroDoc["./hero.json"], "hero");
 }
 
 /** Ordered, optimized slides for the home-page Portfolio carousel. */
