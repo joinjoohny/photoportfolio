@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { getViteConfig } from "astro/config";
 
 // Astro-documented Vitest setup: getViteConfig applies Astro's Vite pipeline so
