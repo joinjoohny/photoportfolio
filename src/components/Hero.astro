@@ -1,26 +1,22 @@
 ---
 import { Image } from "astro:assets";
-import img1 from "../assets/portfolio/p015.jpg";
-import img2 from "../assets/portfolio/p001.jpg";
-import img3 from "../assets/portfolio/p003.jpg";
+import { getHeroPhotos, getPortfolioPhotos } from "../data/galleryPhotos";
 import { useTranslations } from "../i18n/ui";
 const t = useTranslations(Astro);
 
+// Photos are CMS-managed (src/data/hero.json). Fall back to the Portfolio
+// list if Hero is empty so the section is never blank.
+const heroPhotos = getHeroPhotos();
+const source = heroPhotos.length ? heroPhotos : getPortfolioPhotos();
+
 // Vertical triptych: 1 image on phones, 2 on tablets, 3 on desktop. The
 // first shot is always visible so the strongest frame leads on mobile.
-const shots = [
-  { src: img1, alt: "Editorial portrait by Vlada Polyanskaya", show: "" },
-  {
-    src: img2,
-    alt: "Portrait photography by Vlada Polyanskaya",
-    show: "hidden sm:block",
-  },
-  {
-    src: img3,
-    alt: "Lifestyle portrait by Vlada Polyanskaya",
-    show: "hidden lg:block",
-  },
-];
+const showByIndex = ["", "hidden sm:block", "hidden lg:block"];
+const shots = source.slice(0, 3).map((slide, i) => ({
+  src: slide.src,
+  alt: slide.alt || "Photograph by Vlada Polyanskaya",
+  show: showByIndex[i],
+}));
 ---
 
 <section

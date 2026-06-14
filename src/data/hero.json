@@ -1,0 +1,16 @@
+{
+  "photos": [
+    {
+      "image": "/src/assets/portfolio/p015.jpg",
+      "alt": "Editorial portrait by Vlada Polyanskaya"
+    },
+    {
+      "image": "/src/assets/portfolio/p001.jpg",
+      "alt": "Portrait photography by Vlada Polyanskaya"
+    },
+    {
+      "image": "/src/assets/portfolio/p003.jpg",
+      "alt": "Lifestyle portrait by Vlada Polyanskaya"
+    }
+  ]
+}

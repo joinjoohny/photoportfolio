@@ -30,6 +30,19 @@ collections:
     description: "Photos shown on the home page."
     delete: false
     files:
+      - name: hero
+        label: "Hero triptych"
+        file: "src/data/hero.json"
+        fields:
+          - label: "Photos"
+            label_singular: "Photo"
+            name: photos
+            widget: list
+            summary: "{{fields.alt}}"
+            max: 3
+            fields:
+              - { label: "Image", name: image, widget: image, choose_url: false }
+              - { label: "Alt text (for SEO & accessibility)", name: alt, widget: string, required: false }
       - name: portfolio
         label: "Portfolio carousel"
         file: "src/data/portfolio.json"
