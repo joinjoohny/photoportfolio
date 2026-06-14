@@ -47,14 +47,18 @@ for (const [path, mod] of Object.entries(imageFiles)) {
   byLowerPath.set(path.toLowerCase(), mod);
 }
 
-function resolveImage(path: string): ImageMetadata | null {
+// Exported for unit tests (see galleryPhotos.test.ts).
+export function resolveImage(path: string): ImageMetadata | null {
   const mod = imageFiles[path] ?? byLowerPath.get(path.toLowerCase());
   return mod?.default ?? null;
 }
 
 // Resolve a photo list into ordered, optimized slides. Missing references are
 // skipped (with a warning) so one bad/transient entry never breaks the page.
-function slidesFromDoc(doc: GalleryDoc | undefined, label: string): Slide[] {
+export function slidesFromDoc(
+  doc: GalleryDoc | undefined,
+  label: string,
+): Slide[] {
   if (!doc?.photos?.length) return [];
 
   const resolved: Omit<Slide, "code">[] = [];
